@@ -376,17 +376,6 @@ body, p, span, a, li, input, textarea, button {
 .nav-logo .logo-positive {
   display: none;
 }
-
-.nav.scrolled .nav-logo .logo-default {
-  display: none;
-}
-
-.nav.scrolled .nav-logo .logo-positive {
-  display: block;
-}
-
-.nav.scrolled .nav-byline {
-  color: #1a1a2e;
 }
 
 .nav-logo .dot {

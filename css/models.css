@@ -45,6 +45,19 @@ body {
   color: #fff;
 }
 
+/* Swap to dark logo on scroll (models page has white scroll bg) */
+.nav.scrolled .nav-logo .logo-default {
+  display: none;
+}
+
+.nav.scrolled .nav-logo .logo-positive {
+  display: block;
+}
+
+.nav.scrolled .nav-byline {
+  color: var(--text-primary);
+}
+
 .nav-logo, .nav-link {
   color: #F0F0F5;
 }
