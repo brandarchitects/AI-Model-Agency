@@ -368,9 +368,25 @@ body, p, span, a, li, input, textarea, button {
 }
 
 .nav-logo img {
-  height: 3.5rem;
+  height: 2rem;
   width: auto;
   display: block;
+}
+
+.nav-logo .logo-positive {
+  display: none;
+}
+
+.nav.scrolled .nav-logo .logo-default {
+  display: none;
+}
+
+.nav.scrolled .nav-logo .logo-positive {
+  display: block;
+}
+
+.nav.scrolled .nav-byline {
+  color: #1a1a2e;
 }
 
 .nav-logo .dot {
@@ -534,7 +550,7 @@ body, p, span, a, li, input, textarea, button {
 }
 
 .footer-logo img {
-  height: 2.5rem;
+  height: 1.5rem;
   width: auto;
   display: block;
 }
