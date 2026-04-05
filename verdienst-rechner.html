@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verdienst-Rechner — Visari AI Model Agentur</title>
+  <meta name="description" content="Berechnen Sie Ihr potentielles passives Einkommen als AI-Model bei Visari. Basierend auf Buchungskategorie und Anzahl Kampagnen pro Jahr.">
+  <link rel="icon" type="image/png" href="images/favi_icon.png">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/models.css">
+  <style>
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+    }
+
+    .calc-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 8rem var(--container-padding) var(--space-3xl);
+    }
+
+    /* Header */
+    .calc-header {
+      margin-bottom: var(--space-xl);
+    }
+
+    .calc-header h1 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      line-height: 1.15;
+      margin-bottom: var(--space-sm);
+    }
+
+    .calc-sub {
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      max-width: 540px;
+    }
+
+    /* Onboarding badge */
+    .calc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem 0.5rem 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      margin-bottom: var(--space-xl);
+    }
+
+    .calc-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Section labels */
+    .calc-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Category cards */
+    .calc-cats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.625rem;
+      margin-bottom: var(--space-xl);
+    }
+
+    .calc-cat {
+      border: 1.5px solid var(--border);
+      padding: 1.25rem 1rem;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+      background: var(--bg-card);
+      user-select: none;
+    }
+
+    .calc-cat:hover {
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .calc-cat.active {
+      border-color: var(--accent);
+      background: rgba(178, 145, 70, 0.04);
+    }
+
+    .calc-cat-tag {
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.375rem;
+      color: var(--text-secondary);
+    }
+
+    .calc-cat.active .calc-cat-tag {
+      color: var(--accent);
+    }
+
+    .calc-cat-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .calc-cat-price {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+
+    .calc-cat-earn-label {
+      font-size: 0.6875rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.125rem;
+    }
+
+    .calc-cat-earn {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .calc-cat-earn-sub {
+      font-size: 0.6875rem;
+      color: var(--text-secondary);
+      margin-top: 0.125rem;
+    }
+
+    .calc-check {
+      position: absolute;
+      top: 0.625rem;
+      right: 0.625rem;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .calc-cat.active .calc-check {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .calc-check-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .calc-cat.active .calc-check-dot {
+      opacity: 1;
+    }
+
+    /* Slider */
+    .calc-slider-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: var(--space-lg);
+    }
+
+    .calc-slider-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .calc-slider-row label {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      width: 180px;
+      flex-shrink: 0;
+    }
+
+    input[type=range] {
+      -webkit-appearance: none;
+      appearance: none;
+      flex: 1;
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--text-primary);
+      border: 3px solid var(--bg-card);
+      box-shadow: 0 0 0 1.5px var(--text-primary);
+      cursor: pointer;
+    }
+
+    .calc-slider-val {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      min-width: 28px;
+      text-align: right;
+    }
+
+    /* Hero result */
+    .calc-result {
+      background: #000;
+      padding: 1.75rem 2rem;
+      margin-bottom: var(--space-lg);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .calc-result-label {
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 0.375rem;
+    }
+
+    .calc-result-num {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .calc-result-num.gold {
+      color: var(--accent);
+    }
+
+    .calc-result-sub {
+      font-size: 0.6875rem;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    /* Year bars */
+    .calc-bars {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: var(--space-lg);
+    }
+
+    .calc-yr-row {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .calc-yr-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .calc-yr-label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      width: 50px;
+      flex-shrink: 0;
+    }
+
+    .calc-yr-label.bold {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .calc-yr-track {
+      flex: 1;
+      height: 10px;
+      background: var(--bg);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .calc-yr-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.4s ease;
+      background: var(--accent);
+    }
+
+    .calc-yr-fill.dark {
+      background: var(--text-primary);
+    }
+
+    .calc-yr-val {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--accent);
+      min-width: 90px;
+      text-align: right;
+    }
+
+    .calc-yr-val.dark {
+      color: var(--text-primary);
+    }
+
+    /* Scenario table */
+    .calc-table-wrap {
+      border: 1px solid var(--border);
+      overflow-x: auto;
+      margin-bottom: var(--space-xl);
+    }
+
+    .calc-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+    }
+
+    .calc-table th {
+      font-size: 0.625rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      padding: 0.625rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      white-space: nowrap;
+    }
+
+    .calc-table td {
+      padding: 0.625rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    .calc-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .calc-table .td-hi {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .calc-table .td-accent {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .calc-table .td-badge {
+      display: inline-block;
+      font-size: 0.5625rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.125rem 0.5rem;
+    }
+
+    .badge-starter {
+      background: rgba(178, 145, 70, 0.08);
+      color: var(--accent);
+    }
+
+    .badge-standard {
+      background: rgba(0, 0, 0, 0.05);
+      color: var(--text-primary);
+    }
+
+    .badge-extended {
+      background: rgba(0, 0, 0, 0.05);
+      color: var(--text-primary);
+    }
+
+    /* Footnote */
+    .calc-footnote {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border);
+      margin-bottom: var(--space-xl);
+    }
+
+    /* CTA */
+    .calc-cta {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .calc-cta h2 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .calc-cta p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 480px;
+      margin-bottom: var(--space-md);
+    }
+
+    .calc-cta .notice-box {
+      max-width: 480px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .calc-cats {
+        grid-template-columns: 1fr;
+      }
+
+      .calc-result {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.5rem;
+      }
+
+      .calc-slider-row {
+        flex-wrap: wrap;
+      }
+
+      .calc-slider-row label {
+        width: 100%;
+      }
+
+      .calc-table {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== Navigation ====== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="images/Visari_Logo.png" alt="Visari" class="logo-default"><img src="images/Visari_Logo-positv.png" alt="Visari" class="logo-positive"> <span class="nav-byline">The face of your brand.</span></a>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="models.html" class="nav-link">Für Models</a>
+        <a href="index.html" class="nav-link">Für Kunden</a>
+        <a href="models.html#bewerben" class="btn btn-primary nav-cta">Bewerben</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="calc-page">
+
+    <!-- Header -->
+    <div class="calc-header">
+      <p class="section-label">Verdienst-Rechner</p>
+      <h1>Was können Sie potentiell verdienen?</h1>
+      <p class="calc-sub">Berechnen Sie Ihr mögliches passives Einkommen als AI-Model — basierend auf Buchungskategorie und Anzahl Kampagnen pro Jahr.</p>
+    </div>
+
+    <!-- Onboarding badge -->
+    <div class="calc-badge">
+      <div class="calc-badge-dot"></div>
+      CHF 50 Aufwandsentschädigung — bei Vertragsunterzeichnung
+    </div>
+
+    <!-- 01 Kategorie -->
+    <div class="calc-label">01 · Buchungskategorie wählen</div>
+    <div class="calc-cats" id="cats">
+
+      <div class="calc-cat active" data-price="225" onclick="selectCat(this)">
+        <div class="calc-check"><div class="calc-check-dot"></div></div>
+        <div class="calc-cat-tag">Basis</div>
+        <div class="calc-cat-name">Starter</div>
+        <div class="calc-cat-price">Kampagnenpreis: CHF 900</div>
+        <div class="calc-cat-earn-label">Ihr Anteil</div>
+        <div class="calc-cat-earn">CHF 225</div>
+        <div class="calc-cat-earn-sub">pro Buchung</div>
+      </div>
+
+      <div class="calc-cat" data-price="550" onclick="selectCat(this)">
+        <div class="calc-check"><div class="calc-check-dot"></div></div>
+        <div class="calc-cat-tag">Standard</div>
+        <div class="calc-cat-name">Campaign</div>
+        <div class="calc-cat-price">Kampagnenpreis: CHF 2'200</div>
+        <div class="calc-cat-earn-label">Ihr Anteil</div>
+        <div class="calc-cat-earn">CHF 550</div>
+        <div class="calc-cat-earn-sub">pro Buchung</div>
+      </div>
+
+      <div class="calc-cat" data-price="1050" onclick="selectCat(this)">
+        <div class="calc-check"><div class="calc-check-dot"></div></div>
+        <div class="calc-cat-tag">Premium</div>
+        <div class="calc-cat-name">Extended</div>
+        <div class="calc-cat-price">Kampagnenpreis: CHF 4'200</div>
+        <div class="calc-cat-earn-label">Ihr Anteil</div>
+        <div class="calc-cat-earn">CHF 1'050</div>
+        <div class="calc-cat-earn-sub">pro Buchung</div>
+      </div>
+
+    </div>
+
+    <!-- 02 Slider -->
+    <div class="calc-label">02 · Anzahl Buchungen pro Jahr</div>
+    <div class="calc-slider-card">
+      <div class="calc-slider-row">
+        <label>Kampagnen pro Jahr</label>
+        <input type="range" min="1" max="10" value="3" step="1" id="bpy" oninput="calc()">
+        <span class="calc-slider-val" id="bpy-out">3</span>
+      </div>
+    </div>
+
+    <!-- 03 Hero Result -->
+    <div class="calc-result">
+      <div>
+        <div class="calc-result-label">Potentieller Jahresverdienst</div>
+        <div class="calc-result-num gold" id="h-yr">CHF 1'650</div>
+        <div class="calc-result-sub" id="h-yr-sub">3 × CHF 550</div>
+      </div>
+      <div>
+        <div class="calc-result-label">Jahr 1 gesamt</div>
+        <div class="calc-result-num" id="h-total">CHF 1'700</div>
+        <div class="calc-result-sub">inkl. CHF 50 Aufwandsentschädigung</div>
+      </div>
+      <div>
+        <div class="calc-result-label">Ihr Zeitaufwand</div>
+        <div class="calc-result-num">~30 Min.</div>
+        <div class="calc-result-sub">einmalig, von zuhause</div>
+      </div>
+    </div>
+
+    <!-- 04 Jahres-Breakdown -->
+    <div class="calc-label">03 · Potentieller Verdienst über 3 Jahre</div>
+    <div class="calc-bars">
+      <div class="calc-yr-row">
+        <div class="calc-yr-label">Jahr 1</div>
+        <div class="calc-yr-track"><div class="calc-yr-fill" id="bar1"></div></div>
+        <div class="calc-yr-val" id="val1">CHF 1'700</div>
+      </div>
+      <div class="calc-yr-row">
+        <div class="calc-yr-label">Jahr 2</div>
+        <div class="calc-yr-track"><div class="calc-yr-fill" id="bar2"></div></div>
+        <div class="calc-yr-val" id="val2">CHF 1'650</div>
+      </div>
+      <div class="calc-yr-row">
+        <div class="calc-yr-label">Jahr 3</div>
+        <div class="calc-yr-track"><div class="calc-yr-fill" id="bar3"></div></div>
+        <div class="calc-yr-val" id="val3">CHF 1'650</div>
+      </div>
+      <div class="calc-yr-row" style="margin-top: 0.375rem; padding-top: 0.875rem; border-top: 1px solid var(--border);">
+        <div class="calc-yr-label bold">Total</div>
+        <div class="calc-yr-track"><div class="calc-yr-fill dark" id="bar-tot" style="width:100%"></div></div>
+        <div class="calc-yr-val dark" id="val-tot">CHF 5'000</div>
+      </div>
+    </div>
+
+    <!-- 05 Scenarios -->
+    <div class="calc-label">04 · Beispielszenarien</div>
+    <div class="calc-table-wrap">
+      <table class="calc-table">
+        <thead>
+          <tr>
+            <th>Szenario</th>
+            <th>Kategorie</th>
+            <th>Buchungen / Jahr</th>
+            <th>Potentieller Anteil / Jahr</th>
+            <th>3 Jahre total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-hi">Selten gebucht</td>
+            <td><span class="td-badge badge-starter">Starter</span></td>
+            <td>2×</td>
+            <td class="td-accent">CHF 450</td>
+            <td class="td-accent">CHF 1'400</td>
+          </tr>
+          <tr>
+            <td class="td-hi">Gelegentlich</td>
+            <td><span class="td-badge badge-standard">Standard</span></td>
+            <td>3×</td>
+            <td class="td-accent">CHF 1'650</td>
+            <td class="td-accent">CHF 5'000</td>
+          </tr>
+          <tr>
+            <td class="td-hi">Regelmässig</td>
+            <td><span class="td-badge badge-standard">Standard</span></td>
+            <td>6×</td>
+            <td class="td-accent">CHF 3'300</td>
+            <td class="td-accent">CHF 9'950</td>
+          </tr>
+          <tr>
+            <td class="td-hi">Häufig Premium</td>
+            <td><span class="td-badge badge-extended">Extended</span></td>
+            <td>6×</td>
+            <td class="td-accent">CHF 6'300</td>
+            <td class="td-accent">CHF 18'950</td>
+          </tr>
+          <tr>
+            <td class="td-hi">Top-Buchungen</td>
+            <td><span class="td-badge badge-extended">Extended</span></td>
+            <td>10×</td>
+            <td class="td-accent">CHF 10'500</td>
+            <td class="td-accent">CHF 31'550</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Footnote / Disclaimer -->
+    <p class="calc-footnote">
+      <strong>Wichtiger Hinweis:</strong> Alle angezeigten Beträge sind potentielle Verdienste und stellen keine Garantie dar. Ihr Anteil beträgt 25% des Kampagnenpreises. Die CHF 50 Aufwandsentschädigung wird einmalig in Jahr 1 berücksichtigt. Die Buchungshäufigkeit hängt von der Nachfrage unserer Kunden und der Eignung Ihres Profils ab — eine bestimmte Anzahl Buchungen kann nicht zugesichert werden. Kein Shooting erforderlich. Alle Verwendungszwecke sind vertraglich festgelegt. Diese Berechnung dient ausschliesslich der Veranschaulichung.
+    </p>
+
+    <!-- CTA -->
+    <div class="calc-cta">
+      <h2>Interesse geweckt?</h2>
+      <p>Unser Model-Pool wird in Kürze eröffnet. Bei Fragen wenden Sie sich gerne an uns.</p>
+      <div class="notice-box">
+        <p><strong>Hinweis:</strong> Wir nehmen aktuell noch keine Bewerbungen entgegen. Bei Fragen:</p>
+        <p style="margin-top: 0.5rem;"><a href="mailto:client@brandarchitects.ch" style="color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">client@brandarchitects.ch</a></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ====== Footer ====== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p class="footer-logo"><img src="images/Visari_Logo.png" alt="Visari"></p>
+          <p class="footer-desc">The face of your brand.<br>AI Models. Creative Direction. Built for brands.</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Startseite</a>
+          <a href="models.html" class="footer-link">Für Models</a>
+          <a href="ueber-uns.html" class="footer-link">Über uns</a>
+          <a href="datenschutz.html" class="footer-link">Datenschutz</a>
+          <a href="rechtslage.html" class="footer-link">Rechtslage</a>
+          <a href="impressum.html" class="footer-link">Impressum</a>
+        </div>
+      </div>
+      <p class="footer-legal">Alle KI-generierten Bilder basieren auf lizenzierten Erscheinungsbildern. &copy; 2025 Visari AG, Zürich — Rechtssicher nach Schweizer Recht.<br>Visari ist ein Angebot der <a href="https://www.brandarchitects.ch" target="_blank" rel="noopener" style="text-decoration: underline;">Brand Architects GmbH</a>.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    var perBooking = 550;
+
+    function selectCat(el) {
+      document.querySelectorAll('.calc-cat').forEach(function(c) { c.classList.remove('active'); });
+      el.classList.add('active');
+      perBooking = parseInt(el.dataset.price);
+      calc();
+    }
+
+    function chf(n) {
+      return 'CHF\u00a0' + Math.round(n).toLocaleString('de-CH');
+    }
+
+    function calc() {
+      var bpy = parseInt(document.getElementById('bpy').value);
+      document.getElementById('bpy-out').textContent = bpy;
+
+      var yr  = perBooking * bpy;
+      var yr1 = yr + 50;
+      var yr2 = yr;
+      var yr3 = yr;
+      var tot = yr1 + yr2 + yr3;
+      var maxBar = tot;
+
+      document.getElementById('h-yr').textContent    = chf(yr);
+      document.getElementById('h-yr-sub').textContent = bpy + '\u00a0\u00d7\u00a0' + chf(perBooking);
+      document.getElementById('h-total').textContent  = chf(yr1);
+
+      document.getElementById('val1').textContent = chf(yr1);
+      document.getElementById('val2').textContent = chf(yr2);
+      document.getElementById('val3').textContent = chf(yr3);
+      document.getElementById('val-tot').textContent = chf(tot);
+
+      document.getElementById('bar1').style.width = Math.round(yr1 / maxBar * 100) + '%';
+      document.getElementById('bar2').style.width = Math.round(yr2 / maxBar * 100) + '%';
+      document.getElementById('bar3').style.width = Math.round(yr3 / maxBar * 100) + '%';
+    }
+
+    // Set initial category to Starter
+    perBooking = 225;
+    calc();
+  </script>
+</body>
+</html>
