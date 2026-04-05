@@ -39,25 +39,38 @@
       max-width: 540px;
     }
 
-    /* Onboarding badge */
-    .calc-badge {
-      display: inline-flex;
+    /* Onboarding badge — prominent */
+    .calc-badge-prominent {
+      display: flex;
       align-items: center;
-      gap: 0.625rem;
-      border: 1px solid var(--border);
-      padding: 0.5rem 1rem 0.5rem 0.75rem;
-      font-size: 0.8125rem;
-      color: var(--text-secondary);
-      font-weight: 400;
+      gap: 1.25rem;
+      background: rgba(178, 145, 70, 0.06);
+      border: 1px solid rgba(178, 145, 70, 0.2);
+      padding: 1.25rem 1.5rem;
       margin-bottom: var(--space-xl);
     }
 
-    .calc-badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
+    .calc-badge-icon {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--accent);
       flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .calc-badge-prominent strong {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 0.125rem;
+    }
+
+    .calc-badge-prominent span {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
     }
 
     /* Section labels */
@@ -117,10 +130,22 @@
       margin-bottom: 0.25rem;
     }
 
-    .calc-cat-price {
+    .calc-cat-desc {
       font-size: 0.75rem;
       color: var(--text-secondary);
+      line-height: 1.6;
       margin-bottom: 0.75rem;
+      min-height: 3.5em;
+    }
+
+    .calc-cat-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 0.625rem;
+    }
+
+    .calc-cat.active .calc-cat-divider {
+      background: rgba(178, 145, 70, 0.25);
     }
 
     .calc-cat-earn-label {
@@ -324,77 +349,6 @@
       color: var(--text-primary);
     }
 
-    /* Scenario table */
-    .calc-table-wrap {
-      border: 1px solid var(--border);
-      overflow-x: auto;
-      margin-bottom: var(--space-xl);
-    }
-
-    .calc-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.8125rem;
-    }
-
-    .calc-table th {
-      font-size: 0.625rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-secondary);
-      padding: 0.625rem 1rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-      white-space: nowrap;
-    }
-
-    .calc-table td {
-      padding: 0.625rem 1rem;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-secondary);
-      white-space: nowrap;
-    }
-
-    .calc-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .calc-table .td-hi {
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    .calc-table .td-accent {
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    .calc-table .td-badge {
-      display: inline-block;
-      font-size: 0.5625rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.125rem 0.5rem;
-    }
-
-    .badge-starter {
-      background: rgba(178, 145, 70, 0.08);
-      color: var(--accent);
-    }
-
-    .badge-standard {
-      background: rgba(0, 0, 0, 0.05);
-      color: var(--text-primary);
-    }
-
-    .badge-extended {
-      background: rgba(0, 0, 0, 0.05);
-      color: var(--text-primary);
-    }
-
     /* Footnote */
     .calc-footnote {
       font-size: 0.75rem;
@@ -448,8 +402,10 @@
         width: 100%;
       }
 
-      .calc-table {
-        font-size: 0.75rem;
+      .calc-badge-prominent {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
       }
     }
   </style>
@@ -477,13 +433,16 @@
     <div class="calc-header">
       <p class="section-label">Verdienst-Rechner</p>
       <h1>Was können Sie potentiell verdienen?</h1>
-      <p class="calc-sub">Berechnen Sie Ihr mögliches passives Einkommen als AI-Model — basierend auf Buchungskategorie und Anzahl Kampagnen pro Jahr.</p>
+      <p class="calc-sub">Wählen Sie die Kampagnen-Kategorie und die Anzahl Buchungen pro Jahr — und sehen Sie, was Sie potentiell passiv verdienen können.</p>
     </div>
 
     <!-- Onboarding badge -->
-    <div class="calc-badge">
-      <div class="calc-badge-dot"></div>
-      CHF 50 Aufwandsentschädigung — bei Vertragsunterzeichnung
+    <div class="calc-badge-prominent">
+      <div class="calc-badge-icon">CHF 50</div>
+      <div>
+        <strong>Aufwandsentschädigung</strong><br>
+        <span>Wird bei Vertragsunterzeichnung ausbezahlt — unabhängig von künftigen Buchungen.</span>
+      </div>
     </div>
 
     <!-- 01 Kategorie -->
@@ -494,30 +453,30 @@
         <div class="calc-check"><div class="calc-check-dot"></div></div>
         <div class="calc-cat-tag">Basis</div>
         <div class="calc-cat-name">Starter</div>
-        <div class="calc-cat-price">Kampagnenpreis: CHF 900</div>
-        <div class="calc-cat-earn-label">Ihr Anteil</div>
+        <div class="calc-cat-desc">Ein oder zwei Bilder für einen Onlineauftritt oder Social Media. Überschaubar und klar begrenzt.</div>
+        <div class="calc-cat-divider"></div>
+        <div class="calc-cat-earn-label">Ihr potentieller Verdienst pro Buchung</div>
         <div class="calc-cat-earn">CHF 225</div>
-        <div class="calc-cat-earn-sub">pro Buchung</div>
       </div>
 
       <div class="calc-cat" data-price="550" onclick="selectCat(this)">
         <div class="calc-check"><div class="calc-check-dot"></div></div>
         <div class="calc-cat-tag">Standard</div>
         <div class="calc-cat-name">Campaign</div>
-        <div class="calc-cat-price">Kampagnenpreis: CHF 2'200</div>
-        <div class="calc-cat-earn-label">Ihr Anteil</div>
+        <div class="calc-cat-desc">Mehrere Motive für eine Werbekampagne — zum Beispiel für einen Online-Shop oder einen Newsletter.</div>
+        <div class="calc-cat-divider"></div>
+        <div class="calc-cat-earn-label">Ihr potentieller Verdienst pro Buchung</div>
         <div class="calc-cat-earn">CHF 550</div>
-        <div class="calc-cat-earn-sub">pro Buchung</div>
       </div>
 
       <div class="calc-cat" data-price="1050" onclick="selectCat(this)">
         <div class="calc-check"><div class="calc-check-dot"></div></div>
         <div class="calc-cat-tag">Premium</div>
         <div class="calc-cat-name">Extended</div>
-        <div class="calc-cat-price">Kampagnenpreis: CHF 4'200</div>
-        <div class="calc-cat-earn-label">Ihr Anteil</div>
+        <div class="calc-cat-desc">Umfangreichere Nutzung über verschiedene Kanäle und Formate. Längere Laufzeit, breiterer Einsatz.</div>
+        <div class="calc-cat-divider"></div>
+        <div class="calc-cat-earn-label">Ihr potentieller Verdienst pro Buchung</div>
         <div class="calc-cat-earn">CHF 1'050</div>
-        <div class="calc-cat-earn-sub">pro Buchung</div>
       </div>
 
     </div>
@@ -576,62 +535,9 @@
       </div>
     </div>
 
-    <!-- 05 Scenarios -->
-    <div class="calc-label">04 · Beispielszenarien</div>
-    <div class="calc-table-wrap">
-      <table class="calc-table">
-        <thead>
-          <tr>
-            <th>Szenario</th>
-            <th>Kategorie</th>
-            <th>Buchungen / Jahr</th>
-            <th>Potentieller Anteil / Jahr</th>
-            <th>3 Jahre total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="td-hi">Selten gebucht</td>
-            <td><span class="td-badge badge-starter">Starter</span></td>
-            <td>2×</td>
-            <td class="td-accent">CHF 450</td>
-            <td class="td-accent">CHF 1'400</td>
-          </tr>
-          <tr>
-            <td class="td-hi">Gelegentlich</td>
-            <td><span class="td-badge badge-standard">Standard</span></td>
-            <td>3×</td>
-            <td class="td-accent">CHF 1'650</td>
-            <td class="td-accent">CHF 5'000</td>
-          </tr>
-          <tr>
-            <td class="td-hi">Regelmässig</td>
-            <td><span class="td-badge badge-standard">Standard</span></td>
-            <td>6×</td>
-            <td class="td-accent">CHF 3'300</td>
-            <td class="td-accent">CHF 9'950</td>
-          </tr>
-          <tr>
-            <td class="td-hi">Häufig Premium</td>
-            <td><span class="td-badge badge-extended">Extended</span></td>
-            <td>6×</td>
-            <td class="td-accent">CHF 6'300</td>
-            <td class="td-accent">CHF 18'950</td>
-          </tr>
-          <tr>
-            <td class="td-hi">Top-Buchungen</td>
-            <td><span class="td-badge badge-extended">Extended</span></td>
-            <td>10×</td>
-            <td class="td-accent">CHF 10'500</td>
-            <td class="td-accent">CHF 31'550</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
     <!-- Footnote / Disclaimer -->
     <p class="calc-footnote">
-      <strong>Wichtiger Hinweis:</strong> Alle angezeigten Beträge sind potentielle Verdienste und stellen keine Garantie dar. Ihr Anteil beträgt 25% des Kampagnenpreises. Die CHF 50 Aufwandsentschädigung wird einmalig in Jahr 1 berücksichtigt. Die Buchungshäufigkeit hängt von der Nachfrage unserer Kunden und der Eignung Ihres Profils ab — eine bestimmte Anzahl Buchungen kann nicht zugesichert werden. Kein Shooting erforderlich. Alle Verwendungszwecke sind vertraglich festgelegt. Diese Berechnung dient ausschliesslich der Veranschaulichung.
+      <strong>Wichtiger Hinweis:</strong> Alle angezeigten Beträge sind potentielle Verdienste und stellen keine Garantie dar. Die CHF 50 Aufwandsentschädigung wird einmalig in Jahr 1 berücksichtigt. Die Buchungshäufigkeit hängt von der Nachfrage unserer Kunden und der Eignung Ihres Profils ab — eine bestimmte Anzahl Buchungen kann nicht zugesichert werden. Alle Verwendungszwecke sind vertraglich festgelegt — keine Nutzung für politische, pornografische oder diskriminierende Inhalte. Die auf dieser Website aufgeführten Preise und Konditionen können jederzeit und ohne Vorankündigung geändert werden. Wir übernehmen keine Garantie für die Richtigkeit der Webinhalte. Es gelten ausschliesslich die individuellen Vertragsdokumente zwischen Visari und den Models.
     </p>
 
     <!-- CTA -->
