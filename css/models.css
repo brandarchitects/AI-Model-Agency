@@ -570,6 +570,68 @@ body {
 }
 
 /* --- Notice Box (temporary) --- */
+/* --- Earnings CTA --- */
+.earnings-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-lg);
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--accent);
+  background: rgba(178, 145, 70, 0.03);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.earnings-cta:hover {
+  background: rgba(178, 145, 70, 0.07);
+}
+
+.earnings-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.earnings-cta-amount {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.earnings-cta-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.earnings-cta-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.earnings-cta-text {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.earnings-cta-arrow {
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .earnings-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+/* --- Notice Box (temporary) --- */
 .notice-box {
   padding: var(--space-lg);
   border-left: 3px solid var(--accent);
