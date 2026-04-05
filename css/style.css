@@ -364,18 +364,17 @@ body, p, span, a, li, input, textarea, button {
 .nav-logo {
   display: inline-flex;
   align-items: center;
-  gap: 0;
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  gap: 0.5rem;
+}
+
+.nav-logo img {
+  height: 3.5rem;
+  width: auto;
+  display: block;
 }
 
 .nav-logo .dot {
-  color: #3B82F6;
-  position: relative;
-  top: -0.15em;
-  margin-left: 0.08em;
+  display: none;
 }
 
 .nav-byline {
@@ -531,10 +530,17 @@ body, p, span, a, li, input, textarea, button {
 }
 
 .footer-logo {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-logo img {
+  height: 2.5rem;
+  width: auto;
+  display: block;
+}
+
+.footer-logo .dot {
+  display: none;
 }
 
 .footer-desc {
