@@ -364,17 +364,18 @@ body, p, span, a, li, input, textarea, button {
 .nav-logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-}
-
-.nav-logo img {
-  height: 1.125rem;
-  width: auto;
-  display: block;
+  gap: 0;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .nav-logo .dot {
-  display: none;
+  color: #3B82F6;
+  position: relative;
+  top: -0.15em;
+  margin-left: 0.08em;
 }
 
 .nav-byline {
@@ -530,17 +531,10 @@ body, p, span, a, li, input, textarea, button {
 }
 
 .footer-logo {
-  margin-bottom: 0.75rem;
-}
-
-.footer-logo img {
-  height: 1rem;
-  width: auto;
-  display: block;
-}
-
-.footer-logo .dot {
-  display: none;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .footer-desc {
