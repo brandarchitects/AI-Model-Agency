@@ -569,7 +569,16 @@ body {
   color: var(--text-primary);
 }
 
-/* --- Notice Box (temporary) --- */
+/* --- Newsletter Embed --- */
+.newsletter-embed {
+  max-width: 540px;
+  margin-bottom: var(--space-md);
+}
+
+.newsletter-embed iframe {
+  background: var(--bg);
+}
+
 /* --- Earnings CTA --- */
 .earnings-cta {
   display: flex;
