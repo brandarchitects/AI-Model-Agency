@@ -554,18 +554,29 @@ body, p, span, a, li, input, textarea, button {
   max-width: 280px;
 }
 
-.footer-links {
+.footer-cols {
   display: flex;
-  gap: 2rem;
+  gap: var(--space-xl);
 }
 
-.footer-link {
+.footer-col-title {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.35;
+  margin-bottom: 0.75rem;
+}
+
+.footer-col a {
+  display: block;
   font-size: 0.8125rem;
   opacity: 0.5;
   transition: opacity var(--transition-fast);
+  padding: 0.2rem 0;
 }
 
-.footer-link:hover {
+.footer-col a:hover {
   opacity: 1;
 }
 
@@ -724,9 +735,9 @@ body, p, span, a, li, input, textarea, button {
     flex-direction: column;
   }
 
-  .footer-links {
-    flex-wrap: wrap;
-    gap: 1rem;
+  .footer-cols {
+    flex-direction: column;
+    gap: var(--space-lg);
   }
 }
 
