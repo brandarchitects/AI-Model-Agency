@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ============================================================
+  DATEI: 04_sitemap.xml
+  SPEICHERN ALS: sitemap.xml im Root-Verzeichnis deiner Website
+  URL wird dann: https://www.visari.ch/sitemap.xml
+  ============================================================
+  ANLEITUNG:
+  1. Diese Datei als "sitemap.xml" ins Root-Verzeichnis hochladen
+  2. In Google Search Console unter "Sitemaps" einreichen:
+     → URL eingeben: https://www.visari.ch/sitemap.xml
+  3. Dates (<lastmod>) bei jedem Update anpassen
+  ============================================================
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- HAUPTSEITE -->
+  <url>
+    <loc>https://www.visari.ch/</loc>
+    <lastmod>2025-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.visari.ch/"/>
+  </url>
+
+  <!-- AI MODELS BUCHEN (wichtigste Seite!) -->
+  <url>
+    <loc>https://www.visari.ch/ai-models-buchen</loc>
+    <lastmod>2025-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.visari.ch/ai-models-buchen"/>
+    <!-- Wichtige Bilder der Seite für Google Images -->
+    <image:image>
+      <image:loc>https://www.visari.ch/images/01_Model_Frau_19.jpg</image:loc>
+      <image:title>AI Model für Werbekampagne – Visari Zürich</image:title>
+      <image:caption>KI-generiertes AI Model für Werbekampagnen, exklusiv buchbar bei Visari Zürich</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.visari.ch/images/02_Model_Man_01.jpg</image:loc>
+      <image:title>KI-generiertes Männer-Model für Werbung</image:title>
+      <image:caption>Synthetisches AI Model für B2B und Corporate Kommunikation</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.visari.ch/images/01_Model_Frau_08.jpg</image:loc>
+      <image:title>AI generierte Fotos für Marketing – Visari</image:title>
+      <image:caption>KI-generierte Marketingbilder für E-Commerce und Social Media</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.visari.ch/images/02_Model_Frau_09.jpg</image:loc>
+      <image:title>Virtuelle Models für Kampagnen – Schweiz</image:title>
+      <image:caption>Exklusive virtuelle Models für Schweizer Werbekampagnen</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.visari.ch/images/03_Model_Frau_22.jpg</image:loc>
+      <image:title>AI Model Agentur Schweiz – Visari Zürich</image:title>
+      <image:caption>Kuratierte AI Models aus der führenden KI-Model-Agentur der Schweiz</image:caption>
+    </image:image>
+  </url>
+
+  <!-- FÜR MODELS -->
+  <url>
+    <loc>https://www.visari.ch/models.html</loc>
+    <lastmod>2025-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- VERDIENST-RECHNER -->
+  <url>
+    <loc>https://www.visari.ch/verdienst-rechner.html</loc>
+    <lastmod>2025-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- RECHTSLAGE -->
+  <url>
+    <loc>https://www.visari.ch/rechtslage.html</loc>
+    <lastmod>2025-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+
+  <!-- ÜBER UNS -->
+  <url>
+    <loc>https://www.visari.ch/ueber-uns.html</loc>
+    <lastmod>2025-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+
+  <!-- DATENSCHUTZ -->
+  <url>
+    <loc>https://www.visari.ch/datenschutz.html</loc>
+    <lastmod>2025-04-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- IMPRESSUM -->
+  <url>
+    <loc>https://www.visari.ch/impressum.html</loc>
+    <lastmod>2025-04-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!--
+    ============================================================
+    ZUKÜNFTIGE BLOG-ARTIKEL (hier ergänzen sobald publiziert):
+    ============================================================
+    <url>
+      <loc>https://www.visari.ch/blog/ki-models-vs-stock-fotos-schweiz</loc>
+      <lastmod>DATUM</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    <url>
+      <loc>https://www.visari.ch/blog/eu-ai-act-schweizer-kmu</loc>
+      <lastmod>DATUM</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    ============================================================
+  -->
+
+</urlset>

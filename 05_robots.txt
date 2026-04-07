@@ -1,0 +1,44 @@
+# ============================================================
+# DATEI: 05_robots.txt
+# SPEICHERN ALS: robots.txt im Root-Verzeichnis der Website
+# URL wird dann: https://www.visari.ch/robots.txt
+# ============================================================
+
+# Alle wichtigen Crawler dürfen alles crawlen
+User-agent: *
+Allow: /
+
+# AI-spezifische Crawler (für AI Search Visibility)
+# Diese explizit zulassen erhöht die Indexierung durch AI-Suchmaschinen
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Gemini
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap-Speicherort angeben (wichtig!)
+Sitemap: https://www.visari.ch/sitemap.xml
+
+# Optionale Pfade sperren (Datenschutz-Seiten müssen nicht gecrawlt werden)
+# Disallow: /datenschutz
+# Disallow: /impressum
+# ↑ Auskommentiert lassen – diese Seiten dürfen gecrawlt werden für Vertrauen/E-E-A-T
