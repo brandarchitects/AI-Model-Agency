@@ -1,57 +1,221 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ========== Home ========== -->
   <url>
-    <loc>https://visari.ch/</loc>
-    <lastmod>2025-04-04</lastmod>
+    <loc>https://www.visari.ch/</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.visari.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.visari.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.visari.ch/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.visari.ch/"/>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/en/</loc>
+    <lastmod>2025-04-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://visari.ch/models</loc>
-    <lastmod>2025-04-04</lastmod>
+    <loc>https://www.visari.ch/es/</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ========== Models ========== -->
+  <url>
+    <loc>https://www.visari.ch/models.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.visari.ch/models.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.visari.ch/en/models.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.visari.ch/es/models.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.visari.ch/models.html"/>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/en/models.html</loc>
+    <lastmod>2025-04-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://visari.ch/ueber-uns</loc>
-    <lastmod>2025-04-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://www.visari.ch/es/models.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ========== AI Models buchen (SEO Landing) ========== -->
+  <url>
+    <loc>https://www.visari.ch/ai-models-buchen.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.visari.ch/ai-models-buchen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.visari.ch/en/ai-models-buchen.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.visari.ch/es/ai-models-buchen.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.visari.ch/ai-models-buchen.html"/>
   </url>
   <url>
-    <loc>https://visari.ch/ai-model-werden-schweiz</loc>
-    <lastmod>2025-04-07</lastmod>
+    <loc>https://www.visari.ch/en/ai-models-buchen.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/es/ai-models-buchen.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ========== AI Model werden Schweiz ========== -->
+  <url>
+    <loc>https://www.visari.ch/ai-model-werden-schweiz.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.visari.ch/ai-model-werden-schweiz.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.visari.ch/en/ai-model-werden-schweiz.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.visari.ch/es/ai-model-werden-schweiz.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.visari.ch/ai-model-werden-schweiz.html"/>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/en/ai-model-werden-schweiz.html</loc>
+    <lastmod>2025-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://visari.ch/ai-models-buchen</loc>
-    <lastmod>2025-04-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://www.visari.ch/es/ai-model-werden-schweiz.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ========== Verdienst-Rechner ========== -->
+  <url>
+    <loc>https://www.visari.ch/verdienst-rechner.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.visari.ch/verdienst-rechner.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.visari.ch/en/verdienst-rechner.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.visari.ch/es/verdienst-rechner.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.visari.ch/verdienst-rechner.html"/>
   </url>
   <url>
-    <loc>https://visari.ch/verdienst-rechner</loc>
-    <lastmod>2025-04-05</lastmod>
+    <loc>https://www.visari.ch/en/verdienst-rechner.html</loc>
+    <lastmod>2025-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://visari.ch/rechtslage</loc>
-    <lastmod>2025-04-04</lastmod>
+    <loc>https://www.visari.ch/es/verdienst-rechner.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ========== Über uns ========== -->
+  <url>
+    <loc>https://www.visari.ch/ueber-uns.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.visari.ch/ueber-uns.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.visari.ch/en/ueber-uns.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.visari.ch/es/ueber-uns.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.visari.ch/ueber-uns.html"/>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/en/ueber-uns.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/es/ueber-uns.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ========== Rechtslage ========== -->
+  <url>
+    <loc>https://www.visari.ch/rechtslage.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.visari.ch/rechtslage.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.visari.ch/en/rechtslage.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.visari.ch/es/rechtslage.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.visari.ch/rechtslage.html"/>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/en/rechtslage.html</loc>
+    <lastmod>2025-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://visari.ch/datenschutz</loc>
-    <lastmod>2025-04-04</lastmod>
+    <loc>https://www.visari.ch/es/rechtslage.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- ========== Datenschutz ========== -->
+  <url>
+    <loc>https://www.visari.ch/datenschutz.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.visari.ch/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.visari.ch/en/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.visari.ch/es/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.visari.ch/datenschutz.html"/>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/en/datenschutz.html</loc>
+    <lastmod>2025-04-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://visari.ch/impressum</loc>
-    <lastmod>2025-04-04</lastmod>
+    <loc>https://www.visari.ch/es/datenschutz.html</loc>
+    <lastmod>2025-04-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
+  <!-- ========== Impressum ========== -->
+  <url>
+    <loc>https://www.visari.ch/impressum.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.visari.ch/impressum.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.visari.ch/en/impressum.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.visari.ch/es/impressum.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.visari.ch/impressum.html"/>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/en/impressum.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/es/impressum.html</loc>
+    <lastmod>2025-04-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>

@@ -1,0 +1,84 @@
+name: Language Sync Check
+
+on:
+  push:
+    branches: [main, "claude/**"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check language file sync
+        run: |
+          # All pages that must exist in DE, EN, and ES
+          PAGES=(
+            "index.html"
+            "models.html"
+            "ai-models-buchen.html"
+            "ai-model-werden-schweiz.html"
+            "verdienst-rechner.html"
+            "ueber-uns.html"
+            "rechtslage.html"
+            "datenschutz.html"
+            "impressum.html"
+          )
+
+          # Get list of changed files in this commit/PR
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD 2>/dev/null || git diff --name-only HEAD)
+
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+          echo ""
+
+          MISSING_SYNC=0
+
+          # Check each page: if changed in any language, must be changed in all three
+          for page in "${PAGES[@]}"; do
+            DE_CHANGED=$(echo "$CHANGED_FILES" | grep -E "^${page}$" || true)
+            EN_CHANGED=$(echo "$CHANGED_FILES" | grep -E "^en/${page}$" || true)
+            ES_CHANGED=$(echo "$CHANGED_FILES" | grep -E "^es/${page}$" || true)
+
+            if [ -n "$DE_CHANGED" ] || [ -n "$EN_CHANGED" ] || [ -n "$ES_CHANGED" ]; then
+              if [ -z "$DE_CHANGED" ] || [ -z "$EN_CHANGED" ] || [ -z "$ES_CHANGED" ]; then
+                echo "❌ SYNC ERROR: '$page' was modified but not in all three languages."
+                [ -z "$DE_CHANGED" ] && echo "   Missing: $page (DE)"
+                [ -z "$EN_CHANGED" ] && echo "   Missing: en/$page"
+                [ -z "$ES_CHANGED" ] && echo "   Missing: es/$page"
+                MISSING_SYNC=1
+              else
+                echo "✓ $page synced across all three languages"
+              fi
+            fi
+          done
+
+          # Also check that all pages exist in all three language folders
+          echo ""
+          echo "Checking file existence..."
+          for page in "${PAGES[@]}"; do
+            for folder in "" "en/" "es/"; do
+              if [ ! -f "${folder}${page}" ]; then
+                echo "❌ MISSING FILE: ${folder}${page}"
+                MISSING_SYNC=1
+              fi
+            done
+          done
+
+          if [ $MISSING_SYNC -eq 1 ]; then
+            echo ""
+            echo "════════════════════════════════════════════════"
+            echo "Language sync check FAILED."
+            echo "Every change to a page must be reflected in DE, EN, and ES."
+            echo "See CLAUDE.md for sync rules."
+            echo "════════════════════════════════════════════════"
+            exit 1
+          fi
+
+          echo ""
+          echo "✓ All language sync checks passed."

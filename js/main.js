@@ -5,6 +5,72 @@
 (function () {
   'use strict';
 
+  // --- Language Auto-Detection (runs before anything else) ---
+  // Detects browser language and redirects on first visit.
+  // Respects user choice (stored in localStorage) after explicit switching.
+  (function autoLang() {
+    try {
+      var saved = localStorage.getItem('visari_lang');
+      var path = window.location.pathname;
+      var isEN = path.indexOf('/en/') === 0;
+      var isES = path.indexOf('/es/') === 0;
+      var currentLang = isEN ? 'en' : (isES ? 'es' : 'de');
+
+      // If user has a saved preference, honour it only on root (/)
+      if (saved && saved !== currentLang) {
+        // Redirect to saved language version
+        var filename = path.split('/').pop() || 'index.html';
+        if (saved === 'de' && (isEN || isES)) {
+          window.location.replace('/' + filename);
+          return;
+        } else if (saved === 'en' && !isEN) {
+          window.location.replace('/en/' + filename);
+          return;
+        } else if (saved === 'es' && !isES) {
+          window.location.replace('/es/' + filename);
+          return;
+        }
+      }
+
+      // First visit: auto-detect from browser (only on DE root)
+      if (!saved && currentLang === 'de') {
+        var lang = (navigator.language || navigator.userLanguage || 'de').toLowerCase();
+        var filename2 = path.split('/').pop() || 'index.html';
+        if (lang.indexOf('es') === 0) {
+          localStorage.setItem('visari_lang', 'es');
+          window.location.replace('/es/' + filename2);
+          return;
+        } else if (lang.indexOf('de') !== 0 && lang.indexOf('fr') !== 0 && lang.indexOf('it') !== 0) {
+          // Non-DACH, non-ES → English
+          localStorage.setItem('visari_lang', 'en');
+          window.location.replace('/en/' + filename2);
+          return;
+        }
+        // DE/FR/IT → stay on German
+        localStorage.setItem('visari_lang', 'de');
+      }
+
+      // Store current language if on a language-specific URL without saved pref
+      if (!saved) {
+        localStorage.setItem('visari_lang', currentLang);
+      }
+    } catch (e) {
+      // Fail silently if localStorage unavailable
+    }
+  })();
+
+  // --- Language Switcher: save choice on click ---
+  function initLangSwitcher() {
+    document.querySelectorAll('.lang-switcher a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        var lang = this.getAttribute('data-lang');
+        if (lang) {
+          try { localStorage.setItem('visari_lang', lang); } catch (e) {}
+        }
+      });
+    });
+  }
+
   // --- Scroll Reveal via IntersectionObserver ---
   function initScrollReveal() {
     var els = document.querySelectorAll('.reveal');
@@ -202,5 +268,6 @@
     initSlideshow();
     initImageBreakSlideshow();
     initSmoothScroll();
+    initLangSwitcher();
   });
 })();
