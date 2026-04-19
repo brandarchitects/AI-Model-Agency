@@ -262,7 +262,7 @@
             headline: 'Ihr Gesicht. Passive Einnahmen. Ohne Aufwand.',
             body: 'Melden Sie sich für unseren Newsletter an und erfahren Sie als Erste, wenn der Visari Model-Pool öffnet.',
             perks: ['CHF 225–3\'250 pro Kampagne', 'Einmalig 30 Min. Aufwand von zuhause', 'Volle Kontrolle — Sie entscheiden immer'],
-            cta: 'Jetzt für Newsletter anmelden →',
+            cta: 'Jetzt unverbindlich auf Warteliste →',
             link: NEWSLETTER_URL,
             privacy: 'Kein Spam. Jederzeit abmeldbar.'
           },
@@ -271,7 +271,7 @@
             headline: 'Your face. Passive income. Zero effort.',
             body: 'Sign up for our newsletter and be the first to know when the Visari model pool opens.',
             perks: ['CHF 225–3\'250 per campaign', 'One-time 30 min. from home', 'Full control — you always decide'],
-            cta: 'Sign up for the newsletter →',
+            cta: 'Join the waitlist now →',
             link: NEWSLETTER_URL,
             privacy: 'No spam. Unsubscribe anytime.'
           },
@@ -280,7 +280,7 @@
             headline: 'Su imagen. Ingresos pasivos. Sin esfuerzo.',
             body: 'Regístrese en nuestro newsletter y sea el primero en saber cuándo abre el pool de models Visari.',
             perks: ['CHF 225–3\'250 por campaña', '30 min. desde casa, solo una vez', 'Control total — usted siempre decide'],
-            cta: 'Suscribirse al newsletter →',
+            cta: 'Unirse a la lista de espera →',
             link: NEWSLETTER_URL,
             privacy: 'Sin spam. Cancelable en cualquier momento.'
           }
