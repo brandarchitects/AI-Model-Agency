@@ -243,8 +243,7 @@
     var lang = document.documentElement.lang || 'de';
     var isModel = !!document.querySelector('link[href*="models.css"]');
 
-    // ↓ Replace with your actual newsletter signup URL once available
-    var NEWSLETTER_URL = 'mailto:info@visari.ch?subject=Newsletter-Anmeldung%20Visari%20Models';
+    var NEWSLETTER_URL = 'https://58057d34.sibforms.com/serve/MUIFAK-l1fUqf-K-DkxEhqG1ot5PfF9kK5Z2731zuylx_W7VDlF_dtpCNVTwFGFsPIfAcAfiiFyZ60p4Fe98j7qdCvEHOYN8ULvgZypfozrPRy8LancAHXSO4dPkMHF_mTBSeB-QJfqwzyHan45pnNoxnGAchUmjHv85cqw8jrbBAui10pRrW-gFzHxrnc9CBHvY8h5fUF1P7JHO0A==';
 
     var strings = {
       client: {
