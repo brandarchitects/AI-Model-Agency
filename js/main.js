@@ -12,14 +12,15 @@
     try {
       var saved = localStorage.getItem('visari_lang');
       var path = window.location.pathname;
-      var isEN = path.indexOf('/en/') === 0;
-      var isES = path.indexOf('/es/') === 0;
+      var isEN = path.indexOf('/en/') === 0 || path === '/en';
+      var isES = path.indexOf('/es/') === 0 || path === '/es';
       var currentLang = isEN ? 'en' : (isES ? 'es' : 'de');
 
       // If user has a saved preference, honour it only on root (/)
       if (saved && saved !== currentLang) {
         // Redirect to saved language version
-        var filename = path.split('/').pop() || 'index.html';
+        var rawFile = path.split('/').pop();
+        var filename = (rawFile && rawFile !== 'en' && rawFile !== 'es') ? rawFile : 'index.html';
         if (saved === 'de' && (isEN || isES)) {
           window.location.replace('/' + filename);
           return;
@@ -35,7 +36,8 @@
       // First visit: auto-detect from browser (only on DE root)
       if (!saved && currentLang === 'de') {
         var lang = (navigator.language || navigator.userLanguage || 'de').toLowerCase();
-        var filename2 = path.split('/').pop() || 'index.html';
+        var rawFile2 = path.split('/').pop();
+        var filename2 = (rawFile2 && rawFile2 !== 'en' && rawFile2 !== 'es') ? rawFile2 : 'index.html';
         if (lang.indexOf('es') === 0) {
           localStorage.setItem('visari_lang', 'es');
           window.location.replace('/es/' + filename2);
