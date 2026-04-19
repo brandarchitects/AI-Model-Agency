@@ -236,6 +236,112 @@
     });
   }
 
+  // --- Waitlist Popup ---
+  function initWaitlistPopup() {
+    try { if (localStorage.getItem('visari_popup_done')) return; } catch(e) {}
+
+    var lang = document.documentElement.lang || 'de';
+    var isModel = !!document.querySelector('link[href*="models.css"]');
+
+    var strings = {
+      client: {
+        de: {
+          eyebrow: 'Limitierter Frühzugang',
+          headline: 'Sichern Sie sich exklusiven Zugang.',
+          body: 'Visari ist in der Aufbauphase. Unternehmen auf der Warteliste erhalten Einführungskonditionen und bevorzugte Bearbeitung.',
+          perks: ['Einführungskonditionen', 'Bevorzugte Bearbeitung', 'Persönliche Beratung'],
+          cta: 'Jetzt auf Warteliste eintragen →',
+          mailto: 'mailto:info@visari.ch?subject=Warteliste%20%E2%80%93%20Visari%20Fr%C3%BChzugang',
+          privacy: 'Kein Spam. Jederzeit abmeldbar.'
+        },
+        en: {
+          eyebrow: 'Limited Early Access',
+          headline: 'Secure your exclusive access.',
+          body: 'Visari is in early access. Companies on the waitlist receive introductory pricing and priority onboarding.',
+          perks: ['Introductory pricing', 'Priority processing', 'Personal consultation'],
+          cta: 'Join the waitlist →',
+          mailto: 'mailto:info@visari.ch?subject=Waitlist%20%E2%80%93%20Visari%20Early%20Access',
+          privacy: 'No spam. Unsubscribe anytime.'
+        },
+        es: {
+          eyebrow: 'Acceso anticipado limitado',
+          headline: 'Asegure su acceso exclusivo.',
+          body: 'Visari está en fase de lanzamiento. Las empresas en la lista de espera reciben condiciones de introducción y atención prioritaria.',
+          perks: ['Condiciones de introducción', 'Atención prioritaria', 'Consulta personal'],
+          cta: 'Unirse a la lista de espera →',
+          mailto: 'mailto:info@visari.ch?subject=Lista%20de%20espera%20%E2%80%93%20Visari',
+          privacy: 'Sin spam. Cancelable en cualquier momento.'
+        }
+      },
+      model: {
+        de: {
+          eyebrow: 'Jetzt bewerben',
+          headline: 'Ihr Gesicht. Passive Einnahmen.',
+          body: 'Nur 30 Minuten Aufwand — einmalig. Sichern Sie Ihren Platz im Visari Model-Pool und verdienen Sie mit Ihrem Erscheinungsbild.',
+          perks: ['Bis CHF 3\'250 pro Kampagne', 'Keine Shootings, kein Aufwand', 'Volle Kontrolle über Ihr Bild'],
+          cta: 'Jetzt als Model bewerben →',
+          mailto: 'mailto:info@visari.ch?subject=Bewerbung%20als%20Visari%20AI%20Model',
+          privacy: 'Sicher. Vertraulich. Schweizer Recht.'
+        },
+        en: {
+          eyebrow: 'Apply now',
+          headline: 'Your face. Passive income.',
+          body: 'Just 30 minutes, once. Secure your spot in the Visari model pool and earn with your appearance.',
+          perks: ['Up to CHF 3\'250 per campaign', 'No shootings, no effort', 'Full control over your image'],
+          cta: 'Apply as a model →',
+          mailto: 'mailto:info@visari.ch?subject=Application%20as%20Visari%20AI%20Model',
+          privacy: 'Secure. Confidential. Swiss law.'
+        },
+        es: {
+          eyebrow: 'Solicitar ahora',
+          headline: 'Su imagen. Ingresos pasivos.',
+          body: 'Solo 30 minutos, una sola vez. Asegure su lugar en el pool de models Visari y gane con su imagen.',
+          perks: ['Hasta CHF 3\'250 por campaña', 'Sin sesiones fotográficas', 'Control total sobre su imagen'],
+          cta: 'Solicitar como model →',
+          mailto: 'mailto:info@visari.ch?subject=Solicitud%20como%20AI%20Model%20Visari',
+          privacy: 'Seguro. Confidencial. Derecho suizo.'
+        }
+      }
+    };
+
+    var type = isModel ? 'model' : 'client';
+    var s = strings[type][lang] || strings[type]['de'];
+
+    var perksHTML = s.perks.map(function(p) {
+      return '<li>' + p + '</li>';
+    }).join('');
+
+    var popup = document.createElement('div');
+    popup.className = 'wl-popup' + (isModel ? ' wl-model' : '');
+    popup.setAttribute('role', 'dialog');
+    popup.setAttribute('aria-label', s.headline);
+    popup.innerHTML =
+      '<button class="wl-close" aria-label="Schliessen">&times;</button>' +
+      '<p class="wl-eyebrow">' + s.eyebrow + '</p>' +
+      '<h3 class="wl-headline">' + s.headline + '</h3>' +
+      '<p class="wl-body">' + s.body + '</p>' +
+      '<ul class="wl-perks">' + perksHTML + '</ul>' +
+      '<a href="' + s.mailto + '" class="wl-cta">' + s.cta + '</a>' +
+      '<p class="wl-privacy">' + s.privacy + '</p>';
+
+    document.body.appendChild(popup);
+
+    function dismiss(ctaClicked) {
+      popup.classList.remove('wl-visible');
+      try { localStorage.setItem('visari_popup_done', ctaClicked ? 'cta' : '1'); } catch(e) {}
+      setTimeout(function() { popup.remove(); }, 500);
+    }
+
+    popup.querySelector('.wl-close').addEventListener('click', function() { dismiss(false); });
+    popup.querySelector('.wl-cta').addEventListener('click', function() { dismiss(true); });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') dismiss(false);
+    }, { once: true });
+
+    setTimeout(function() { popup.classList.add('wl-visible'); }, 3500);
+  }
+
   // --- Init ---
   document.addEventListener('DOMContentLoaded', function () {
     initScrollReveal();
@@ -246,5 +352,6 @@
     initImageBreakSlideshow();
     initSmoothScroll();
     initLangDropdown();
+    initWaitlistPopup();
   });
 })();
