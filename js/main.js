@@ -81,13 +81,10 @@
     var navLinks = document.querySelector('.nav-links');
     if (!toggle || !navLinks) return;
 
-    // Build fullscreen overlay menu from nav-links content
     var menu = document.createElement('div');
     menu.className = 'mobile-menu';
     menu.setAttribute('id', 'mobile-menu');
 
-    // Clone nav links into overlay (skip lang-dropdown)
-    var allLinks = navLinks.querySelectorAll(':scope > a, :scope > .nav-link');
     navLinks.querySelectorAll('.nav-link, .btn').forEach(function (a) {
       var clone = document.createElement('a');
       clone.href = a.href;
@@ -98,7 +95,6 @@
       menu.appendChild(clone);
     });
 
-    // Add language links at bottom of mobile menu
     var langMenu = navLinks.querySelector('.lang-menu');
     if (langMenu) {
       var langSection = document.createElement('div');
@@ -131,20 +127,14 @@
       document.body.style.overflow = '';
     }
 
-    // Toggle button
     toggle.addEventListener('click', function () {
       if (isOpen) { closeMenu(); } else { openMenu(); }
     });
 
-    // Click any link in the menu
     menu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function (e) {
         var href = this.getAttribute('href');
-
-        // Close menu immediately
         closeMenu();
-
-        // If it's an anchor link on the same page, scroll to it
         if (href && href.indexOf('#') === 0 && href.length > 1) {
           e.preventDefault();
           var target = document.querySelector(href);
@@ -154,11 +144,9 @@
             }, 100);
           }
         }
-        // External links (models.html, etc.) — browser handles normally
       });
     });
 
-    // Escape key
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && isOpen) { closeMenu(); }
     });
@@ -173,14 +161,8 @@
 
       btn.addEventListener('click', function () {
         var wasOpen = item.classList.contains('open');
-
-        // Close all
         items.forEach(function (i) { i.classList.remove('open'); });
-
-        // Toggle current
-        if (!wasOpen) {
-          item.classList.add('open');
-        }
+        if (!wasOpen) { item.classList.add('open'); }
       });
     });
   }
@@ -238,110 +220,114 @@
 
   // --- Waitlist Popup ---
   function initWaitlistPopup() {
-    try { if (localStorage.getItem('visari_popup_done')) return; } catch(e) {}
+    try {
+      var lang = document.documentElement.lang || 'de';
+      var isModel = !!document.querySelector('link[href*="models.css"]');
 
-    var lang = document.documentElement.lang || 'de';
-    var isModel = !!document.querySelector('link[href*="models.css"]');
+      var NEWSLETTER_URL = 'https://58057d34.sibforms.com/serve/MUIFAK-l1fUqf-K-DkxEhqG1ot5PfF9kK5Z2731zuylx_W7VDlF_dtpCNVTwFGFsPIfAcAfiiFyZ60p4Fe98j7qdCvEHOYN8ULvgZypfozrPRy8LancAHXSO4dPkMHF_mTBSeB-QJfqwzyHan45pnNoxnGAchUmjHv85cqw8jrbBAui10pRrW-gFzHxrnc9CBHvY8h5fUF1P7JHO0A==';
 
-    var NEWSLETTER_URL = 'https://58057d34.sibforms.com/serve/MUIFAK-l1fUqf-K-DkxEhqG1ot5PfF9kK5Z2731zuylx_W7VDlF_dtpCNVTwFGFsPIfAcAfiiFyZ60p4Fe98j7qdCvEHOYN8ULvgZypfozrPRy8LancAHXSO4dPkMHF_mTBSeB-QJfqwzyHan45pnNoxnGAchUmjHv85cqw8jrbBAui10pRrW-gFzHxrnc9CBHvY8h5fUF1P7JHO0A==';
-
-    var strings = {
-      client: {
-        de: {
-          eyebrow: 'Unverbindlich anfragen',
-          headline: 'Das perfekte Gesicht für Ihre nächste Kampagne.',
-          body: 'Kein Shooting, kein Overhead, Lieferung in 3–5 Tagen. Wir zeigen Ihnen in einer kurzen Anfrage, welche AI Models zu Ihrer Marke passen.',
-          perks: ['10× günstiger als klassisches Shooting', 'Lieferung in 3–5 Tagen', 'Rechtssicher nach Schweizer Recht'],
-          cta: 'Schreiben Sie uns jetzt →',
-          link: 'mailto:info@visari.ch?subject=Anfrage%20AI%20Models%20%E2%80%93%20Visari',
-          privacy: 'Keine Verpflichtung. Antwort innert 24 Stunden.'
+      var strings = {
+        client: {
+          de: {
+            eyebrow: 'Unverbindlich anfragen',
+            headline: 'Das perfekte Gesicht für Ihre nächste Kampagne.',
+            body: 'Kein Shooting, kein Overhead, Lieferung in 3–5 Tagen. Wir zeigen Ihnen, welche AI Models zu Ihrer Marke passen.',
+            perks: ['10× günstiger als klassisches Shooting', 'Lieferung in 3–5 Tagen', 'Rechtssicher nach Schweizer Recht'],
+            cta: 'Schreiben Sie uns jetzt →',
+            link: 'mailto:info@visari.ch?subject=Anfrage%20AI%20Models%20%E2%80%93%20Visari',
+            privacy: 'Keine Verpflichtung. Antwort innert 24 Stunden.'
+          },
+          en: {
+            eyebrow: 'Get in touch',
+            headline: 'The perfect face for your next campaign.',
+            body: 'No shooting, no overhead, delivery in 3–5 days. Tell us about your project and we\'ll find the right AI Model for your brand.',
+            perks: ['10× cheaper than a classic shoot', 'Delivery in 3–5 days', 'Legally compliant under Swiss law'],
+            cta: 'Write to us now →',
+            link: 'mailto:info@visari.ch?subject=Enquiry%20AI%20Models%20%E2%80%93%20Visari',
+            privacy: 'No commitment. Reply within 24 hours.'
+          },
+          es: {
+            eyebrow: 'Consulta sin compromiso',
+            headline: 'El rostro perfecto para su próxima campaña.',
+            body: 'Sin sesión, sin costes adicionales, entrega en 3–5 días. Cuéntenos su proyecto y encontraremos el AI Model ideal para su marca.',
+            perks: ['10× más económico que una sesión', 'Entrega en 3–5 días', 'Legalmente seguro según ley suiza'],
+            cta: 'Escríbanos ahora →',
+            link: 'mailto:info@visari.ch?subject=Consulta%20AI%20Models%20%E2%80%93%20Visari',
+            privacy: 'Sin compromiso. Respuesta en 24 horas.'
+          }
         },
-        en: {
-          eyebrow: 'Get in touch',
-          headline: 'The perfect face for your next campaign.',
-          body: 'No shooting, no overhead, delivery in 3–5 days. Send us a brief enquiry and we\'ll show you which AI Models fit your brand.',
-          perks: ['10× cheaper than a classic shoot', 'Delivery in 3–5 days', 'Legally compliant under Swiss law'],
-          cta: 'Write to us now →',
-          link: 'mailto:info@visari.ch?subject=Enquiry%20AI%20Models%20%E2%80%93%20Visari',
-          privacy: 'No commitment. Reply within 24 hours.'
-        },
-        es: {
-          eyebrow: 'Consulta sin compromiso',
-          headline: 'El rostro perfecto para su próxima campaña.',
-          body: 'Sin sesión, sin costes adicionales, entrega en 3–5 días. Cuéntenos su proyecto y le mostraremos qué AI Models encajan con su marca.',
-          perks: ['10× más económico que una sesión', 'Entrega en 3–5 días', 'Legalmente seguro según ley suiza'],
-          cta: 'Escríbanos ahora →',
-          link: 'mailto:info@visari.ch?subject=Consulta%20AI%20Models%20%E2%80%93%20Visari',
-          privacy: 'Sin compromiso. Respuesta en 24 horas.'
+        model: {
+          de: {
+            eyebrow: 'Wir suchen AI Models',
+            headline: 'Ihr Gesicht. Passive Einnahmen. Ohne Aufwand.',
+            body: 'Melden Sie sich für unseren Newsletter an und erfahren Sie als Erste, wenn der Visari Model-Pool öffnet.',
+            perks: ['CHF 225–3\'250 pro Kampagne', 'Einmalig 30 Min. Aufwand von zuhause', 'Volle Kontrolle — Sie entscheiden immer'],
+            cta: 'Jetzt für Newsletter anmelden →',
+            link: NEWSLETTER_URL,
+            privacy: 'Kein Spam. Jederzeit abmeldbar.'
+          },
+          en: {
+            eyebrow: 'We\'re looking for AI Models',
+            headline: 'Your face. Passive income. Zero effort.',
+            body: 'Sign up for our newsletter and be the first to know when the Visari model pool opens.',
+            perks: ['CHF 225–3\'250 per campaign', 'One-time 30 min. from home', 'Full control — you always decide'],
+            cta: 'Sign up for the newsletter →',
+            link: NEWSLETTER_URL,
+            privacy: 'No spam. Unsubscribe anytime.'
+          },
+          es: {
+            eyebrow: 'Buscamos AI Models',
+            headline: 'Su imagen. Ingresos pasivos. Sin esfuerzo.',
+            body: 'Regístrese en nuestro newsletter y sea el primero en saber cuándo abre el pool de models Visari.',
+            perks: ['CHF 225–3\'250 por campaña', '30 min. desde casa, solo una vez', 'Control total — usted siempre decide'],
+            cta: 'Suscribirse al newsletter →',
+            link: NEWSLETTER_URL,
+            privacy: 'Sin spam. Cancelable en cualquier momento.'
+          }
         }
-      },
-      model: {
-        de: {
-          eyebrow: 'Wir suchen AI Models',
-          headline: 'Ihr Gesicht. Passive Einnahmen. Ohne Aufwand.',
-          body: 'Melden Sie sich für unseren Newsletter an und erfahren Sie als Erste, wenn der Visari Model-Pool öffnet. Kein Shooting, kein Vertrag — nur Ihre Bewerbung.',
-          perks: ['Bis CHF 3\'250 pro Kampagne', 'Einmalig 30 Min. Aufwand von zuhause', 'Volle Kontrolle — Sie entscheiden immer'],
-          cta: 'Jetzt für Newsletter anmelden →',
-          link: NEWSLETTER_URL,
-          privacy: 'Kein Spam. Jederzeit abmeldbar.'
-        },
-        en: {
-          eyebrow: 'We\'re looking for AI Models',
-          headline: 'Your face. Passive income. Zero effort.',
-          body: 'Sign up for our newsletter and be the first to know when the Visari model pool opens. No shooting, no contract — just your application.',
-          perks: ['Up to CHF 3\'250 per campaign', 'One-time 30 min. from home', 'Full control — you always decide'],
-          cta: 'Sign up for the newsletter →',
-          link: NEWSLETTER_URL,
-          privacy: 'No spam. Unsubscribe anytime.'
-        },
-        es: {
-          eyebrow: 'Buscamos AI Models',
-          headline: 'Su imagen. Ingresos pasivos. Sin esfuerzo.',
-          body: 'Regístrese en nuestro newsletter y sea el primero en saber cuándo abre el pool de models Visari. Sin sesión, sin contrato — solo su solicitud.',
-          perks: ['Hasta CHF 3\'250 por campaña', '30 min. desde casa, solo una vez', 'Control total — usted siempre decide'],
-          cta: 'Suscribirse al newsletter →',
-          link: NEWSLETTER_URL,
-          privacy: 'Sin spam. Cancelable en cualquier momento.'
-        }
+      };
+
+      var type = isModel ? 'model' : 'client';
+      var s = strings[type][lang] || strings[type]['de'];
+
+      var perksHTML = s.perks.map(function (p) {
+        return '<li>' + p + '</li>';
+      }).join('');
+
+      var popup = document.createElement('div');
+      popup.className = 'wl-popup' + (isModel ? ' wl-model' : '');
+      popup.setAttribute('role', 'dialog');
+      popup.setAttribute('aria-label', s.headline);
+      popup.innerHTML =
+        '<button class="wl-close" aria-label="Schliessen">&times;</button>' +
+        '<p class="wl-eyebrow">' + s.eyebrow + '</p>' +
+        '<h3 class="wl-headline">' + s.headline + '</h3>' +
+        '<p class="wl-body">' + s.body + '</p>' +
+        '<ul class="wl-perks">' + perksHTML + '</ul>' +
+        '<a href="' + s.link + '" class="wl-cta" target="' + (isModel ? '_blank' : '_self') + '" rel="noopener">' + s.cta + '</a>' +
+        '<p class="wl-privacy">' + s.privacy + '</p>';
+
+      document.body.appendChild(popup);
+
+      function dismiss() {
+        popup.classList.remove('wl-visible');
+        setTimeout(function () { if (popup.parentNode) { popup.parentNode.removeChild(popup); } }, 500);
       }
-    };
 
-    var type = isModel ? 'model' : 'client';
-    var s = strings[type][lang] || strings[type]['de'];
+      popup.querySelector('.wl-close').addEventListener('click', dismiss);
 
-    var perksHTML = s.perks.map(function(p) {
-      return '<li>' + p + '</li>';
-    }).join('');
+      document.addEventListener('keydown', function onEsc(e) {
+        if (e.key === 'Escape') {
+          dismiss();
+          document.removeEventListener('keydown', onEsc);
+        }
+      });
 
-    var popup = document.createElement('div');
-    popup.className = 'wl-popup' + (isModel ? ' wl-model' : '');
-    popup.setAttribute('role', 'dialog');
-    popup.setAttribute('aria-label', s.headline);
-    popup.innerHTML =
-      '<button class="wl-close" aria-label="Schliessen">&times;</button>' +
-      '<p class="wl-eyebrow">' + s.eyebrow + '</p>' +
-      '<h3 class="wl-headline">' + s.headline + '</h3>' +
-      '<p class="wl-body">' + s.body + '</p>' +
-      '<ul class="wl-perks">' + perksHTML + '</ul>' +
-      '<a href="' + s.link + '" class="wl-cta">' + s.cta + '</a>' +
-      '<p class="wl-privacy">' + s.privacy + '</p>';
+      setTimeout(function () { popup.classList.add('wl-visible'); }, 3500);
 
-    document.body.appendChild(popup);
-
-    function dismiss(ctaClicked) {
-      popup.classList.remove('wl-visible');
-      try { localStorage.setItem('visari_popup_done', ctaClicked ? 'cta' : '1'); } catch(e) {}
-      setTimeout(function() { popup.remove(); }, 500);
+    } catch (e) {
+      // Fail silently — never break page rendering
     }
-
-    popup.querySelector('.wl-close').addEventListener('click', function() { dismiss(false); });
-    popup.querySelector('.wl-cta').addEventListener('click', function() { dismiss(true); });
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') dismiss(false);
-    }, { once: true });
-
-    setTimeout(function() { popup.classList.add('wl-visible'); }, 3500);
   }
 
   // --- Init ---
