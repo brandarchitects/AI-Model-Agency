@@ -5,70 +5,30 @@
 (function () {
   'use strict';
 
-  // --- Language Auto-Detection (runs before anything else) ---
-  // Detects browser language and redirects on first visit.
-  // Respects user choice (stored in localStorage) after explicit switching.
-  (function autoLang() {
-    try {
-      var saved = localStorage.getItem('visari_lang');
-      var path = window.location.pathname;
-      var isEN = path.indexOf('/en/') === 0 || path === '/en';
-      var isES = path.indexOf('/es/') === 0 || path === '/es';
-      var currentLang = isEN ? 'en' : (isES ? 'es' : 'de');
+  // --- Language Dropdown ---
+  function initLangDropdown() {
+    document.querySelectorAll('.lang-dropdown').forEach(function (dd) {
+      var toggle = dd.querySelector('.lang-toggle');
+      if (!toggle) return;
 
-      // If user has a saved preference, honour it only on root (/)
-      if (saved && saved !== currentLang) {
-        // Redirect to saved language version
-        var rawFile = path.split('/').pop();
-        var filename = (rawFile && rawFile !== 'en' && rawFile !== 'es') ? rawFile : 'index.html';
-        if (saved === 'de' && (isEN || isES)) {
-          window.location.replace('/' + filename);
-          return;
-        } else if (saved === 'en' && !isEN) {
-          window.location.replace('/en/' + filename);
-          return;
-        } else if (saved === 'es' && !isES) {
-          window.location.replace('/es/' + filename);
-          return;
-        }
-      }
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = dd.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
 
-      // First visit: auto-detect from browser (only on DE root)
-      if (!saved && currentLang === 'de') {
-        var lang = (navigator.language || navigator.userLanguage || 'de').toLowerCase();
-        var rawFile2 = path.split('/').pop();
-        var filename2 = (rawFile2 && rawFile2 !== 'en' && rawFile2 !== 'es') ? rawFile2 : 'index.html';
-        if (lang.indexOf('es') === 0) {
-          localStorage.setItem('visari_lang', 'es');
-          window.location.replace('/es/' + filename2);
-          return;
-        } else if (lang.indexOf('de') !== 0 && lang.indexOf('fr') !== 0 && lang.indexOf('it') !== 0) {
-          // Non-DACH, non-ES → English
-          localStorage.setItem('visari_lang', 'en');
-          window.location.replace('/en/' + filename2);
-          return;
-        }
-        // DE/FR/IT → stay on German
-        localStorage.setItem('visari_lang', 'de');
-      }
+      dd.querySelectorAll('.lang-menu a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          dd.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    });
 
-      // Store current language if on a language-specific URL without saved pref
-      if (!saved) {
-        localStorage.setItem('visari_lang', currentLang);
-      }
-    } catch (e) {
-      // Fail silently if localStorage unavailable
-    }
-  })();
-
-  // --- Language Switcher: save choice on click ---
-  function initLangSwitcher() {
-    document.querySelectorAll('.lang-switcher a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        var lang = this.getAttribute('data-lang');
-        if (lang) {
-          try { localStorage.setItem('visari_lang', lang); } catch (e) {}
-        }
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.lang-dropdown.open').forEach(function (dd) {
+        dd.classList.remove('open');
+        dd.querySelector('.lang-toggle').setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -126,9 +86,9 @@
     menu.className = 'mobile-menu';
     menu.setAttribute('id', 'mobile-menu');
 
-    // Clone links into the overlay
-    var allLinks = navLinks.querySelectorAll('a');
-    allLinks.forEach(function (a) {
+    // Clone nav links into overlay (skip lang-dropdown)
+    var allLinks = navLinks.querySelectorAll(':scope > a, :scope > .nav-link');
+    navLinks.querySelectorAll('.nav-link, .btn').forEach(function (a) {
       var clone = document.createElement('a');
       clone.href = a.href;
       clone.textContent = a.textContent;
@@ -137,6 +97,21 @@
       }
       menu.appendChild(clone);
     });
+
+    // Add language links at bottom of mobile menu
+    var langMenu = navLinks.querySelector('.lang-menu');
+    if (langMenu) {
+      var langSection = document.createElement('div');
+      langSection.className = 'mobile-menu-lang';
+      langMenu.querySelectorAll('a').forEach(function (a) {
+        var lnk = document.createElement('a');
+        lnk.href = a.href;
+        lnk.textContent = a.textContent;
+        if (a.classList.contains('active')) lnk.classList.add('active');
+        langSection.appendChild(lnk);
+      });
+      menu.appendChild(langSection);
+    }
 
     document.body.appendChild(menu);
 
@@ -270,6 +245,6 @@
     initSlideshow();
     initImageBreakSlideshow();
     initSmoothScroll();
-    initLangSwitcher();
+    initLangDropdown();
   });
 })();

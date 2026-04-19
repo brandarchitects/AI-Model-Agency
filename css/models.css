@@ -58,6 +58,29 @@ body {
   color: var(--text-primary);
 }
 
+.nav.scrolled .lang-toggle {
+  color: var(--text-primary);
+  border-color: rgba(0,0,0,0.15);
+}
+
+.nav.scrolled .lang-toggle:hover,
+.nav.scrolled .lang-dropdown.open .lang-toggle {
+  border-color: rgba(0,0,0,0.3);
+}
+
+.nav.scrolled .lang-menu {
+  background: #fff;
+  border-color: rgba(0,0,0,0.08);
+}
+
+.nav.scrolled .lang-menu a {
+  color: var(--text-primary);
+}
+
+.nav.scrolled .lang-menu a:hover {
+  background: rgba(0,0,0,0.04);
+}
+
 .nav-logo, .nav-link {
   color: #F0F0F5;
 }
