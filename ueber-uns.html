@@ -73,7 +73,7 @@
     /* --- Trust Cards --- */
     .about-trust-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: var(--space-lg);
     }
     .about-trust-card {
@@ -107,6 +107,7 @@
     .trust-gold h3,
     .trust-gold p { color: #fff; }
     .trust-blue { background: #2a2a8a; }
+    .trust-slate { background: #1e3a3a; }
 
     /* --- About Grid --- */
     .about-grid {
@@ -125,24 +126,6 @@
       color: var(--accent);
       text-decoration: underline;
       text-underline-offset: 3px;
-    }
-    .about-values {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-md);
-    }
-    .about-value {
-      padding: var(--space-lg) 0;
-      border-top: 1px solid var(--border);
-    }
-    .about-value h3 {
-      font-size: 1.125rem;
-      margin-bottom: var(--space-xs);
-    }
-    .about-value p {
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
     }
     .about-origin {
       padding: var(--space-xl) var(--space-lg);
@@ -184,7 +167,6 @@
       .about-team-card img { aspect-ratio: 1 / 1; }
       .about-trust-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
-      .about-values { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -241,32 +223,6 @@
     </div>
   </section>
 
-  <!-- ====== Trust / Social Proof ====== -->
-  <section class="section">
-    <div class="container">
-      <p class="section-label reveal">Warum uns vertrauen</p>
-      <h2 class="text-display-md section-title reveal">Bewährt. Nicht improvisiert.</h2>
-
-      <div class="about-trust-grid">
-        <div class="about-trust-card trust-dark reveal reveal-delay-1">
-          <svg viewBox="0 0 48 48"><path d="M24 44c11 0 20-9 20-20S35 4 24 4 4 13 4 24s9 20 20 20z"/><path d="M16 24l6 6 12-12"/></svg>
-          <h3>9 von 10 empfehlen uns weiter</h3>
-          <p>Zufriedene Kunden bei Brand Architects sind unser bestes Argument. Über 90% unserer Auftraggeber arbeiten wiederholt mit uns — und tun es gern.</p>
-        </div>
-        <div class="about-trust-card trust-gold reveal reveal-delay-2">
-          <svg viewBox="0 0 48 48"><path d="M24 4v8m0 24v8M4 24h8m24 0h8M9.9 9.9l5.6 5.6m17 17l5.6 5.6M38.1 9.9l-5.6 5.6m-17 17l-5.6 5.6"/></svg>
-          <h3>20+ Jahre Erfahrung</h3>
-          <p>Über zwei Jahrzehnte im Branding-Business. Unser Netzwerk vereint mehr als 100 Jahre gebündelte Expertise — für Marken, die Bestand haben.</p>
-        </div>
-        <div class="about-trust-card trust-blue reveal reveal-delay-3">
-          <svg viewBox="0 0 48 48"><path d="M24 4l4 8 9 1-6.5 6.3L32 28l-8-4.2L16 28l1.5-8.7L11 13l9-1z"/><path d="M12 34l-4 10 8-3 8 3 8-3 8 3-4-10"/></svg>
-          <h3>100% ohne Overhead</h3>
-          <p>Keine teuren Bürotürme. Keine aufgeblähten Strukturen. Jeder Franken fliesst direkt in Ihr Projekt. Effizient, transparent, ergebnisorientiert.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ====== About Content ====== -->
   <section class="section">
     <div class="container">
@@ -292,24 +248,23 @@
   <!-- ====== Netzwerk & Werte ====== -->
   <section class="section">
     <div class="container">
-      <p class="section-label reveal">Unser Netzwerk</p>
       <h2 class="text-display-md section-title reveal">Handverlesene Expert:innen aus führenden Agenturen.</h2>
       <p class="section-intro reveal">Strateg:innen, Designer:innen und Marketingprofis, die wissen, wie man Marken zum Leben erweckt und zum Erfolg führt.</p>
 
-      <div class="about-values">
-        <div class="about-value reveal reveal-delay-1">
+      <div class="about-trust-grid">
+        <div class="about-trust-card trust-dark reveal reveal-delay-1">
           <h3>Boutique-Qualität</h3>
           <p>Persönliche Betreuung, kurze Wege, direkter Zugang zu den Entscheidungsträgern. Kein Overhead, kein Agentur-Apparat.</p>
         </div>
-        <div class="about-value reveal reveal-delay-2">
+        <div class="about-trust-card trust-gold reveal reveal-delay-2">
           <h3>Enterprise-Expertise</h3>
           <p>Unser Netzwerk vereint Erfahrung aus Grossprojekten für führende Schweizer und internationale Marken.</p>
         </div>
-        <div class="about-value reveal reveal-delay-3">
+        <div class="about-trust-card trust-blue reveal reveal-delay-3">
           <h3>Agilität eines Start-ups</h3>
           <p>Schnelle Entscheidungen, schnelle Umsetzung. Wir kombinieren Start-up-Mentalität mit der Präzision erfahrener Profis.</p>
         </div>
-        <div class="about-value reveal reveal-delay-4">
+        <div class="about-trust-card trust-slate reveal reveal-delay-4">
           <h3>Schweizer Präzision</h3>
           <p>Rechtssicherheit, Qualitätsanspruch und Zuverlässigkeit: Werte, die unsere Arbeit und unsere Kundenbeziehungen prägen.</p>
         </div>
