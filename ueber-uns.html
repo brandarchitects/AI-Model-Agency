@@ -136,20 +136,26 @@
     .about-cta-section {
       padding: var(--space-2xl) 0 var(--space-3xl);
     }
-    .about-cta-section h2 {
-      margin-bottom: var(--space-md);
+    .about-cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
     }
-    .about-cta-section p {
+    .about-cta-box h2 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-sm);
+    }
+    .about-cta-box p {
       color: var(--text-secondary);
       font-size: 0.9375rem;
       line-height: 1.8;
-      max-width: 520px;
       margin-bottom: var(--space-lg);
     }
     @media (max-width: 900px) {
       .about-team-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
       .about-team-card img { aspect-ratio: 1 / 1; }
       .about-values { grid-template-columns: 1fr; }
+      .about-cta-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -177,7 +183,7 @@
     <div class="container">
       <p class="text-eyebrow" style="color: var(--text-secondary); margin-bottom: var(--space-md);">Über Visari</p>
       <h1 class="text-display-lg">Die Menschen hinter Visari.</h1>
-      <p class="about-hero-sub">Visari ist kein anonymes Start-up. Hinter jedem Model, jedem Vertrag und jeder Kampagne steht ein erfahrenes Team mit Wurzeln im Schweizer Branding — seit über 20 Jahren.</p>
+      <p class="about-hero-sub">Visari ist kein anonymes Projekt. Hinter jedem Model, jedem Vertrag und jeder Kampagne steht ein erfahrenes Team mit Wurzeln im Schweizer Branding — seit über 20 Jahren.</p>
     </div>
   </section>
 
@@ -216,6 +222,7 @@
           <p>Wir sind <a href="https://www.brandarchitects.ch" target="_blank" rel="noopener">Brand Architects</a>, eine etablierte Branding-Boutique aus Zürich. Als fokussiertes Netzwerk aus erfahrenen Spezialist:innen entwickeln wir seit über 20 Jahren Marken, die auffallen und verkaufen.</p>
           <p>In unserer täglichen Arbeit mit Marken und Kampagnen haben wir ein klares Bedürfnis erkannt: Professionelle, konsistente Bilder basierend auf echten Menschen — flexibel, schnell und rechtssicher. Daraus ist Visari entstanden.</p>
           <p>Als AI-Model-Agentur verbinden wir unser Branding-Know-how mit modernster Bildgenerierung. Das Ergebnis: Ein kuratierter Pool aus synthetischen und lizenzierten Models, der die Lücke zwischen Stock-Fotografie und klassischen Agenturen schliesst.</p>
+          <p>Im Visari-Tagesgeschäft sind Simone, Enrique und Pascal die festen Ansprechpartner:innen. Für grössere Kampagnen kommt das Brand-Architects-Netzwerk dazu — Spezialist:innen für Strategie, Design und Produktion, die wir projektweise einbinden.</p>
         </div>
         <div>
           <div class="about-origin">
@@ -259,9 +266,18 @@
   <!-- ====== CTA ====== -->
   <section id="kontakt" class="about-cta-section">
     <div class="container">
-      <h2 class="text-display-md reveal">Lassen Sie uns sprechen.</h2>
-      <p class="reveal">Ob AI-Models für Ihre nächste Kampagne oder eine Frage zu unserem Angebot: Wir freuen uns auf Ihre Nachricht.</p>
-      <a href="mailto:info@visari.ch" class="btn btn-primary btn-arrow reveal">Kontakt aufnehmen</a>
+      <div class="about-cta-grid">
+        <div class="about-cta-box reveal">
+          <h2>Lassen Sie uns sprechen.</h2>
+          <p>Ob AI-Models für Ihre nächste Kampagne oder eine Frage zu unserem Angebot: Wir freuen uns auf Ihre Nachricht.</p>
+          <a href="mailto:info@visari.ch" class="btn btn-primary btn-arrow">Kontakt aufnehmen</a>
+        </div>
+        <div class="about-cta-box reveal reveal-delay-2">
+          <h2>Sie interessieren sich für eine Aufnahme in unseren Model-Pool?</h2>
+          <p>Erfahren Sie mehr über den Prozess, Ihre Rechte und was Sie als Model bei Visari erwartet.</p>
+          <a href="models.html" class="btn btn-secondary">Zur Models-Seite</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -294,7 +310,7 @@
           </div>
         </div>
       </div>
-      <p class="footer-legal">Alle KI-generierten Bilder basieren auf lizenzierten Erscheinungsbildern. &copy; 2025 Visari, Zürich. Rechtssicher nach Schweizer Recht.<br>Visari ist ein Angebot der <a href="https://www.brandarchitects.ch" target="_blank" rel="noopener" style="text-decoration: underline;">Brand Architects GmbH</a>.</p>
+      <p class="footer-legal">Alle KI-generierten Bilder basieren auf lizenzierten Erscheinungsbildern. &copy; 2026 Visari, Zürich. Rechtssicher nach Schweizer Recht.<br>Visari ist ein Angebot der <a href="https://www.brandarchitects.ch" target="_blank" rel="noopener" style="text-decoration: underline;">Brand Architects GmbH</a>.</p>
     </div>
   </footer>
 
