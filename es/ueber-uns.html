@@ -15,24 +15,149 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/client.css">
   <style>
-    .about-hero { padding: 10rem 0 var(--space-2xl); }
-    .about-hero h1 { max-width: 16ch; margin-bottom: var(--space-md); }
-    .about-hero-sub { color: var(--text-secondary); font-size: 1.0625rem; line-height: 1.8; max-width: 580px; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: start; }
-    .about-text p { color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.85; margin-bottom: var(--space-md); }
-    .about-text a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-    .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
-    .about-value { padding: var(--space-lg) 0; border-top: 1px solid var(--border); }
-    .about-value h3 { font-size: 1.125rem; margin-bottom: var(--space-xs); }
-    .about-value p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.8; }
-    .about-origin { padding: var(--space-xl) var(--space-lg); border: 1px solid var(--border); margin-top: var(--space-xl); }
-    .about-origin-label { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--space-sm); }
-    .about-origin h3 { font-size: 1.375rem; margin-bottom: var(--space-sm); }
-    .about-origin p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.8; }
-    .about-cta-section { padding: var(--space-2xl) 0 var(--space-3xl); }
-    .about-cta-section h2 { margin-bottom: var(--space-md); }
-    .about-cta-section p { color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.8; max-width: 520px; margin-bottom: var(--space-lg); }
-    @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } .about-values { grid-template-columns: 1fr; } }
+    .section {
+      padding: var(--space-2xl) 0;
+    }
+    .about-hero {
+      padding: 8rem 0 var(--space-lg);
+    }
+    .about-hero h1 {
+      max-width: 18ch;
+      margin-bottom: var(--space-sm);
+    }
+    .about-hero-sub {
+      color: var(--text-secondary);
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      max-width: 580px;
+    }
+
+    /* --- Team --- */
+    .about-team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+    .about-team-card {
+      text-align: left;
+    }
+    .about-team-card img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-md);
+      filter: grayscale(20%);
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
+    .about-team-card:hover img {
+      filter: grayscale(0%);
+      transform: scale(1.02);
+    }
+    .about-team-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      margin-bottom: 0.25rem;
+    }
+    .about-team-role {
+      color: var(--accent);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-sm);
+    }
+    .about-team-card > p:last-child {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.75;
+    }
+
+    /* --- Value Cards --- */
+    .about-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+    .about-value {
+      padding: var(--space-lg) 0;
+      border-top: 1px solid var(--border);
+    }
+    .about-value h3 {
+      font-size: 1.125rem;
+      margin-bottom: var(--space-xs);
+    }
+    .about-value p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* --- About Grid --- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      line-height: 1.85;
+      margin-bottom: var(--space-md);
+    }
+    .about-text a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .about-origin {
+      padding: var(--space-xl) var(--space-lg);
+      border: 1px solid var(--border);
+      margin-top: var(--space-xl);
+    }
+    .about-origin-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+    .about-origin h3 {
+      font-size: 1.375rem;
+      margin-bottom: var(--space-sm);
+    }
+    .about-origin p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .about-cta-section {
+      padding: var(--space-2xl) 0 var(--space-3xl);
+    }
+    .about-cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+    .about-cta-box h2 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-sm);
+    }
+    .about-cta-box p {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      margin-bottom: var(--space-lg);
+    }
+    @media (max-width: 900px) {
+      .about-team-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .about-team-card img { aspect-ratio: 1 / 1; }
+      .about-values { grid-template-columns: 1fr; }
+      .about-cta-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -57,8 +182,34 @@
   <section class="about-hero">
     <div class="container">
       <p class="text-eyebrow" style="color: var(--text-secondary); margin-bottom: var(--space-md);">Sobre Visari</p>
-      <h1 class="text-display-lg">Las personas detrás de los models.</h1>
-      <p class="about-hero-sub">Visari es un servicio de Brand Architects Design GmbH, su boutique de branding para Suiza. Combinamos el pensamiento estratégico de marca con la tecnología de IA más avanzada.</p>
+      <h1 class="text-display-lg">Las personas detrás de Visari.</h1>
+      <p class="about-hero-sub">Visari no es un proyecto anónimo. Detrás de cada model, cada contrato y cada campaña hay un equipo experimentado con raíces en el branding suizo — desde hace más de 20 años.</p>
+    </div>
+  </section>
+
+  <!-- ====== Team ====== -->
+  <section class="section" style="padding-top: var(--space-lg);">
+    <div class="container">
+      <div class="about-team-grid">
+        <div class="about-team-card reveal reveal-delay-1">
+          <img src="../images/Mitarbeiter_Pascal.jpg" alt="Pascal Frey — Estrategia y consultoría" loading="lazy">
+          <h3>Pascal Frey</h3>
+          <p class="about-team-role">Estrategia &amp; Consultoría</p>
+          <p>Cofundador de Brand Architects Design GmbH, la sociedad matriz de Visari. Más de 20 años de experiencia en marca suiza. Aporta experiencia estratégica y conceptual al equipo Visari.</p>
+        </div>
+        <div class="about-team-card reveal reveal-delay-2">
+          <img src="../images/Mitarbeiter_Simone.jpg" alt="Simone Frey — Directrices éticas y consultoría" loading="lazy">
+          <h3>Simone Frey</h3>
+          <p class="about-team-role">Directrices éticas &amp; Consultoría</p>
+          <p>Diseñadora y pedagoga. Responsable de las directrices éticas de Visari — desde la protección de los derechos de personalidad hasta la decisión de qué encargos aceptamos. Aporta una perspectiva que va más allá de lo puramente comercial.</p>
+        </div>
+        <div class="about-team-card reveal reveal-delay-3">
+          <img src="../images/Mitarbeiter_Enrique.jpg" alt="Enrique — Dirección artística y consultoría al cliente" loading="lazy">
+          <h3>Enrique</h3>
+          <p class="about-team-role">Dirección artística &amp; Consultoría al cliente</p>
+          <p>Director artístico enfocado en comunicación visual, consultoría al cliente y crecimiento. Responsable de la ejecución creativa de las campañas y acompaña a los clientes desde la primera consulta hasta la imagen final.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -68,15 +219,16 @@
       <div class="about-grid">
         <div class="about-text">
           <p class="section-label" style="margin-bottom: var(--space-md);">Quiénes somos</p>
-          <p>Somos <a href="https://www.brandarchitects.ch" target="_blank" rel="noopener">Brand Architects</a>, su boutique de branding para Suiza. Como red especializada de expertos con amplia experiencia, desarrollamos marcas que destacan y venden. De forma eficiente, mesurada y 100% creativa.</p>
-          <p>En nuestro trabajo diario con marcas y campañas, identificamos una necesidad clara: imágenes profesionales y coherentes basadas en personas — flexibles, rápidas y jurídicamente seguras. De esa necesidad nació Visari.</p>
+          <p>Somos <a href="https://www.brandarchitects.ch" target="_blank" rel="noopener">Brand Architects</a>, una boutique de branding establecida en Zúrich. Como red especializada de expertos experimentados, desarrollamos marcas que destacan y venden desde hace más de 20 años.</p>
+          <p>En nuestro trabajo diario con marcas y campañas, identificamos una necesidad clara: imágenes profesionales y coherentes basadas en personas reales — flexibles, rápidas y jurídicamente seguras. De esa necesidad nació Visari.</p>
           <p>Como agencia de AI Models, combinamos nuestro conocimiento en branding con la generación de imágenes más avanzada. El resultado: un pool curado de models sintéticos y con licencia que cierra la brecha entre la fotografía de stock y las agencias tradicionales.</p>
+          <p>En el día a día de Visari, Simone, Enrique y Pascal son los contactos fijos. Para campañas más grandes se suma la red de Brand Architects — especialistas en estrategia, diseño y producción que incorporamos por proyecto.</p>
         </div>
         <div>
           <div class="about-origin">
             <p class="about-origin-label">Un servicio de</p>
             <h3>Brand Architects Design GmbH</h3>
-            <p>Boutique de branding para Suiza. Estrategia, diseño y comunicación desde una red especializada de expertos experimentados.</p>
+            <p>Boutique de branding establecida para Suiza. Estrategia, diseño y comunicación — desde 2004, desde Zúrich, para marcas exigentes.</p>
             <p style="margin-top: var(--space-sm);"><a href="https://www.brandarchitects.ch" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">www.brandarchitects.ch</a></p>
           </div>
         </div>
@@ -87,7 +239,6 @@
   <!-- ====== Red y valores ====== -->
   <section class="section">
     <div class="container">
-      <p class="section-label reveal">Nuestra red</p>
       <h2 class="text-display-md section-title reveal">Expertos seleccionados de las principales agencias.</h2>
       <p class="section-intro reveal">Estrategas, diseñadores y profesionales del marketing que saben cómo dar vida a las marcas y llevarlas al éxito.</p>
 
@@ -115,9 +266,18 @@
   <!-- ====== CTA ====== -->
   <section id="kontakt" class="about-cta-section">
     <div class="container">
-      <h2 class="text-display-md reveal">Hablemos.</h2>
-      <p class="reveal">Tanto si busca AI Models para su próxima campaña como si tiene alguna pregunta sobre nuestros servicios: estaremos encantados de recibir su mensaje.</p>
-      <a href="mailto:info@visari.ch" class="btn btn-primary btn-arrow reveal">Ponerse en contacto</a>
+      <div class="about-cta-grid">
+        <div class="about-cta-box reveal">
+          <h2>Hablemos.</h2>
+          <p>Tanto si busca AI Models para su próxima campaña como si tiene alguna pregunta sobre nuestros servicios: estaremos encantados de recibir su mensaje.</p>
+          <a href="mailto:info@visari.ch" class="btn btn-primary btn-arrow">Ponerse en contacto</a>
+        </div>
+        <div class="about-cta-box reveal reveal-delay-2">
+          <h2>¿Le interesa unirse a nuestro pool de models?</h2>
+          <p>Descubra más sobre el proceso, sus derechos y qué le espera como model en Visari.</p>
+          <a href="models.html" class="btn btn-secondary">Ir a la página de models</a>
+        </div>
+      </div>
     </div>
   </section>
 
