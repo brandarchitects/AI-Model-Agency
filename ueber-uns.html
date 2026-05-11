@@ -70,44 +70,25 @@
       line-height: 1.75;
     }
 
-    /* --- Trust Cards --- */
-    .about-trust-grid {
+    /* --- Value Cards --- */
+    .about-values {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-lg);
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
     }
-    .about-trust-card {
-      padding: var(--space-xl) var(--space-lg);
-      border-radius: var(--radius-md);
+    .about-value {
+      padding: var(--space-lg) 0;
+      border-top: 1px solid var(--border);
     }
-    .about-trust-card svg {
-      width: 48px;
-      height: 48px;
-      margin-bottom: var(--space-md);
-      stroke: rgba(255,255,255,0.9);
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .about-value h3 {
+      font-size: 1.125rem;
+      margin-bottom: var(--space-xs);
     }
-    .about-trust-card h3 {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      color: #fff;
-      margin-bottom: var(--space-sm);
-      line-height: 1.15;
+    .about-value p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
     }
-    .about-trust-card p {
-      font-size: 0.9375rem;
-      color: rgba(255,255,255,0.8);
-      line-height: 1.7;
-    }
-    .trust-dark { background: #3a3a3a; }
-    .trust-gold { background: var(--accent); }
-    .trust-gold h3,
-    .trust-gold p { color: #fff; }
-    .trust-blue { background: #2a2a8a; }
-    .trust-slate { background: #1e3a3a; }
 
     /* --- About Grid --- */
     .about-grid {
@@ -165,7 +146,7 @@
     @media (max-width: 900px) {
       .about-team-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
       .about-team-card img { aspect-ratio: 1 / 1; }
-      .about-trust-grid { grid-template-columns: 1fr; }
+      .about-values { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -251,20 +232,20 @@
       <h2 class="text-display-md section-title reveal">Handverlesene Expert:innen aus führenden Agenturen.</h2>
       <p class="section-intro reveal">Strateg:innen, Designer:innen und Marketingprofis, die wissen, wie man Marken zum Leben erweckt und zum Erfolg führt.</p>
 
-      <div class="about-trust-grid">
-        <div class="about-trust-card trust-dark reveal reveal-delay-1">
+      <div class="about-values">
+        <div class="about-value reveal reveal-delay-1">
           <h3>Boutique-Qualität</h3>
           <p>Persönliche Betreuung, kurze Wege, direkter Zugang zu den Entscheidungsträgern. Kein Overhead, kein Agentur-Apparat.</p>
         </div>
-        <div class="about-trust-card trust-gold reveal reveal-delay-2">
+        <div class="about-value reveal reveal-delay-2">
           <h3>Enterprise-Expertise</h3>
           <p>Unser Netzwerk vereint Erfahrung aus Grossprojekten für führende Schweizer und internationale Marken.</p>
         </div>
-        <div class="about-trust-card trust-blue reveal reveal-delay-3">
+        <div class="about-value reveal reveal-delay-3">
           <h3>Agilität eines Start-ups</h3>
           <p>Schnelle Entscheidungen, schnelle Umsetzung. Wir kombinieren Start-up-Mentalität mit der Präzision erfahrener Profis.</p>
         </div>
-        <div class="about-trust-card trust-slate reveal reveal-delay-4">
+        <div class="about-value reveal reveal-delay-4">
           <h3>Schweizer Präzision</h3>
           <p>Rechtssicherheit, Qualitätsanspruch und Zuverlässigkeit: Werte, die unsere Arbeit und unsere Kundenbeziehungen prägen.</p>
         </div>
