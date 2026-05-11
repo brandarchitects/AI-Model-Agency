@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="css/client.css">
   <style>
     .about-hero {
-      padding: 10rem 0 var(--space-2xl);
+      padding: 8rem 0 var(--space-lg);
     }
     .about-hero h1 {
       max-width: 18ch;
-      margin-bottom: var(--space-md);
+      margin-bottom: var(--space-sm);
     }
     .about-hero-sub {
       color: var(--text-secondary);
@@ -30,28 +30,26 @@
     }
 
     /* --- Team --- */
-    .about-team-intro {
-      color: var(--text-secondary);
-      font-size: 0.9375rem;
-      line-height: 1.8;
-      max-width: 600px;
-      margin-bottom: var(--space-xl);
-    }
     .about-team-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-lg);
     }
     .about-team-card {
-      text-align: center;
+      text-align: left;
     }
     .about-team-card img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
+      width: 100%;
+      aspect-ratio: 3 / 4;
       object-fit: cover;
+      border-radius: var(--radius-sm);
       margin-bottom: var(--space-md);
-      border: 2px solid var(--border-strong);
+      filter: grayscale(20%);
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
+    .about-team-card:hover img {
+      filter: grayscale(0%);
+      transform: scale(1.02);
     }
     .about-team-card h3 {
       font-family: var(--font-display);
@@ -182,7 +180,8 @@
       margin-bottom: var(--space-lg);
     }
     @media (max-width: 900px) {
-      .about-team-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+      .about-team-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .about-team-card img { aspect-ratio: 1 / 1; }
       .about-trust-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
       .about-values { grid-template-columns: 1fr; }
@@ -217,12 +216,8 @@
   </section>
 
   <!-- ====== Team ====== -->
-  <section class="section">
+  <section class="section" style="padding-top: var(--space-xl);">
     <div class="container">
-      <p class="section-label reveal">Unser Team</p>
-      <h2 class="text-display-md section-title reveal">Echte Menschen. Echte Verantwortung.</h2>
-      <p class="about-team-intro reveal">Jede Entscheidung bei Visari wird persönlich getroffen — von einem Team, das Sie kennenlernen können. Kein Callcenter, kein anonymer Support.</p>
-
       <div class="about-team-grid">
         <div class="about-team-card reveal reveal-delay-1">
           <img src="images/Mitarbeiter_Pascal.jpg" alt="Pascal Frey — Gründer Visari" loading="lazy">
