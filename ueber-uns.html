@@ -19,7 +19,7 @@
       padding: 10rem 0 var(--space-2xl);
     }
     .about-hero h1 {
-      max-width: 16ch;
+      max-width: 18ch;
       margin-bottom: var(--space-md);
     }
     .about-hero-sub {
@@ -28,6 +28,89 @@
       line-height: 1.8;
       max-width: 580px;
     }
+
+    /* --- Team --- */
+    .about-team-intro {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      max-width: 600px;
+      margin-bottom: var(--space-xl);
+    }
+    .about-team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+    .about-team-card {
+      text-align: center;
+    }
+    .about-team-card img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: var(--space-md);
+      border: 2px solid var(--border-strong);
+    }
+    .about-team-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      margin-bottom: 0.25rem;
+    }
+    .about-team-role {
+      color: var(--accent);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-sm);
+    }
+    .about-team-card > p:last-child {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.75;
+    }
+
+    /* --- Trust Cards --- */
+    .about-trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+    .about-trust-card {
+      padding: var(--space-xl) var(--space-lg);
+      border-radius: var(--radius-md);
+    }
+    .about-trust-card svg {
+      width: 48px;
+      height: 48px;
+      margin-bottom: var(--space-md);
+      stroke: rgba(255,255,255,0.9);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .about-trust-card h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: var(--space-sm);
+      line-height: 1.15;
+    }
+    .about-trust-card p {
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+    .trust-dark { background: #3a3a3a; }
+    .trust-gold { background: var(--accent); }
+    .trust-gold h3,
+    .trust-gold p { color: #fff; }
+    .trust-blue { background: #2a2a8a; }
+
+    /* --- About Grid --- */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -99,6 +182,8 @@
       margin-bottom: var(--space-lg);
     }
     @media (max-width: 900px) {
+      .about-team-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+      .about-trust-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
       .about-values { grid-template-columns: 1fr; }
     }
@@ -126,8 +211,64 @@
   <section class="about-hero">
     <div class="container">
       <p class="text-eyebrow" style="color: var(--text-secondary); margin-bottom: var(--space-md);">Über Visari</p>
-      <h1 class="text-display-lg">Die Menschen hinter den Models.</h1>
-      <p class="about-hero-sub">Visari ist ein Angebot der Brand Architects Design GmbH, Ihrer Branding-Boutique für die Schweiz. Wir verbinden strategisches Markendenken mit modernster KI-Technologie.</p>
+      <h1 class="text-display-lg">Die Menschen hinter Visari.</h1>
+      <p class="about-hero-sub">Visari ist kein anonymes Start-up. Hinter jedem Model, jedem Vertrag und jeder Kampagne steht ein erfahrenes Team mit Wurzeln im Schweizer Branding — seit über 20 Jahren.</p>
+    </div>
+  </section>
+
+  <!-- ====== Team ====== -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label reveal">Unser Team</p>
+      <h2 class="text-display-md section-title reveal">Echte Menschen. Echte Verantwortung.</h2>
+      <p class="about-team-intro reveal">Jede Entscheidung bei Visari wird persönlich getroffen — von einem Team, das Sie kennenlernen können. Kein Callcenter, kein anonymer Support.</p>
+
+      <div class="about-team-grid">
+        <div class="about-team-card reveal reveal-delay-1">
+          <img src="images/Mitarbeiter_Pascal.jpg" alt="Pascal Frey — Gründer Visari" loading="lazy">
+          <h3>Pascal Frey</h3>
+          <p class="about-team-role">Gründer &amp; Geschäftsleitung</p>
+          <p>Erfahrener Markenberater und Designer mit über 20 Jahren in der Branche. Gründer der Brand Architects Design GmbH und Kopf hinter der Idee von Visari.</p>
+        </div>
+        <div class="about-team-card reveal reveal-delay-2">
+          <img src="images/Mitarbeiter_Simone.jpg" alt="Simone Frey — Ethik & Design" loading="lazy">
+          <h3>Simone Frey</h3>
+          <p class="about-team-role">Design &amp; Ethik-Beratung</p>
+          <p>Erfahrene Designerin und Pädagogin mit Bachelor of Arts in Primary Education. Verantwortlich für ethische Leitlinien und den respektvollen Umgang mit Persönlichkeitsrechten.</p>
+        </div>
+        <div class="about-team-card reveal reveal-delay-3">
+          <img src="images/Mitarbeiter_Enrique.jpg" alt="Enrique — Art Direction & Marketing" loading="lazy">
+          <h3>Enrique</h3>
+          <p class="about-team-role">Art Direction &amp; Marketing</p>
+          <p>Art Director mit Fokus auf Marketing, Social Media und visuelle Kommunikation. Verantwortlich für die kreative Umsetzung und Kundenberatung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Trust / Social Proof ====== -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label reveal">Warum uns vertrauen</p>
+      <h2 class="text-display-md section-title reveal">Bewährt. Nicht improvisiert.</h2>
+
+      <div class="about-trust-grid">
+        <div class="about-trust-card trust-dark reveal reveal-delay-1">
+          <svg viewBox="0 0 48 48"><path d="M24 44c11 0 20-9 20-20S35 4 24 4 4 13 4 24s9 20 20 20z"/><path d="M16 24l6 6 12-12"/></svg>
+          <h3>9 von 10 empfehlen uns weiter</h3>
+          <p>Zufriedene Kunden bei Brand Architects sind unser bestes Argument. Über 90% unserer Auftraggeber arbeiten wiederholt mit uns — und tun es gern.</p>
+        </div>
+        <div class="about-trust-card trust-gold reveal reveal-delay-2">
+          <svg viewBox="0 0 48 48"><path d="M24 4v8m0 24v8M4 24h8m24 0h8M9.9 9.9l5.6 5.6m17 17l5.6 5.6M38.1 9.9l-5.6 5.6m-17 17l-5.6 5.6"/></svg>
+          <h3>20+ Jahre Erfahrung</h3>
+          <p>Über zwei Jahrzehnte im Branding-Business. Unser Netzwerk vereint mehr als 100 Jahre gebündelte Expertise — für Marken, die Bestand haben.</p>
+        </div>
+        <div class="about-trust-card trust-blue reveal reveal-delay-3">
+          <svg viewBox="0 0 48 48"><path d="M24 4l4 8 9 1-6.5 6.3L32 28l-8-4.2L16 28l1.5-8.7L11 13l9-1z"/><path d="M12 34l-4 10 8-3 8 3 8-3 8 3-4-10"/></svg>
+          <h3>100% ohne Overhead</h3>
+          <p>Keine teuren Bürotürme. Keine aufgeblähten Strukturen. Jeder Franken fliesst direkt in Ihr Projekt. Effizient, transparent, ergebnisorientiert.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -137,15 +278,15 @@
       <div class="about-grid">
         <div class="about-text">
           <p class="section-label" style="margin-bottom: var(--space-md);">Wer wir sind</p>
-          <p>Wir sind <a href="https://www.brandarchitects.ch" target="_blank" rel="noopener">Brand Architects</a>, Ihre Branding-Boutique für die Schweiz. Als fokussiertes Netzwerk aus erfahrenen Spezialist:innen entwickeln wir Marken, die auffallen und verkaufen. Effizient, massvoll und 100% kreativ.</p>
-          <p>In unserer täglichen Arbeit mit Marken und Kampagnen haben wir ein klares Bedürfnis erkannt: Professionelle, konsistente Bilder basierend auf Menschen, flexibel, schnell und rechtssicher. Daraus ist Visari entstanden.</p>
+          <p>Wir sind <a href="https://www.brandarchitects.ch" target="_blank" rel="noopener">Brand Architects</a>, eine etablierte Branding-Boutique aus Zürich. Als fokussiertes Netzwerk aus erfahrenen Spezialist:innen entwickeln wir seit über 20 Jahren Marken, die auffallen und verkaufen.</p>
+          <p>In unserer täglichen Arbeit mit Marken und Kampagnen haben wir ein klares Bedürfnis erkannt: Professionelle, konsistente Bilder basierend auf echten Menschen — flexibel, schnell und rechtssicher. Daraus ist Visari entstanden.</p>
           <p>Als AI-Model-Agentur verbinden wir unser Branding-Know-how mit modernster Bildgenerierung. Das Ergebnis: Ein kuratierter Pool aus synthetischen und lizenzierten Models, der die Lücke zwischen Stock-Fotografie und klassischen Agenturen schliesst.</p>
         </div>
         <div>
           <div class="about-origin">
             <p class="about-origin-label">Ein Angebot der</p>
             <h3>Brand Architects Design GmbH</h3>
-            <p>Branding-Boutique für die Schweiz. Strategie, Design und Kommunikation aus einem fokussierten Netzwerk erfahrener Spezialist:innen.</p>
+            <p>Etablierte Branding-Boutique für die Schweiz. Strategie, Design und Kommunikation — seit 2004, aus Zürich, für anspruchsvolle Marken.</p>
             <p style="margin-top: var(--space-sm);"><a href="https://www.brandarchitects.ch" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">www.brandarchitects.ch</a></p>
           </div>
         </div>
