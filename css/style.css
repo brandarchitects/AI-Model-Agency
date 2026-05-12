@@ -364,6 +364,20 @@ body, p, span, a, li, input, textarea, button {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  animation: logo-entrance 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+@keyframes logo-entrance {
+  0% {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(-4px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
 }
 
 .nav-logo img {
