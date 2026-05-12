@@ -5,6 +5,9 @@
 (function () {
   'use strict';
 
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+
   // --- Language Dropdown ---
   function initLangDropdown() {
     document.querySelectorAll('.lang-dropdown').forEach(function (dd) {
