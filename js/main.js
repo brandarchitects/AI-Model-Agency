@@ -88,6 +88,14 @@
     menu.className = 'mobile-menu';
     menu.setAttribute('id', 'mobile-menu');
 
+    var isModelsPage = !!document.querySelector('link[href*="models.css"]');
+    var switcher = document.createElement('div');
+    switcher.className = 'mobile-menu-switcher';
+    switcher.innerHTML =
+      '<a href="' + (isModelsPage ? 'index.html' : 'index.html') + '" class="mobile-switcher-btn' + (!isModelsPage ? ' active' : '') + '">Für Kunden</a>' +
+      '<a href="' + (isModelsPage ? 'models.html' : 'models.html') + '" class="mobile-switcher-btn' + (isModelsPage ? ' active' : '') + '">Für Models</a>';
+    menu.appendChild(switcher);
+
     navLinks.querySelectorAll('.nav-link, .btn').forEach(function (a) {
       var clone = document.createElement('a');
       clone.href = a.href;
