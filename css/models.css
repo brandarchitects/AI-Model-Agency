@@ -616,17 +616,22 @@ body {
   line-height: 1.75;
 }
 
-/* Desktop: Rechte accordion always open, looks like cards */
+/* Desktop: Rechte accordion always open, looks like original cards */
 .safety-item.faq-item .faq-answer {
   max-height: 300px;
   padding-bottom: var(--space-sm);
 }
 .safety-item .faq-question {
   cursor: default;
-  padding: 0 0 var(--space-xs);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: 1.125rem;
 }
 .safety-item .faq-icon { display: none; }
-.safety-item .safety-badge { margin-right: var(--space-sm); }
+.safety-item .safety-badge { margin-right: 0; margin-bottom: 0; }
 
 @media (max-width: 900px) {
   .safety-grid {
