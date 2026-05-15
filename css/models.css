@@ -23,6 +23,10 @@ body {
   color: var(--text-primary);
 }
 
+.section {
+  padding: var(--space-2xl) 0;
+}
+
 /* --- Nav (transparent, light bg on scroll after hero) --- */
 .nav.scrolled {
   background: rgba(255, 255, 255, 0.92);
