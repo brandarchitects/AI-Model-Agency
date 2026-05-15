@@ -614,9 +614,9 @@ body, p, span, a, li, input, textarea, button {
 .mobile-switcher-btn {
   flex: 1;
   text-align: center;
-  padding: 0.4rem 0.75rem;
+  padding: 0.4rem 0.5rem;
   font-family: var(--font-body);
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   color: rgba(255,255,255,0.4);
@@ -624,6 +624,9 @@ body, p, span, a, li, input, textarea, button {
   border-radius: 100px;
   text-decoration: none;
   transition: all 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .mobile-switcher-btn.active {
