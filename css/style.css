@@ -891,20 +891,44 @@ body, p, span, a, li, input, textarea, button {
 
 .wl-close {
   position: absolute;
-  top: 0.75rem;
-  right: 0.875rem;
-  background: none;
+  top: 0.625rem;
+  right: 0.75rem;
+  background: rgba(255,255,255,0.1);
   border: none;
   cursor: pointer;
-  color: currentColor;
-  opacity: 0.3;
-  font-size: 1.25rem;
+  color: #fff;
+  opacity: 0.7;
+  font-size: 1.125rem;
   line-height: 1;
-  padding: 0.2rem 0.35rem;
-  transition: opacity 0.15s ease;
+  padding: 0.25rem 0.4rem;
+  border-radius: 50%;
+  transition: opacity 0.15s ease, background 0.15s ease;
 }
 
-.wl-close:hover { opacity: 0.7; }
+.wl-close:hover { opacity: 1; background: rgba(255,255,255,0.2); }
+
+/* --- Collapsed state --- */
+.wl-popup.wl-collapsed .wl-body,
+.wl-popup.wl-collapsed .wl-perks,
+.wl-popup.wl-collapsed .wl-privacy {
+  display: none;
+}
+
+.wl-popup.wl-collapsed {
+  width: 260px;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+}
+
+.wl-popup.wl-collapsed .wl-headline {
+  font-size: 0.9375rem;
+  margin-bottom: 0.5rem;
+}
+
+.wl-popup.wl-collapsed .wl-cta {
+  font-size: 0.6875rem;
+  padding: 0.5rem 0.75rem;
+}
 
 .wl-eyebrow {
   font-family: var(--font-body);

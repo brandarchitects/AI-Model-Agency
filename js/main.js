@@ -317,7 +317,10 @@
         setTimeout(function () { if (popup.parentNode) { popup.parentNode.removeChild(popup); } }, 500);
       }
 
-      popup.querySelector('.wl-close').addEventListener('click', dismiss);
+      popup.querySelector('.wl-close').addEventListener('click', function (e) {
+        e.stopPropagation();
+        dismiss();
+      });
 
       document.addEventListener('keydown', function onEsc(e) {
         if (e.key === 'Escape') {
@@ -326,7 +329,34 @@
         }
       });
 
-      setTimeout(function () { popup.classList.add('wl-visible'); }, 3500);
+      function collapse() {
+        if (!popup.classList.contains('wl-collapsed')) {
+          popup.classList.add('wl-collapsed');
+        }
+      }
+
+      function expand() {
+        popup.classList.remove('wl-collapsed');
+      }
+
+      popup.addEventListener('click', function () {
+        if (popup.classList.contains('wl-collapsed')) { expand(); }
+      });
+
+      var collapseTimer;
+      setTimeout(function () {
+        popup.classList.add('wl-visible');
+        collapseTimer = setTimeout(collapse, 8000);
+      }, 3500);
+
+      var scrolled = false;
+      window.addEventListener('scroll', function onScroll() {
+        if (!scrolled && popup.classList.contains('wl-visible') && !popup.classList.contains('wl-collapsed')) {
+          scrolled = true;
+          clearTimeout(collapseTimer);
+          setTimeout(collapse, 2000);
+        }
+      }, { passive: true });
 
     } catch (e) {
       // Fail silently — never break page rendering
