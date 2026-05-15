@@ -96,7 +96,7 @@
       '<a href="' + (isModelsPage ? 'models.html' : 'models.html') + '" class="mobile-switcher-btn' + (isModelsPage ? ' active' : '') + '">Models</a>';
     menu.appendChild(switcher);
 
-    navLinks.querySelectorAll('.nav-link, .btn').forEach(function (a) {
+    navLinks.querySelectorAll('.nav-link, .nav-back, .btn').forEach(function (a) {
       var clone = document.createElement('a');
       clone.href = a.href;
       clone.textContent = a.textContent;
