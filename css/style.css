@@ -875,7 +875,7 @@ body, p, span, a, li, input, textarea, button {
   box-shadow: 0 32px 64px rgba(0,0,0,0.45), 0 8px 24px rgba(0,0,0,0.25);
   transform: translateY(calc(100% + 2.5rem));
   opacity: 0;
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, width 0.4s ease, padding 0.4s ease;
   pointer-events: none;
 }
 
@@ -908,10 +908,20 @@ body, p, span, a, li, input, textarea, button {
 .wl-close:hover { opacity: 1; background: rgba(255,255,255,0.2); }
 
 /* --- Collapsed state --- */
+.wl-popup .wl-body,
+.wl-popup .wl-perks,
+.wl-popup .wl-privacy {
+  max-height: 200px;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.4s ease;
+}
+
 .wl-popup.wl-collapsed .wl-body,
 .wl-popup.wl-collapsed .wl-perks,
 .wl-popup.wl-collapsed .wl-privacy {
-  display: none;
+  max-height: 0;
+  opacity: 0;
+  margin: 0;
 }
 
 .wl-popup.wl-collapsed {
@@ -920,14 +930,29 @@ body, p, span, a, li, input, textarea, button {
   cursor: pointer;
 }
 
+.wl-popup .wl-headline {
+  transition: font-size 0.3s ease, margin 0.3s ease;
+}
+
 .wl-popup.wl-collapsed .wl-headline {
   font-size: 0.9375rem;
   margin-bottom: 0.5rem;
 }
 
+.wl-popup .wl-cta {
+  transition: font-size 0.3s ease, padding 0.3s ease;
+}
+
 .wl-popup.wl-collapsed .wl-cta {
   font-size: 0.6875rem;
   padding: 0.5rem 0.75rem;
+}
+
+/* --- Hidden at footer --- */
+.wl-popup.wl-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(1rem);
 }
 
 .wl-eyebrow {

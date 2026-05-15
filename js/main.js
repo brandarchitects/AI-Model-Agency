@@ -350,11 +350,24 @@
       }, 3500);
 
       var scrolled = false;
-      window.addEventListener('scroll', function onScroll() {
-        if (!scrolled && popup.classList.contains('wl-visible') && !popup.classList.contains('wl-collapsed')) {
+      var footer = document.querySelector('.footer');
+
+      window.addEventListener('scroll', function () {
+        if (!popup.classList.contains('wl-visible')) return;
+
+        if (!scrolled && !popup.classList.contains('wl-collapsed')) {
           scrolled = true;
           clearTimeout(collapseTimer);
           setTimeout(collapse, 2000);
+        }
+
+        if (footer) {
+          var footerTop = footer.getBoundingClientRect().top;
+          if (footerTop < window.innerHeight) {
+            popup.classList.add('wl-hidden');
+          } else {
+            popup.classList.remove('wl-hidden');
+          }
         }
       }, { passive: true });
 
