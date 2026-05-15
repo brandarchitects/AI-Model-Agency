@@ -77,6 +77,24 @@ body {
   border-color: rgba(0,0,0,0.08);
 }
 
+.lang-menu {
+  background: rgba(20, 20, 28, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.lang-menu a {
+  color: rgba(240,240,245,0.8);
+}
+
+.lang-menu a:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.lang-menu a.active {
+  color: #fff;
+}
+
 .nav.scrolled .lang-menu a {
   color: var(--text-primary);
 }
