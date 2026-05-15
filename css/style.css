@@ -611,7 +611,7 @@ body, p, span, a, li, input, textarea, button {
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.mobile-switcher-btn {
+.mobile-menu .mobile-switcher-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -621,21 +621,23 @@ body, p, span, a, li, input, textarea, button {
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.02em;
+  line-height: 1;
   color: rgba(255,255,255,0.4);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 100px;
   text-decoration: none;
   transition: all 0.2s ease;
   white-space: nowrap;
+  opacity: 1;
 }
 
-.mobile-switcher-btn.active {
+.mobile-menu .mobile-switcher-btn.active {
   background: rgba(255,255,255,0.12);
   color: rgba(255,255,255,0.85);
   border-color: rgba(255,255,255,0.2);
 }
 
-.mobile-switcher-btn:not(.active):hover {
+.mobile-menu .mobile-switcher-btn:not(.active):hover {
   color: rgba(255,255,255,0.6);
   border-color: rgba(255,255,255,0.2);
 }
