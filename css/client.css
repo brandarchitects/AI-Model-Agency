@@ -771,3 +771,163 @@ body {
   .hero-badge-blue .hero-badge-line { font-size: 0.5625rem; }
   .hero-badge-blue .hero-badge-highlight { font-size: 0.6875rem; }
 }
+
+/* ============================================
+   Mobile Refactor (≤ 768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* --- Tighter section spacing --- */
+  .section {
+    padding: var(--space-xl) 0;
+  }
+
+  /* --- Im Vergleich: Snap-Carousel --- */
+  .problem-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    margin: 0 calc(var(--container-padding) * -1);
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+  .problem-grid::-webkit-scrollbar { display: none; }
+  .problem-grid { scrollbar-width: none; }
+  .problem-card {
+    min-width: 80vw;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  /* --- Model-Pool: Horizontal Snap-Galerie --- */
+  .gallery-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    margin: 0 calc(var(--container-padding) * -1);
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    min-height: auto;
+  }
+  .gallery-grid::-webkit-scrollbar { display: none; }
+  .gallery-grid { scrollbar-width: none; }
+  .gallery-tile {
+    min-width: 70vw;
+    min-height: 280px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+  .gallery-tile:first-child {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 280px;
+  }
+
+  /* --- Prozess: Timeline --- */
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-left: 2rem;
+    position: relative;
+  }
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    left: 0.6875rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .process-step {
+    display: block;
+    gap: 0;
+    padding: 0 0 var(--space-lg) 0;
+    position: relative;
+  }
+  .process-step:last-child {
+    padding-bottom: 0;
+  }
+  .process-step .step-number {
+    position: absolute;
+    left: -2rem;
+    top: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.6875rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  .process-step h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  .process-step p {
+    font-size: 0.8125rem;
+  }
+
+  /* --- Warum Visari: 2×2 Grid --- */
+  .trust-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+  .trust-item {
+    padding: var(--space-md);
+  }
+  .trust-item h3 {
+    font-size: 0.9375rem;
+    margin-bottom: 0.25rem;
+  }
+  .trust-item p {
+    font-size: 0.8125rem;
+  }
+
+  /* --- Für wen: Snap-Carousel --- */
+  .audience-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    margin: 0 calc(var(--container-padding) * -1);
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+  .audience-grid::-webkit-scrollbar { display: none; }
+  .audience-grid { scrollbar-width: none; }
+  .audience-card {
+    min-width: 80vw;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  /* --- Branded Model: 2×2 Grid --- */
+  .section .process-layout .trust-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+
+  /* --- Image breaks: compact --- */
+  .image-break {
+    height: 30vh;
+    min-height: 200px;
+  }
+
+  /* --- Ticker: moderate speed --- */
+  .ticker {
+    animation-duration: 30s;
+  }
+}
