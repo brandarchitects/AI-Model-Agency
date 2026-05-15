@@ -616,6 +616,18 @@ body {
   line-height: 1.75;
 }
 
+/* Desktop: Rechte accordion always open, looks like cards */
+.safety-item.faq-item .faq-answer {
+  max-height: 300px;
+  padding-bottom: var(--space-sm);
+}
+.safety-item .faq-question {
+  cursor: default;
+  padding: 0 0 var(--space-xs);
+}
+.safety-item .faq-icon { display: none; }
+.safety-item .safety-badge { margin-right: var(--space-sm); }
+
 @media (max-width: 900px) {
   .safety-grid {
     grid-template-columns: 1fr;
@@ -1025,5 +1037,143 @@ body {
 
   .serioes-item:first-child {
     border-top: none;
+  }
+}
+
+/* ============================================
+   Mobile Refactor (≤ 768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* --- Tighter section spacing --- */
+  .section {
+    padding: var(--space-xl) 0;
+  }
+
+  /* --- Earnings: Bento (hero card + 2 compact) --- */
+  .earnings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+  .earnings-card:first-child {
+    grid-column: 1 / -1;
+    border-left: 3px solid var(--accent);
+  }
+  .earnings-card {
+    padding: var(--space-md);
+  }
+  .earnings-card h3 {
+    font-size: 1rem;
+  }
+  .earnings-card p {
+    font-size: 0.8125rem;
+  }
+
+  /* --- Process: Timeline --- */
+  .models-process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-left: 2rem;
+    position: relative;
+  }
+  .models-process-steps::before {
+    content: '';
+    position: absolute;
+    left: 0.6875rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .models-step {
+    border: none;
+    padding: 0 0 var(--space-lg) 0;
+    position: relative;
+  }
+  .models-step:last-child {
+    padding-bottom: 0;
+  }
+  .step-number {
+    position: absolute;
+    left: calc(-2rem);
+    top: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.75rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  .models-step h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  .models-step p {
+    font-size: 0.8125rem;
+  }
+
+  /* --- Rechte: Accordion on mobile --- */
+  .safety-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .safety-item {
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .safety-item .faq-question {
+    cursor: pointer;
+    padding: var(--space-md) 0;
+    font-size: 0.9375rem;
+  }
+  .safety-item .faq-icon {
+    display: block;
+  }
+  .safety-item.faq-item .faq-answer {
+    max-height: 0;
+    padding-bottom: 0;
+  }
+  .safety-item.faq-item.open .faq-answer {
+    max-height: 300px;
+    padding-bottom: var(--space-md);
+  }
+  .safety-badge {
+    font-size: 0.5625rem;
+    padding: 0.2rem 0.5rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* --- Wen wir suchen: 2×2 grid --- */
+  .seeking-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+  .seeking-item {
+    padding: var(--space-md);
+  }
+  .seeking-item h3 {
+    font-size: 0.9375rem;
+    margin-bottom: 0.25rem;
+  }
+  .seeking-item p {
+    font-size: 0.8125rem;
+  }
+
+  /* --- Image breaks: compact --- */
+  .image-break {
+    height: 30vh;
+    min-height: 200px;
   }
 }
