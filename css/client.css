@@ -762,11 +762,12 @@ body {
 
 @media (max-width: 900px) {
   .hero-badge-blue {
-    width: 130px;
-    height: 130px;
-    top: 6rem;
+    width: 100px;
+    height: 100px;
+    top: 5rem;
     right: 1rem;
+    padding: 0.625rem;
   }
-  .hero-badge-blue .hero-badge-line { font-size: 0.6875rem; }
-  .hero-badge-blue .hero-badge-highlight { font-size: 0.8125rem; }
+  .hero-badge-blue .hero-badge-line { font-size: 0.5625rem; }
+  .hero-badge-blue .hero-badge-highlight { font-size: 0.6875rem; }
 }
