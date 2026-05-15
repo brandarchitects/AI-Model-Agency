@@ -671,12 +671,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: var(--space-lg);
-  padding: 1.25rem 1.5rem;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg) var(--space-lg);
   border: 1px solid var(--accent);
-  background: rgba(178, 145, 70, 0.03);
+  background: rgba(178, 145, 70, 0.05);
   text-decoration: none;
   transition: background 0.2s;
+  border-radius: var(--radius-sm);
 }
 
 .earnings-cta:hover {
@@ -691,7 +693,7 @@ body {
 
 .earnings-cta-amount {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--accent);
 }
@@ -709,8 +711,8 @@ body {
 }
 
 .earnings-cta-text {
-  font-size: 0.8125rem;
-  font-weight: 500;
+  font-size: 0.9375rem;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
