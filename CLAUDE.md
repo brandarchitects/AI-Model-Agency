@@ -126,3 +126,13 @@ DE/EN/ES: [what was changed in all three]
 
 - **General:** info@visari.ch
 - **Parent company:** https://www.brandarchitects.ch
+
+## SEO Conventions
+
+- Canonical URL format: WITHOUT `.html` extension (Vercel cleanUrls)
+  Pattern: `https://www.visari.ch/<page>` (DE) / `https://www.visari.ch/en/<page>` (EN) / `https://www.visari.ch/es/<page>` (ES)
+- Hreflang: same pattern, no `.html`
+- og:url: same pattern, no `.html`
+- Internal navigation links: omit `.html` (Vercel resolves them)
+- JSON-LD schemas embedded in `<head>` of each page; FAQPage where visible Q&A exists on page; Organization+WebSite+Service on homepage; BreadcrumbList on all subpages; HowTo on process pages
+- Sitemap.xml lastmod must be updated on every content change
