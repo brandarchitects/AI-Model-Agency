@@ -74,6 +74,30 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- ========== AI Bildstock Schweiz ========== -->
+  <url>
+    <loc>https://www.visari.ch/ai-bildstock-schweiz</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.visari.ch/ai-bildstock-schweiz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.visari.ch/en/ai-bildstock-schweiz"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.visari.ch/es/ai-bildstock-schweiz"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.visari.ch/ai-bildstock-schweiz"/>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/en/ai-bildstock-schweiz</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/es/ai-bildstock-schweiz</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- ========== AI Model werden Schweiz ========== -->
   <url>
     <loc>https://www.visari.ch/ai-model-werden-schweiz</loc>
