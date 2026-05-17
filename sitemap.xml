@@ -218,4 +218,28 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- ========== Model werden Schweiz ========== -->
+  <url>
+    <loc>https://www.visari.ch/model-werden-schweiz</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.visari.ch/model-werden-schweiz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.visari.ch/en/model-werden-schweiz"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.visari.ch/es/model-werden-schweiz"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.visari.ch/model-werden-schweiz"/>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/en/model-werden-schweiz</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.visari.ch/es/model-werden-schweiz</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
