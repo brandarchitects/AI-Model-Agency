@@ -272,27 +272,27 @@
           de: {
             eyebrow: 'Wir suchen AI Models',
             headline: 'Ihr Gesicht. Passive Einnahmen. Ohne Aufwand.',
-            body: 'Tragen Sie sich auf die Warteliste ein — wir melden uns, sobald die Bewerbungsphase startet.',
+            body: 'Melden Sie sich unverbindlich an und werden Sie in den Visari Model-Pool aufgenommen.',
             perks: ['CHF 225–3\'250 pro Kampagne', 'Einmalig 30 Min. Aufwand von zuhause', 'Volle Kontrolle — Sie entscheiden immer'],
-            cta: 'Jetzt unverbindlich auf Warteliste →',
+            cta: 'Jetzt unverbindlich anmelden →',
             link: APPLY_URL,
             privacy: 'Kein Spam. Jederzeit abmeldbar.'
           },
           en: {
             eyebrow: 'We\'re looking for AI Models',
             headline: 'Your face. Passive income. Zero effort.',
-            body: 'Join the waitlist and we\'ll get in touch as soon as applications open.',
+            body: 'Sign up with no commitment and get accepted into the Visari Model Pool.',
             perks: ['CHF 225–3\'250 per campaign', 'One-time 30 min. from home', 'Full control — you always decide'],
-            cta: 'Join the waitlist now →',
+            cta: 'Sign up now →',
             link: APPLY_URL,
             privacy: 'No spam. Unsubscribe anytime.'
           },
           es: {
             eyebrow: 'Buscamos AI Models',
             headline: 'Su imagen. Ingresos pasivos. Sin esfuerzo.',
-            body: 'Apúntese a la lista de espera y le avisaremos en cuanto se abran las solicitudes.',
+            body: 'Inscríbase sin compromiso y entre en el Visari Model Pool.',
             perks: ['CHF 225–3\'250 por campaña', '30 min. desde casa, solo una vez', 'Control total — usted siempre decide'],
-            cta: 'Unirse a la lista de espera →',
+            cta: 'Inscribirse ahora →',
             link: APPLY_URL,
             privacy: 'Sin spam. Cancelable en cualquier momento.'
           }
