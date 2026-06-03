@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Verdienst-Rechner — Visari AI Model Agentur</title>
-  <meta name="description" content="Berechnen Sie Ihr potentielles passives Einkommen als AI-Model bei Visari. Basierend auf Buchungskategorie und Anzahl Kampagnen pro Jahr.">
+  <meta name="description" content="Berechnen Sie Ihr potentielles passives Einkommen als AI-Model bei Visari. Basierend auf Buchungskategorie und Projektgrösse.">
   <link rel="canonical" href="https://www.visari.ch/verdienst-rechner.html">
   <link rel="alternate" hreflang="de" href="https://www.visari.ch/verdienst-rechner.html">
   <link rel="alternate" hreflang="en" href="https://www.visari.ch/en/verdienst-rechner.html">
@@ -449,7 +449,7 @@
     <div class="calc-header">
       <p class="section-label">Verdienst-Rechner</p>
       <h1>Was können Sie potentiell verdienen?</h1>
-      <p class="calc-sub">Wählen Sie eine Beispiel-Kategorie und die angenommene Anzahl Buchungen pro Jahr. Alle Werte sind hypothetische Annahmen — Ihre tatsächliche Gage wird für jeden Auftrag individuell berechnet und vertraglich festgehalten.</p>
+      <p class="calc-sub">Wählen Sie eine Beispiel-Kategorie und die Projektgrösse. Alle Werte sind hypothetische Annahmen — Ihre Gage wird für jeden Auftrag individuell vereinbart und vertraglich festgehalten.</p>
     </div>
 
     <!-- 01 Kategorie -->
@@ -460,7 +460,7 @@
         <div class="calc-check"><div class="calc-check-dot"></div></div>
         <div class="calc-cat-tag">Standard</div>
         <div class="calc-cat-name">Campaign</div>
-        <div class="calc-cat-desc">Mehrere Motive für eine Werbekampagne, zum Beispiel für einen Online-Shop oder einen Newsletter.</div>
+        <div class="calc-cat-desc">Für eine Kampagne oder einen bestimmten Zeitraum für Werbekommunikation.</div>
         <div class="calc-cat-divider"></div>
         <div class="calc-cat-earn-label">Beispiel-Verdienst pro Buchung</div>
         <div class="calc-cat-earn">CHF 550</div>
@@ -468,9 +468,9 @@
 
       <div class="calc-cat" data-price="1050" onclick="selectCat(this)">
         <div class="calc-check"><div class="calc-check-dot"></div></div>
-        <div class="calc-cat-tag">Premium</div>
-        <div class="calc-cat-name">Extended</div>
-        <div class="calc-cat-desc">Umfangreichere Nutzung über verschiedene Kanäle und Formate. Längere Laufzeit, breiterer Einsatz.</div>
+        <div class="calc-cat-tag">Exklusiv</div>
+        <div class="calc-cat-name">Exclusive</div>
+        <div class="calc-cat-desc">Das Model wird exklusiv gebucht — reserviert für eine Marke, ohne parallelen Einsatz.</div>
         <div class="calc-cat-divider"></div>
         <div class="calc-cat-earn-label">Beispiel-Verdienst pro Buchung</div>
         <div class="calc-cat-earn">CHF 1'050</div>
@@ -479,12 +479,12 @@
     </div>
 
     <!-- 02 Slider -->
-    <div class="calc-label">02 · Anzahl Buchungen pro Jahr</div>
+    <div class="calc-label">02 · Projektgrösse</div>
     <div class="calc-slider-card">
       <div class="calc-slider-row">
-        <label>Kampagnen pro Jahr</label>
-        <input type="range" min="1" max="10" value="3" step="1" id="bpy" oninput="calc()">
-        <span class="calc-slider-val" id="bpy-out">3</span>
+        <label>Umfang des Projekts</label>
+        <input type="range" min="1" max="3" value="2" step="1" id="bpy" oninput="calc()">
+        <span class="calc-slider-val" id="bpy-out">mittel</span>
       </div>
     </div>
 
@@ -493,7 +493,7 @@
       <div>
         <div class="calc-result-label">Potentieller Jahresverdienst</div>
         <div class="calc-result-num gold" id="h-yr">CHF 1'650</div>
-        <div class="calc-result-sub" id="h-yr-sub">3 × CHF 550</div>
+        <div class="calc-result-sub" id="h-yr-sub">Projektgrösse: mittel</div>
       </div>
       <div>
         <div class="calc-result-label">Potentiell über 3 Jahre</div>
@@ -534,7 +534,7 @@
 
     <!-- Footnote / Disclaimer -->
     <p class="calc-footnote">
-      <strong>Wichtiger Hinweis:</strong> Alle angezeigten Beträge sind hypothetische Annahmen und stellen keine Garantie dar. Die Kategorien und Verdienste pro Buchung sind Beispielwerte — Ihre tatsächliche Gage wird für jeden Auftrag individuell vereinbart und in einem eigenen Vertrag festgehalten. Die Buchungshäufigkeit hängt von der Nachfrage unserer Kunden und der Eignung Ihres Profils ab. Eine bestimmte Anzahl Buchungen kann nicht zugesichert werden. Alle Verwendungszwecke sind vertraglich festgelegt. Keine Nutzung für politische, pornografische oder diskriminierende Inhalte. Die auf dieser Website aufgeführten Preise und Konditionen können jederzeit und ohne Vorankündigung geändert werden. Wir übernehmen keine Garantie für die Richtigkeit der Webinhalte. Es gelten ausschliesslich die individuellen Vertragsdokumente zwischen Visari und den Models.
+      <strong>Wichtiger Hinweis:</strong> Alle Beträge sind hypothetische Beispielwerte und keine Garantie. Ihre tatsächliche Gage, der Projektumfang und alle Verwendungszwecke werden für jeden Auftrag individuell vereinbart und vertraglich festgehalten. Keine Nutzung für politische, pornografische oder diskriminierende Inhalte. Preise und Konditionen können sich jederzeit ändern — massgeblich sind allein die Vertragsdokumente zwischen Visari und dem Model.
     </p>
 
     <!-- CTA -->
@@ -607,8 +607,9 @@
     }
 
     function calc() {
+      var sizes = {1:'klein',2:'mittel',3:'gross'};
       var bpy = parseInt(document.getElementById('bpy').value);
-      document.getElementById('bpy-out').textContent = bpy;
+      document.getElementById('bpy-out').textContent = sizes[bpy];
 
       var yr  = perBooking * bpy;
       var yr1 = yr;
@@ -618,7 +619,7 @@
       var maxBar = tot;
 
       document.getElementById('h-yr').textContent    = chf(yr);
-      document.getElementById('h-yr-sub').textContent = bpy + '\u00a0\u00d7\u00a0' + chf(perBooking);
+      document.getElementById('h-yr-sub').textContent = 'Projektgrösse: ' + sizes[bpy];
       document.getElementById('h-total').textContent  = chf(tot);
 
       document.getElementById('val1').textContent = chf(yr1);

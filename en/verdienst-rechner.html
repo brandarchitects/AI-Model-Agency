@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Earnings Calculator — Visari AI Model Agency</title>
-  <meta name="description" content="Calculate your potential passive income as an AI Model with Visari. Based on booking category and number of campaigns per year.">
+  <meta name="description" content="Calculate your potential passive income as an AI Model with Visari. Based on booking category and project size.">
   <link rel="canonical" href="https://www.visari.ch/en/verdienst-rechner.html">
   <link rel="alternate" hreflang="de" href="https://www.visari.ch/verdienst-rechner.html">
   <link rel="alternate" hreflang="en" href="https://www.visari.ch/en/verdienst-rechner.html">
@@ -449,7 +449,7 @@
     <div class="calc-header">
       <p class="section-label">Earnings Calculator</p>
       <h1>What could you potentially earn?</h1>
-      <p class="calc-sub">Choose an example category and the assumed number of bookings per year. All figures are hypothetical assumptions — your actual fee is calculated individually for each assignment and set out in a contract.</p>
+      <p class="calc-sub">Choose an example category and the project size. All figures are hypothetical assumptions — your fee is agreed individually for each assignment and set out in a contract.</p>
     </div>
 
     <!-- 01 Kategorie -->
@@ -460,7 +460,7 @@
         <div class="calc-check"><div class="calc-check-dot"></div></div>
         <div class="calc-cat-tag">Standard</div>
         <div class="calc-cat-name">Campaign</div>
-        <div class="calc-cat-desc">Multiple visuals for an advertising campaign, for example for an online shop or a newsletter.</div>
+        <div class="calc-cat-desc">For a campaign or a defined period of advertising communication.</div>
         <div class="calc-cat-divider"></div>
         <div class="calc-cat-earn-label">Example earnings per booking</div>
         <div class="calc-cat-earn">CHF 550</div>
@@ -468,9 +468,9 @@
 
       <div class="calc-cat" data-price="1050" onclick="selectCat(this)">
         <div class="calc-check"><div class="calc-check-dot"></div></div>
-        <div class="calc-cat-tag">Premium</div>
-        <div class="calc-cat-name">Extended</div>
-        <div class="calc-cat-desc">More extensive use across different channels and formats. Longer term, broader deployment.</div>
+        <div class="calc-cat-tag">Exclusive</div>
+        <div class="calc-cat-name">Exclusive</div>
+        <div class="calc-cat-desc">The model is booked exclusively — reserved for one brand, with no parallel use.</div>
         <div class="calc-cat-divider"></div>
         <div class="calc-cat-earn-label">Example earnings per booking</div>
         <div class="calc-cat-earn">CHF 1'050</div>
@@ -479,12 +479,12 @@
     </div>
 
     <!-- 02 Slider -->
-    <div class="calc-label">02 · Number of bookings per year</div>
+    <div class="calc-label">02 · Project size</div>
     <div class="calc-slider-card">
       <div class="calc-slider-row">
-        <label>Campaigns per year</label>
-        <input type="range" min="1" max="10" value="3" step="1" id="bpy" oninput="calc()">
-        <span class="calc-slider-val" id="bpy-out">3</span>
+        <label>Project scope</label>
+        <input type="range" min="1" max="3" value="2" step="1" id="bpy" oninput="calc()">
+        <span class="calc-slider-val" id="bpy-out">medium</span>
       </div>
     </div>
 
@@ -493,7 +493,7 @@
       <div>
         <div class="calc-result-label">Potential annual earnings</div>
         <div class="calc-result-num gold" id="h-yr">CHF 1'650</div>
-        <div class="calc-result-sub" id="h-yr-sub">3 × CHF 550</div>
+        <div class="calc-result-sub" id="h-yr-sub">Project size: medium</div>
       </div>
       <div>
         <div class="calc-result-label">Potential over 3 years</div>
@@ -534,7 +534,7 @@
 
     <!-- Footnote / Disclaimer -->
     <p class="calc-footnote">
-      <strong>Important note:</strong> All amounts shown are hypothetical assumptions and do not constitute a guarantee. The categories and earnings per booking are example values — your actual fee is agreed individually for each assignment and set out in a separate contract. The frequency of bookings depends on client demand and the suitability of your profile. A specific number of bookings cannot be promised. All purposes of use are contractually defined. No use for political, pornographic or discriminatory content. Prices and terms listed on this website may be changed at any time and without prior notice. We do not guarantee the accuracy of the web content. Only the individual contract documents between Visari and the models apply.
+      <strong>Important note:</strong> All amounts are hypothetical example values and no guarantee. Your actual fee, the project scope and all purposes of use are agreed individually for each assignment and set out in a contract. No use for political, pornographic or discriminatory content. Prices and terms may change at any time — only the contract documents between Visari and the model apply.
     </p>
 
     <!-- CTA -->
@@ -607,8 +607,9 @@
     }
 
     function calc() {
+      var sizes = {1:'small',2:'medium',3:'large'};
       var bpy = parseInt(document.getElementById('bpy').value);
-      document.getElementById('bpy-out').textContent = bpy;
+      document.getElementById('bpy-out').textContent = sizes[bpy];
 
       var yr  = perBooking * bpy;
       var yr1 = yr;
@@ -618,7 +619,7 @@
       var maxBar = tot;
 
       document.getElementById('h-yr').textContent    = chf(yr);
-      document.getElementById('h-yr-sub').textContent = bpy + '\u00a0\u00d7\u00a0' + chf(perBooking);
+      document.getElementById('h-yr-sub').textContent = 'Project size: ' + sizes[bpy];
       document.getElementById('h-total').textContent  = chf(tot);
 
       document.getElementById('val1').textContent = chf(yr1);
