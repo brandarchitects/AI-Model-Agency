@@ -106,7 +106,33 @@
       <p class="text-eyebrow cta-models-eyebrow reveal">Plätze sind limitiert</p>
       <h2 class="text-display-lg reveal">Sichern Sie sich jetzt einen der 12 Plätze.</h2>
       <p class="reveal" style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.8; max-width: 520px; margin-bottom: var(--space-lg);">Tragen Sie sich unverbindlich auf die Warteliste ein. Wir melden uns persönlich mit allen Details zur Aufnahme und zum Aktionsbonus.</p>
-      <a href="https://58057d34.sibforms.com/serve/MUIFAK-l1fUqf-K-DkxEhqG1ot5PfF9kK5Z2731zuylx_W7VDlF_dtpCNVTwFGFsPIfAcAfiiFyZ60p4Fe98j7qdCvEHOYN8ULvgZypfozrPRy8LancAHXSO4dPkMHF_mTBSeB-QJfqwzyHan45pnNoxnGAchUmjHv85cqw8jrbBAui10pRrW-gFzHxrnc9CBHvY8h5fUF1P7JHO0A==" target="_blank" rel="noopener" class="btn btn-primary btn-arrow reveal">Jetzt unverbindlich auf Warteliste</a>
+      <form class="apply-form reveal" action="https://58057d34.sibforms.com/serve/MUIFAK-l1fUqf-K-DkxEhqG1ot5PfF9kK5Z2731zuylx_W7VDlF_dtpCNVTwFGFsPIfAcAfiiFyZ60p4Fe98j7qdCvEHOYN8ULvgZypfozrPRy8LancAHXSO4dPkMHF_mTBSeB-QJfqwzyHan45pnNoxnGAchUmjHv85cqw8jrbBAui10pRrW-gFzHxrnc9CBHvY8h5fUF1P7JHO0A==" method="POST" target="visari-brevo-sink" data-apply-form>
+        <div class="apply-grid">
+          <div class="apply-field">
+            <label for="af-vorname">Vorname</label>
+            <input type="text" id="af-vorname" name="VORNAME" maxlength="200" autocomplete="given-name" placeholder="Vorname" required>
+          </div>
+          <div class="apply-field">
+            <label for="af-nachname">Nachname</label>
+            <input type="text" id="af-nachname" name="NACHNAME" maxlength="200" autocomplete="family-name" placeholder="Nachname" required>
+          </div>
+        </div>
+        <div class="apply-field">
+          <label for="af-email">E-Mail-Adresse</label>
+          <input type="email" id="af-email" name="EMAIL" autocomplete="email" placeholder="ihre@email.ch" required>
+        </div>
+        <label class="apply-check">
+          <input type="checkbox" name="ALTER_18_BESTAETIGT" value="1" required>
+          <span>Ich bin mindestens 18 Jahre alt.</span>
+        </label>
+        <input type="hidden" name="WARTELISTE_OPTIN" value="1">
+        <input type="text" name="email_address_check" value="" class="apply-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="locale" value="de">
+        <button type="submit" class="btn btn-primary btn-arrow">Platz sichern</button>
+        <p class="apply-note">Keine Verpflichtung. Sie erhalten eine Bestätigungs-E-Mail und können sich jederzeit abmelden.</p>
+      </form>
+      <div class="apply-success" hidden role="status">Vielen Dank! Bitte bestätigen Sie noch den Link in der E-Mail, die wir Ihnen soeben geschickt haben.</div>
+      <iframe name="visari-brevo-sink" class="apply-sink" title="Brevo" aria-hidden="true" tabindex="-1"></iframe>
       <p class="reveal" style="font-size: 0.75rem; color: var(--text-secondary); margin-top: var(--space-lg);">Keine Verpflichtung. Bei Fragen: <a href="mailto:info@visari.ch" style="color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">info@visari.ch</a></p>
       <br>
       <a href="models.html" class="cta-back reveal">&larr; Mehr über das Visari Model-Programm</a>

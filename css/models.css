@@ -1195,3 +1195,124 @@ body {
     min-height: 200px;
   }
 }
+
+/* --- Application form (inline Brevo) --- */
+.apply-form {
+  max-width: 480px;
+  margin: 0 0 var(--space-md);
+  text-align: left;
+}
+
+.apply-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.apply-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-sm);
+}
+
+.apply-field label {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.375rem;
+}
+
+.apply-form input[type="text"],
+.apply-form input[type="email"] {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.875rem;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.apply-form input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.apply-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.apply-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin: var(--space-xs) 0 var(--space-md);
+  cursor: pointer;
+}
+
+.apply-check input {
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+}
+
+.apply-form .btn-primary {
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+}
+
+.apply-form .btn-primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.cta-models .apply-note {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.apply-success {
+  max-width: 480px;
+  margin: 0 0 var(--space-md);
+  padding: var(--space-md);
+  background: var(--accent-light);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+/* Honeypot — present for bots, hidden from people */
+.apply-hp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.apply-sink {
+  display: none;
+}
+
+@media (max-width: 540px) {
+  .apply-grid {
+    grid-template-columns: 1fr;
+  }
+}

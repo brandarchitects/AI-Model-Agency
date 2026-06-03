@@ -106,7 +106,33 @@
       <p class="text-eyebrow cta-models-eyebrow reveal">Plazas limitadas</p>
       <h2 class="text-display-lg reveal">Reserve ahora una de las 12 plazas.</h2>
       <p class="reveal" style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.8; max-width: 520px; margin-bottom: var(--space-lg);">Inscríbase en la lista de espera sin compromiso. Le contactaremos personalmente con todos los detalles sobre la aceptación y el bono pionero.</p>
-      <a href="https://58057d34.sibforms.com/serve/MUIFAK-l1fUqf-K-DkxEhqG1ot5PfF9kK5Z2731zuylx_W7VDlF_dtpCNVTwFGFsPIfAcAfiiFyZ60p4Fe98j7qdCvEHOYN8ULvgZypfozrPRy8LancAHXSO4dPkMHF_mTBSeB-QJfqwzyHan45pnNoxnGAchUmjHv85cqw8jrbBAui10pRrW-gFzHxrnc9CBHvY8h5fUF1P7JHO0A==" target="_blank" rel="noopener" class="btn btn-primary btn-arrow reveal">Unirse a la lista de espera</a>
+      <form class="apply-form reveal" action="https://58057d34.sibforms.com/serve/MUIFAK-l1fUqf-K-DkxEhqG1ot5PfF9kK5Z2731zuylx_W7VDlF_dtpCNVTwFGFsPIfAcAfiiFyZ60p4Fe98j7qdCvEHOYN8ULvgZypfozrPRy8LancAHXSO4dPkMHF_mTBSeB-QJfqwzyHan45pnNoxnGAchUmjHv85cqw8jrbBAui10pRrW-gFzHxrnc9CBHvY8h5fUF1P7JHO0A==" method="POST" target="visari-brevo-sink" data-apply-form>
+        <div class="apply-grid">
+          <div class="apply-field">
+            <label for="af-vorname">Nombre</label>
+            <input type="text" id="af-vorname" name="VORNAME" maxlength="200" autocomplete="given-name" placeholder="Nombre" required>
+          </div>
+          <div class="apply-field">
+            <label for="af-nachname">Apellido</label>
+            <input type="text" id="af-nachname" name="NACHNAME" maxlength="200" autocomplete="family-name" placeholder="Apellido" required>
+          </div>
+        </div>
+        <div class="apply-field">
+          <label for="af-email">Correo electrónico</label>
+          <input type="email" id="af-email" name="EMAIL" autocomplete="email" placeholder="tu@email.com" required>
+        </div>
+        <label class="apply-check">
+          <input type="checkbox" name="ALTER_18_BESTAETIGT" value="1" required>
+          <span>Tengo al menos 18 años.</span>
+        </label>
+        <input type="hidden" name="WARTELISTE_OPTIN" value="1">
+        <input type="text" name="email_address_check" value="" class="apply-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="locale" value="es">
+        <button type="submit" class="btn btn-primary btn-arrow">Reservar plaza</button>
+        <p class="apply-note">Sin compromiso. Recibirá un correo de confirmación y puede darse de baja en cualquier momento.</p>
+      </form>
+      <div class="apply-success" hidden role="status">¡Gracias! Por favor confirme el enlace en el correo que le acabamos de enviar.</div>
+      <iframe name="visari-brevo-sink" class="apply-sink" title="Brevo" aria-hidden="true" tabindex="-1"></iframe>
       <p class="reveal" style="font-size: 0.75rem; color: var(--text-secondary); margin-top: var(--space-lg);">Sin compromiso. ¿Preguntas? <a href="mailto:info@visari.ch" style="color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">info@visari.ch</a></p>
       <br>
       <a href="models.html" class="cta-back reveal">&larr; Más sobre el programa de models Visari</a>
