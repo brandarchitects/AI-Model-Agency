@@ -27,7 +27,7 @@
     .calc-badge-prominent strong { font-size: 0.875rem; font-weight: 600; color: var(--text-primary); display: block; margin-bottom: 0.125rem; }
     .calc-badge-prominent span { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.6; }
     .calc-label { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--space-sm); }
-    .calc-cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.625rem; margin-bottom: var(--space-xl); }
+    .calc-cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.625rem; margin-bottom: var(--space-xl); }
     .calc-cat { border: 1.5px solid var(--border); padding: 1.25rem 1rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; position: relative; background: var(--bg-card); user-select: none; }
     .calc-cat:hover { border-color: rgba(0, 0, 0, 0.2); }
     .calc-cat.active { border-color: var(--accent); background: rgba(178, 145, 70, 0.04); }
@@ -109,39 +109,20 @@
     <div class="calc-header">
       <p class="section-label">Calculadora de ingresos</p>
       <h1>¿Cuánto podría ganar?</h1>
-      <p class="calc-sub">Seleccione la categoría de campaña y el número de reservas por año, y vea cuánto podría ganar de forma pasiva.</p>
-    </div>
-
-    <!-- Onboarding badge -->
-    <div class="calc-badge-prominent">
-      <div class="calc-badge-icon">CHF 100</div>
-      <div>
-        <strong>Bono de CHF 100 en su primera reserva</strong><br>
-        <span>Exclusivo: en la primera reserva de un cliente, le pagamos CHF 100 adicionales a su honorario habitual.</span>
-      </div>
+      <p class="calc-sub">Seleccione una categoría de ejemplo y el número estimado de reservas por año. Todos los valores son supuestos hipotéticos — su honorario real se calcula de forma individual para cada encargo y se fija por contrato.</p>
     </div>
 
     <!-- 01 Categoría -->
-    <div class="calc-label">01 · Elegir categoría de reserva</div>
+    <div class="calc-label">01 · Elegir categoría de ejemplo</div>
     <div class="calc-cats" id="cats">
 
-      <div class="calc-cat active" data-price="225" onclick="selectCat(this)">
-        <div class="calc-check"><div class="calc-check-dot"></div></div>
-        <div class="calc-cat-tag">Básico</div>
-        <div class="calc-cat-name">Starter</div>
-        <div class="calc-cat-desc">Pocas imágenes, por ejemplo para una presencia online o redes sociales. Alcance reducido y bien definido.</div>
-        <div class="calc-cat-divider"></div>
-        <div class="calc-cat-earn-label">Sus ingresos potenciales por reserva</div>
-        <div class="calc-cat-earn">CHF 225</div>
-      </div>
-
-      <div class="calc-cat" data-price="550" onclick="selectCat(this)">
+      <div class="calc-cat active" data-price="550" onclick="selectCat(this)">
         <div class="calc-check"><div class="calc-check-dot"></div></div>
         <div class="calc-cat-tag">Estándar</div>
         <div class="calc-cat-name">Campaign</div>
         <div class="calc-cat-desc">Varias imágenes para una campaña publicitaria, por ejemplo para una tienda online o un boletín.</div>
         <div class="calc-cat-divider"></div>
-        <div class="calc-cat-earn-label">Sus ingresos potenciales por reserva</div>
+        <div class="calc-cat-earn-label">Ingresos de ejemplo por reserva</div>
         <div class="calc-cat-earn">CHF 550</div>
       </div>
 
@@ -151,7 +132,7 @@
         <div class="calc-cat-name">Extended</div>
         <div class="calc-cat-desc">Uso más amplio en diferentes canales y formatos. Mayor duración y alcance más extenso.</div>
         <div class="calc-cat-divider"></div>
-        <div class="calc-cat-earn-label">Sus ingresos potenciales por reserva</div>
+        <div class="calc-cat-earn-label">Ingresos de ejemplo por reserva</div>
         <div class="calc-cat-earn">CHF 1'050</div>
       </div>
 
@@ -175,9 +156,9 @@
         <div class="calc-result-sub" id="h-yr-sub">3 × CHF 550</div>
       </div>
       <div>
-        <div class="calc-result-label">Total año 1</div>
-        <div class="calc-result-num" id="h-total">CHF 1'700</div>
-        <div class="calc-result-sub">incl. bono CHF 100</div>
+        <div class="calc-result-label">Potencial en 3 años</div>
+        <div class="calc-result-num" id="h-total">CHF 4'950</div>
+        <div class="calc-result-sub">supuesto acumulado</div>
       </div>
       <div>
         <div class="calc-result-label">Su dedicación de tiempo</div>
@@ -192,7 +173,7 @@
       <div class="calc-yr-row">
         <div class="calc-yr-label">Año 1</div>
         <div class="calc-yr-track"><div class="calc-yr-fill" id="bar1"></div></div>
-        <div class="calc-yr-val" id="val1">CHF 1'700</div>
+        <div class="calc-yr-val" id="val1">CHF 1'650</div>
       </div>
       <div class="calc-yr-row">
         <div class="calc-yr-label">Año 2</div>
@@ -207,13 +188,13 @@
       <div class="calc-yr-row" style="margin-top: 0.375rem; padding-top: 0.875rem; border-top: 1px solid var(--border);">
         <div class="calc-yr-label bold">Total</div>
         <div class="calc-yr-track"><div class="calc-yr-fill dark" id="bar-tot" style="width:100%"></div></div>
-        <div class="calc-yr-val dark" id="val-tot">CHF 5'000</div>
+        <div class="calc-yr-val dark" id="val-tot">CHF 4'950</div>
       </div>
     </div>
 
     <!-- Nota / Descargo de responsabilidad -->
     <p class="calc-footnote">
-      <strong>Aviso importante:</strong> Todos los importes mostrados son ingresos potenciales y no constituyen una garantía. El bono de CHF 100 se aplica una sola vez en la primera reserva del año 1, además del honorario habitual. La frecuencia de reservas depende de la demanda de nuestros clientes y de la idoneidad de su perfil. No se puede garantizar un número determinado de reservas. Todos los usos están definidos contractualmente. Sin uso para contenidos políticos, pornográficos o discriminatorios. Los precios y condiciones indicados en este sitio web pueden modificarse en cualquier momento y sin previo aviso. No asumimos ninguna garantía sobre la exactitud de los contenidos web. Solo son vinculantes los documentos contractuales individuales entre Visari y los models.
+      <strong>Aviso importante:</strong> Todos los importes mostrados son supuestos hipotéticos y no constituyen una garantía. Las categorías y los ingresos por reserva son valores de ejemplo — su honorario real se acuerda de forma individual para cada encargo y se fija en un contrato propio. La frecuencia de reservas depende de la demanda de nuestros clientes y de la idoneidad de su perfil. No se puede garantizar un número determinado de reservas. Todos los usos están definidos contractualmente. Sin uso para contenidos políticos, pornográficos o discriminatorios. Los precios y condiciones indicados en este sitio web pueden modificarse en cualquier momento y sin previo aviso. No asumimos ninguna garantía sobre la exactitud de los contenidos web. Solo son vinculantes los documentos contractuales individuales entre Visari y los models.
     </p>
 
     <!-- CTA -->
@@ -290,7 +271,7 @@
       document.getElementById('bpy-out').textContent = bpy;
 
       var yr  = perBooking * bpy;
-      var yr1 = yr + 100;
+      var yr1 = yr;
       var yr2 = yr;
       var yr3 = yr;
       var tot = yr1 + yr2 + yr3;
@@ -298,7 +279,7 @@
 
       document.getElementById('h-yr').textContent    = chf(yr);
       document.getElementById('h-yr-sub').textContent = bpy + '\u00a0\u00d7\u00a0' + chf(perBooking);
-      document.getElementById('h-total').textContent  = chf(yr1);
+      document.getElementById('h-total').textContent  = chf(tot);
 
       document.getElementById('val1').textContent = chf(yr1);
       document.getElementById('val2').textContent = chf(yr2);
@@ -310,7 +291,7 @@
       document.getElementById('bar3').style.width = Math.round(yr3 / maxBar * 100) + '%';
     }
 
-    perBooking = 225;
+    perBooking = 550;
     calc();
   </script>
 </body>

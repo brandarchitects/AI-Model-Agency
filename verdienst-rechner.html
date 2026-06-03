@@ -93,7 +93,7 @@
     /* Category cards */
     .calc-cats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 0.625rem;
       margin-bottom: var(--space-xl);
     }
@@ -449,39 +449,20 @@
     <div class="calc-header">
       <p class="section-label">Verdienst-Rechner</p>
       <h1>Was können Sie potentiell verdienen?</h1>
-      <p class="calc-sub">Wählen Sie die Kampagnen-Kategorie und die Anzahl Buchungen pro Jahr, und sehen Sie, was Sie potentiell passiv verdienen können.</p>
-    </div>
-
-    <!-- Onboarding badge -->
-    <div class="calc-badge-prominent">
-      <div class="calc-badge-icon">CHF 100</div>
-      <div>
-        <strong>CHF 100 Bonus bei Ihrer ersten Buchung</strong><br>
-        <span>Exklusiv: Bei der ersten Buchung durch einen Kunden zahlen wir CHF 100 zusätzlich zu Ihrer Gage.</span>
-      </div>
+      <p class="calc-sub">Wählen Sie eine Beispiel-Kategorie und die angenommene Anzahl Buchungen pro Jahr. Alle Werte sind hypothetische Annahmen — Ihre tatsächliche Gage wird für jeden Auftrag individuell berechnet und vertraglich festgehalten.</p>
     </div>
 
     <!-- 01 Kategorie -->
-    <div class="calc-label">01 · Buchungskategorie wählen</div>
+    <div class="calc-label">01 · Beispiel-Kategorie wählen</div>
     <div class="calc-cats" id="cats">
 
-      <div class="calc-cat active" data-price="225" onclick="selectCat(this)">
-        <div class="calc-check"><div class="calc-check-dot"></div></div>
-        <div class="calc-cat-tag">Basis</div>
-        <div class="calc-cat-name">Starter</div>
-        <div class="calc-cat-desc">Wenige Bilder, zum Beispiel für einen Onlineauftritt oder Social Media. Überschaubar und klar begrenzt.</div>
-        <div class="calc-cat-divider"></div>
-        <div class="calc-cat-earn-label">Ihr potentieller Verdienst pro Buchung</div>
-        <div class="calc-cat-earn">CHF 225</div>
-      </div>
-
-      <div class="calc-cat" data-price="550" onclick="selectCat(this)">
+      <div class="calc-cat active" data-price="550" onclick="selectCat(this)">
         <div class="calc-check"><div class="calc-check-dot"></div></div>
         <div class="calc-cat-tag">Standard</div>
         <div class="calc-cat-name">Campaign</div>
         <div class="calc-cat-desc">Mehrere Motive für eine Werbekampagne, zum Beispiel für einen Online-Shop oder einen Newsletter.</div>
         <div class="calc-cat-divider"></div>
-        <div class="calc-cat-earn-label">Ihr potentieller Verdienst pro Buchung</div>
+        <div class="calc-cat-earn-label">Beispiel-Verdienst pro Buchung</div>
         <div class="calc-cat-earn">CHF 550</div>
       </div>
 
@@ -491,7 +472,7 @@
         <div class="calc-cat-name">Extended</div>
         <div class="calc-cat-desc">Umfangreichere Nutzung über verschiedene Kanäle und Formate. Längere Laufzeit, breiterer Einsatz.</div>
         <div class="calc-cat-divider"></div>
-        <div class="calc-cat-earn-label">Ihr potentieller Verdienst pro Buchung</div>
+        <div class="calc-cat-earn-label">Beispiel-Verdienst pro Buchung</div>
         <div class="calc-cat-earn">CHF 1'050</div>
       </div>
 
@@ -515,9 +496,9 @@
         <div class="calc-result-sub" id="h-yr-sub">3 × CHF 550</div>
       </div>
       <div>
-        <div class="calc-result-label">Jahr 1 gesamt</div>
-        <div class="calc-result-num" id="h-total">CHF 1'700</div>
-        <div class="calc-result-sub">inkl. CHF 100 Bonus</div>
+        <div class="calc-result-label">Potentiell über 3 Jahre</div>
+        <div class="calc-result-num" id="h-total">CHF 4'950</div>
+        <div class="calc-result-sub">kumulierte Annahme</div>
       </div>
       <div>
         <div class="calc-result-label">Ihr Zeitaufwand</div>
@@ -532,7 +513,7 @@
       <div class="calc-yr-row">
         <div class="calc-yr-label">Jahr 1</div>
         <div class="calc-yr-track"><div class="calc-yr-fill" id="bar1"></div></div>
-        <div class="calc-yr-val" id="val1">CHF 1'700</div>
+        <div class="calc-yr-val" id="val1">CHF 1'650</div>
       </div>
       <div class="calc-yr-row">
         <div class="calc-yr-label">Jahr 2</div>
@@ -547,13 +528,13 @@
       <div class="calc-yr-row" style="margin-top: 0.375rem; padding-top: 0.875rem; border-top: 1px solid var(--border);">
         <div class="calc-yr-label bold">Total</div>
         <div class="calc-yr-track"><div class="calc-yr-fill dark" id="bar-tot" style="width:100%"></div></div>
-        <div class="calc-yr-val dark" id="val-tot">CHF 5'000</div>
+        <div class="calc-yr-val dark" id="val-tot">CHF 4'950</div>
       </div>
     </div>
 
     <!-- Footnote / Disclaimer -->
     <p class="calc-footnote">
-      <strong>Wichtiger Hinweis:</strong> Alle angezeigten Beträge sind potentielle Verdienste und stellen keine Garantie dar. Der CHF 100 Bonus wird einmalig bei der ersten Buchung in Jahr 1 berücksichtigt, zusätzlich zur regulären Gage. Die Buchungshäufigkeit hängt von der Nachfrage unserer Kunden und der Eignung Ihres Profils ab. Eine bestimmte Anzahl Buchungen kann nicht zugesichert werden. Alle Verwendungszwecke sind vertraglich festgelegt. Keine Nutzung für politische, pornografische oder diskriminierende Inhalte. Die auf dieser Website aufgeführten Preise und Konditionen können jederzeit und ohne Vorankündigung geändert werden. Wir übernehmen keine Garantie für die Richtigkeit der Webinhalte. Es gelten ausschliesslich die individuellen Vertragsdokumente zwischen Visari und den Models.
+      <strong>Wichtiger Hinweis:</strong> Alle angezeigten Beträge sind hypothetische Annahmen und stellen keine Garantie dar. Die Kategorien und Verdienste pro Buchung sind Beispielwerte — Ihre tatsächliche Gage wird für jeden Auftrag individuell vereinbart und in einem eigenen Vertrag festgehalten. Die Buchungshäufigkeit hängt von der Nachfrage unserer Kunden und der Eignung Ihres Profils ab. Eine bestimmte Anzahl Buchungen kann nicht zugesichert werden. Alle Verwendungszwecke sind vertraglich festgelegt. Keine Nutzung für politische, pornografische oder diskriminierende Inhalte. Die auf dieser Website aufgeführten Preise und Konditionen können jederzeit und ohne Vorankündigung geändert werden. Wir übernehmen keine Garantie für die Richtigkeit der Webinhalte. Es gelten ausschliesslich die individuellen Vertragsdokumente zwischen Visari und den Models.
     </p>
 
     <!-- CTA -->
@@ -630,7 +611,7 @@
       document.getElementById('bpy-out').textContent = bpy;
 
       var yr  = perBooking * bpy;
-      var yr1 = yr + 100;
+      var yr1 = yr;
       var yr2 = yr;
       var yr3 = yr;
       var tot = yr1 + yr2 + yr3;
@@ -638,7 +619,7 @@
 
       document.getElementById('h-yr').textContent    = chf(yr);
       document.getElementById('h-yr-sub').textContent = bpy + '\u00a0\u00d7\u00a0' + chf(perBooking);
-      document.getElementById('h-total').textContent  = chf(yr1);
+      document.getElementById('h-total').textContent  = chf(tot);
 
       document.getElementById('val1').textContent = chf(yr1);
       document.getElementById('val2').textContent = chf(yr2);
@@ -650,8 +631,8 @@
       document.getElementById('bar3').style.width = Math.round(yr3 / maxBar * 100) + '%';
     }
 
-    // Set initial category to Starter
-    perBooking = 225;
+    // Set initial category to Campaign
+    perBooking = 550;
     calc();
   </script>
 </body>
