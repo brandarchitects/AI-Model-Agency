@@ -90,7 +90,7 @@
       <div class="hero-slide"><img src="../images/03_Model_Frau_16.jpg" alt="Weibliches AI Model — Beispiel Visari Pool, modeln Schweiz" loading="eager"></div>
     </div>
     <div class="hero-overlay"></div>
-    <a href="https://58057d34.sibforms.com/serve/MUIFAK-l1fUqf-K-DkxEhqG1ot5PfF9kK5Z2731zuylx_W7VDlF_dtpCNVTwFGFsPIfAcAfiiFyZ60p4Fe98j7qdCvEHOYN8ULvgZypfozrPRy8LancAHXSO4dPkMHF_mTBSeB-QJfqwzyHan45pnNoxnGAchUmjHv85cqw8jrbBAui10pRrW-gFzHxrnc9CBHvY8h5fUF1P7JHO0A==" target="_blank" rel="noopener" class="hero-badge">
+    <a href="#bewerben" class="hero-badge">
       <span class="hero-badge-line">We're looking for models.</span>
       <span class="hero-badge-line hero-badge-highlight">Starting July 2026.</span>
       <span class="hero-badge-line">Apply now.</span>
@@ -315,10 +315,36 @@
   <!-- ====== CTA / Bewerben ====== -->
   <section id="bewerben" class="section cta-models">
     <div class="container">
-      <p class="text-eyebrow cta-models-eyebrow reveal">Reserve your spot</p>
-      <h2 class="text-display-lg reveal">Applications open soon.</h2>
-      <p class="reveal" style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.8; max-width: 520px; margin-bottom: var(--space-lg);">Our model pool is opening soon. Sign up for the waiting list. We'll let you know as soon as applications go live.</p>
-      <a href="https://58057d34.sibforms.com/serve/MUIFAK-l1fUqf-K-DkxEhqG1ot5PfF9kK5Z2731zuylx_W7VDlF_dtpCNVTwFGFsPIfAcAfiiFyZ60p4Fe98j7qdCvEHOYN8ULvgZypfozrPRy8LancAHXSO4dPkMHF_mTBSeB-QJfqwzyHan45pnNoxnGAchUmjHv85cqw8jrbBAui10pRrW-gFzHxrnc9CBHvY8h5fUF1P7JHO0A==" target="_blank" rel="noopener" class="btn btn-primary btn-arrow reveal">Join the waiting list</a>
+      <p class="text-eyebrow cta-models-eyebrow reveal">Apply — no commitment</p>
+      <h2 class="text-display-lg reveal">Get accepted into the Visari Model Pool.</h2>
+      <p class="reveal" style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.8; max-width: 520px; margin-bottom: var(--space-lg);">Sign up here with no commitment and get accepted into the Visari Model Pool. We'll personally get in touch with the next steps.</p>
+      <form class="apply-form reveal" action="https://58057d34.sibforms.com/serve/MUIFAK-l1fUqf-K-DkxEhqG1ot5PfF9kK5Z2731zuylx_W7VDlF_dtpCNVTwFGFsPIfAcAfiiFyZ60p4Fe98j7qdCvEHOYN8ULvgZypfozrPRy8LancAHXSO4dPkMHF_mTBSeB-QJfqwzyHan45pnNoxnGAchUmjHv85cqw8jrbBAui10pRrW-gFzHxrnc9CBHvY8h5fUF1P7JHO0A==" method="POST" target="visari-brevo-sink" data-apply-form>
+        <div class="apply-grid">
+          <div class="apply-field">
+            <label for="af-vorname">First name</label>
+            <input type="text" id="af-vorname" name="VORNAME" maxlength="200" autocomplete="given-name" placeholder="First name" required>
+          </div>
+          <div class="apply-field">
+            <label for="af-nachname">Last name</label>
+            <input type="text" id="af-nachname" name="NACHNAME" maxlength="200" autocomplete="family-name" placeholder="Last name" required>
+          </div>
+        </div>
+        <div class="apply-field">
+          <label for="af-email">Email address</label>
+          <input type="email" id="af-email" name="EMAIL" autocomplete="email" placeholder="you@email.com" required>
+        </div>
+        <label class="apply-check">
+          <input type="checkbox" name="ALTER_18_BESTAETIGT" value="1" required>
+          <span>I am at least 18 years old.</span>
+        </label>
+        <input type="hidden" name="WARTELISTE_OPTIN" value="1">
+        <input type="text" name="email_address_check" value="" class="apply-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="locale" value="en">
+        <button type="submit" class="btn btn-primary btn-arrow">Submit application</button>
+        <p class="apply-note">No spam. You'll receive a confirmation email and can unsubscribe anytime.</p>
+      </form>
+      <div class="apply-success" hidden role="status">Thank you! Please confirm the link in the email we just sent you.</div>
+      <iframe name="visari-brevo-sink" class="apply-sink" title="Brevo" aria-hidden="true" tabindex="-1"></iframe>
       <p class="reveal" style="font-size: 0.75rem; color: var(--text-secondary); margin-top: var(--space-lg);">Questions: <a href="mailto:info@visari.ch" style="color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">info@visari.ch</a></p>
       <br>
       <a href="index.html" class="cta-back reveal">&larr; Back to the client page</a>

@@ -235,7 +235,8 @@
       var lang = document.documentElement.lang || 'de';
       var isModel = !!document.querySelector('link[href*="models.css"]');
 
-      var NEWSLETTER_URL = 'https://58057d34.sibforms.com/serve/MUIFAK-l1fUqf-K-DkxEhqG1ot5PfF9kK5Z2731zuylx_W7VDlF_dtpCNVTwFGFsPIfAcAfiiFyZ60p4Fe98j7qdCvEHOYN8ULvgZypfozrPRy8LancAHXSO4dPkMHF_mTBSeB-QJfqwzyHan45pnNoxnGAchUmjHv85cqw8jrbBAui10pRrW-gFzHxrnc9CBHvY8h5fUF1P7JHO0A==';
+      // Link to the on-page application form (falls back to the models page).
+      var APPLY_URL = document.getElementById('bewerben') ? '#bewerben' : 'models.html#bewerben';
 
       var strings = {
         client: {
@@ -271,28 +272,28 @@
           de: {
             eyebrow: 'Wir suchen AI Models',
             headline: 'Ihr Gesicht. Passive Einnahmen. Ohne Aufwand.',
-            body: 'Melden Sie sich für unseren Newsletter an und erfahren Sie als Erste, wenn der Visari Model-Pool öffnet.',
+            body: 'Melden Sie sich unverbindlich an und werden Sie in den Visari Model-Pool aufgenommen.',
             perks: ['CHF 225–3\'250 pro Kampagne', 'Einmalig 30 Min. Aufwand von zuhause', 'Volle Kontrolle — Sie entscheiden immer'],
-            cta: 'Jetzt unverbindlich auf Warteliste →',
-            link: NEWSLETTER_URL,
+            cta: 'Jetzt unverbindlich anmelden →',
+            link: APPLY_URL,
             privacy: 'Kein Spam. Jederzeit abmeldbar.'
           },
           en: {
             eyebrow: 'We\'re looking for AI Models',
             headline: 'Your face. Passive income. Zero effort.',
-            body: 'Sign up for our newsletter and be the first to know when the Visari model pool opens.',
+            body: 'Sign up with no commitment and get accepted into the Visari Model Pool.',
             perks: ['CHF 225–3\'250 per campaign', 'One-time 30 min. from home', 'Full control — you always decide'],
-            cta: 'Join the waitlist now →',
-            link: NEWSLETTER_URL,
+            cta: 'Sign up now →',
+            link: APPLY_URL,
             privacy: 'No spam. Unsubscribe anytime.'
           },
           es: {
             eyebrow: 'Buscamos AI Models',
             headline: 'Su imagen. Ingresos pasivos. Sin esfuerzo.',
-            body: 'Regístrese en nuestro newsletter y sea el primero en saber cuándo abre el pool de models Visari.',
+            body: 'Inscríbase sin compromiso y entre en el Visari Model Pool.',
             perks: ['CHF 225–3\'250 por campaña', '30 min. desde casa, solo una vez', 'Control total — usted siempre decide'],
-            cta: 'Unirse a la lista de espera →',
-            link: NEWSLETTER_URL,
+            cta: 'Inscribirse ahora →',
+            link: APPLY_URL,
             privacy: 'Sin spam. Cancelable en cualquier momento.'
           }
         }
@@ -315,7 +316,7 @@
         '<h3 class="wl-headline">' + s.headline + '</h3>' +
         '<p class="wl-body">' + s.body + '</p>' +
         '<ul class="wl-perks">' + perksHTML + '</ul>' +
-        '<a href="' + s.link + '" class="wl-cta" target="' + (isModel ? '_blank' : '_self') + '" rel="noopener">' + s.cta + '</a>' +
+        '<a href="' + s.link + '" class="wl-cta" target="' + (/^https?:/i.test(s.link) ? '_blank' : '_self') + '" rel="noopener">' + s.cta + '</a>' +
         '<p class="wl-privacy">' + s.privacy + '</p>';
 
       document.body.appendChild(popup);
@@ -384,6 +385,48 @@
     }
   }
 
+  // --- Application form (inline Brevo) ---
+  function initApplyForms() {
+    var forms = document.querySelectorAll('form[data-apply-form]');
+    Array.prototype.forEach.call(forms, function (form) {
+      var container = form.parentNode;
+      var success = container ? container.querySelector('.apply-success') : null;
+      var sinkName = form.getAttribute('target');
+      var sink = sinkName ? document.querySelector('iframe[name="' + sinkName + '"]') : null;
+      var btn = form.querySelector('button[type="submit"]');
+      var done = false;
+
+      function showSuccess() {
+        if (done) return;
+        done = true;
+        form.style.display = 'none';
+        if (success) {
+          success.hidden = false;
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      form.addEventListener('submit', function (e) {
+        // Bots fill the honeypot — block silently.
+        var hp = form.querySelector('.apply-hp');
+        if (hp && hp.value) { e.preventDefault(); return; }
+        // Let the browser surface native validation (required, email, 18+).
+        if (typeof form.checkValidity === 'function' && !form.checkValidity()) { return; }
+        if (btn) { btn.disabled = true; }
+        // Brevo's response loads into the hidden iframe (may be frame-blocked),
+        // so confirm on iframe load AND via a timed fallback.
+        setTimeout(showSuccess, 2500);
+      });
+
+      if (sink) {
+        sink.addEventListener('load', function () {
+          // Ignore the initial blank load; react only after submission.
+          if (btn && btn.disabled) { showSuccess(); }
+        });
+      }
+    });
+  }
+
   // --- Init ---
   document.addEventListener('DOMContentLoaded', function () {
     initScrollReveal();
@@ -394,6 +437,7 @@
     initImageBreakSlideshow();
     initSmoothScroll();
     initLangDropdown();
+    initApplyForms();
     initWaitlistPopup();
   });
 })();
