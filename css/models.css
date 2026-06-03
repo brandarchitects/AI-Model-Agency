@@ -473,12 +473,12 @@ body {
 }
 
 .models-step h3 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  margin-bottom: var(--space-xs);
 }
 
 .models-step p {
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   color: var(--text-secondary);
   line-height: 1.75;
 }
