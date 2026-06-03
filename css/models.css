@@ -446,40 +446,40 @@ body {
 /* --- Process (Models) --- */
 .models-process-steps {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
   margin-bottom: var(--space-lg);
   counter-reset: step;
 }
 
 .models-step {
-  padding: var(--space-lg) var(--space-md);
+  padding: var(--space-lg);
   position: relative;
-  border-left: 1px solid var(--border);
-}
-
-.models-step:first-child {
-  border-left: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
 }
 
 .models-step .step-number {
-  font-family: var(--font-body);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--accent);
   margin-bottom: var(--space-sm);
   opacity: 1;
 }
 
 .models-step h3 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  margin-bottom: var(--space-xs);
 }
 
 .models-step p {
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   color: var(--text-secondary);
   line-height: 1.75;
 }
@@ -514,8 +514,11 @@ body {
   }
 
   .models-step {
-    border-left: none;
+    border: none;
     border-top: 1px solid var(--border);
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
     padding: var(--space-md) 0;
   }
 
@@ -581,7 +584,7 @@ body {
 /* --- Safety / Rights --- */
 .safety-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
 }
 
@@ -1110,6 +1113,9 @@ body {
   }
   .models-step {
     border: none;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
     padding: 0 0 var(--space-lg) 0;
     position: relative;
   }
