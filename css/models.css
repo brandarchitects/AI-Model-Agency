@@ -446,20 +446,19 @@ body {
 /* --- Process (Models) --- */
 .models-process-steps {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
   margin-bottom: var(--space-lg);
   counter-reset: step;
 }
 
 .models-step {
-  padding: var(--space-lg) var(--space-md);
+  padding: var(--space-lg);
   position: relative;
-  border-left: 1px solid var(--border);
-}
-
-.models-step:first-child {
-  border-left: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
 }
 
 .models-step .step-number {
@@ -514,8 +513,11 @@ body {
   }
 
   .models-step {
-    border-left: none;
+    border: none;
     border-top: 1px solid var(--border);
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
     padding: var(--space-md) 0;
   }
 
@@ -1110,6 +1112,9 @@ body {
   }
   .models-step {
     border: none;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
     padding: 0 0 var(--space-lg) 0;
     position: relative;
   }
