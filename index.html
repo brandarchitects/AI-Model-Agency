@@ -23,10 +23,8 @@
   <meta name="robots" content="index, follow">
   <meta name="geo.region" content="CH">
   <meta name="geo.placename" content="Zürich">
-  <link rel="preload" href="fonts/AncizarSerif-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="fonts/NotoSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/client.css">
+  <link rel="preload" href="fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/landing.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,113 +68,143 @@
 
   <!-- ====== Navigation ====== -->
   <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="images/Visari_Logo.png" alt="Visari — AI Model Agentur Schweiz Logo" class="logo-default"><img src="images/Visari_Logo-positv.png" alt="Visari — AI Model Agentur Schweiz Logo (positiv)" class="logo-positive"> <span class="nav-byline">The face of your brand.</span></a>
-      <button class="nav-toggle" aria-label="Menu">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">Visari<sup>&reg;</sup> <span class="nav-byline">The face of your brand.</span></a>
+      <button class="nav-toggle" aria-label="Menü">
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links">
-        <div class="lang-dropdown"><button class="lang-toggle" aria-expanded="false">DE <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="lang-menu"><a href="index.html" data-lang="de" class="active">Deutsch</a><a href="en/index.html" data-lang="en">English</a><a href="es/index.html" data-lang="es">Español</a></div></div>
         <a href="#angebot" class="nav-link">Angebot</a>
         <a href="#models" class="nav-link">Models</a>
         <a href="#prozess" class="nav-link">Prozess</a>
         <a href="models.html" class="nav-link subtle">Für Models</a>
-        <a href="#kontakt" class="btn btn-primary nav-cta">Anfrage</a>
+        <div class="lang-dropdown"><button class="lang-toggle" aria-expanded="false">DE <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="lang-menu"><a href="index.html" data-lang="de" class="active">Deutsch</a><a href="en/index.html" data-lang="en">English</a><a href="es/index.html" data-lang="es">Español</a></div></div>
+        <a href="#kontakt" class="btn btn-ink nav-cta">Anfrage</a>
       </div>
     </div>
   </nav>
 
-  <!-- ====== Hero (Slideshow) ====== -->
-  <section class="hero">
-    <div class="hero-slideshow">
-      <div class="hero-slide active"><img src="images/01_Model_Frau_20.jpg" alt="Hero Bild — Female AI Model, Visari Brand Statement" loading="eager"></div>
-      <div class="hero-slide"><img src="images/02_Model_Man_03.jpg" alt="Männliches Commercial Model, Business-Typ — Visari AI Model Agentur" loading="eager"></div>
-      <div class="hero-slide"><img src="images/01_Model_Frau_19.jpg" alt="Female Commercial Model V-19 Bern — Visari AI Pool" loading="eager"></div>
-      <div class="hero-slide"><img src="images/02_Model_Frau_10.jpg" alt="Weibliches Lifestyle Model — Visari AI Model Agentur Schweiz" loading="eager"></div>
-      <div class="hero-slide"><img src="images/01_Model_Man_01.jpg" alt="Männliches AI Model im Casual-Style — Visari Pool Schweiz" loading="eager"></div>
-      <div class="hero-slide"><img src="images/02_Model_Man_04.jpg" alt="Male Brand Model — Visari Campaign Flight Beispiel" loading="eager"></div>
-      <div class="hero-slide"><img src="images/01_Model_Frau_13.jpg" alt="Weibliches Lifestyle Model im urbanen Kontext — Visari Zürich" loading="eager"></div>
-      <div class="hero-slide"><img src="images/01_Model_Frau_02.jpg" alt="Weibliches Lifestyle Model, blonde Haare — Visari AI Model Beispiel" loading="eager"></div>
-      <div class="hero-slide"><img src="images/01_Model_Frau_10.jpg" alt="Weibliches Model in lockerer Alltagsszene — Visari AI Pool" loading="eager"></div>
-      <div class="hero-slide"><img src="images/03_Model_Frau_22.jpg" alt="Female Aspirational Model — Visari Branded Model Beispiel" loading="eager"></div>
-    </div>
-    <div class="hero-overlay"></div>
-    <a href="models.html" class="hero-badge hero-badge-blue">
-      <span class="hero-badge-line">Wir suchen Models.</span>
-      <span class="hero-badge-line hero-badge-highlight">Start Juli 2026.</span>
-      <span class="hero-badge-line">Jetzt bewerben.</span>
+  <!-- ====== Hero ====== -->
+  <header class="hero">
+    <a href="models.html" class="orbit-badge" aria-label="Wir suchen Models — Start Juli 2026 — jetzt bewerben">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <defs><path id="orbit-path" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs>
+        <text><textPath href="#orbit-path" textLength="294" lengthAdjust="spacingAndGlyphs">Wir suchen Models · Jetzt bewerben · Start Juli 2026 ·&nbsp;</textPath></text>
+      </svg>
+      <span class="orbit-core">&nearr;</span>
     </a>
-    <div class="container hero-content">
-      <div>
-        <p class="text-eyebrow hero-eyebrow">AI Model Agentur · Schweiz</p>
-        <h1 class="text-display-xl">Das perfekte Gesicht für Ihre Marke und Kampagne.</h1>
-        <h2 class="hero-sub" style="font-family: var(--font-body); font-size: 1.0625rem; font-weight: 400; line-height: 1.75; max-width: 540px; margin-bottom: var(--space-lg); color: rgba(240, 240, 245, 0.65);">AI Model Agentur, KI-Bildstock und Markenbilder mit KI — kuratiert, exklusiv und rechtssicher aus Zürich.</h2>
+    <div class="container">
+      <div class="hero-top">
+        <p class="label"><b>AI Model Agentur</b> — Schweiz</p>
+        <p class="label">Zürich, Est. 2026</p>
+      </div>
+      <h1 class="display-xl">Das perfekte <img src="images/01_Model_Frau_20.jpg" alt="Female AI Model — Visari Brand Statement" class="pill" loading="eager"> Gesicht für Ihre <img src="images/02_Model_Man_03.jpg" alt="Männliches Commercial Model, Business-Typ — Visari AI Model Agentur" class="pill" loading="eager"> Marke und Kampagne<span class="ast">&nbsp;✱</span></h1>
+      <div class="hero-sub-row">
+        <h2 class="hero-sub">AI Model Agentur, KI-Bildstock und Markenbilder mit KI — kuratiert, exklusiv und rechtssicher aus Zürich.</h2>
         <div class="hero-ctas">
-          <a href="#kontakt" class="btn btn-primary btn-arrow">Starten Sie Ihr Projekt</a>
-          <a href="#angebot" class="btn btn-secondary">Mehr erfahren</a>
+          <a href="#kontakt" class="btn btn-ink">Starten Sie Ihr Projekt <span class="arr">&rarr;</span></a>
+          <a href="#angebot" class="btn btn-ghost">Mehr erfahren</a>
         </div>
       </div>
-      <div class="hero-stat">
-        <div class="stat-value">10&times;</div>
-        <div class="stat-label">Günstiger als ein klassisches Shooting</div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="value">10<em>&times;</em></div>
+          <p class="desc">Günstiger als ein klassisches Shooting</p>
+        </div>
+        <div class="hero-stat">
+          <div class="value">3–5 <em>Tage</em></div>
+          <p class="desc">Von der Anfrage bis zur Lieferung der finalen Bilder</p>
+        </div>
+        <div class="hero-stat">
+          <div class="value">100<em>%</em></div>
+          <p class="desc">Rechtssicher nach Schweizer Recht &amp; EU AI Act</p>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- ====== Ticker ====== -->
-  <div class="ticker-wrap">
-    <div class="ticker">
-      <span class="ticker-item">Campaign Flights</span>
-      <span class="ticker-item">Rechtssicher CH</span>
-      <span class="ticker-item">Keine Termin-Bindung</span>
-      <span class="ticker-item">DACH-Region</span>
-      <span class="ticker-item">8–15 finale Bilder pro Flight</span>
-      <span class="ticker-item">Exklusiv buchbar</span>
-      <span class="ticker-item">Branded Models</span>
-      <span class="ticker-item">EU AI Act konform</span>
-      <!-- Duplicate for seamless loop -->
-      <span class="ticker-item">Campaign Flights</span>
-      <span class="ticker-item">Rechtssicher CH</span>
-      <span class="ticker-item">Keine Termin-Bindung</span>
-      <span class="ticker-item">DACH-Region</span>
-      <span class="ticker-item">8–15 finale Bilder pro Flight</span>
-      <span class="ticker-item">Exklusiv buchbar</span>
-      <span class="ticker-item">Branded Models</span>
-      <span class="ticker-item">EU AI Act konform</span>
+    <!-- Image marquee -->
+    <div class="marquee-wrap" aria-hidden="false">
+      <div class="marquee">
+        <figure><img src="images/01_Model_Frau_20.jpg" alt="Female AI Model, Visari Brand Statement" loading="eager"></figure>
+        <figure><img src="images/02_Model_Man_03.jpg" alt="Männliches Commercial Model, Business-Typ — Visari AI Model Agentur" loading="eager"></figure>
+        <figure><img src="images/01_Model_Frau_19.jpg" alt="Female Commercial Model V-19 Bern — Visari AI Pool" loading="eager"></figure>
+        <figure><img src="images/02_Model_Frau_10.jpg" alt="Weibliches Lifestyle Model — Visari AI Model Agentur Schweiz" loading="lazy"></figure>
+        <figure><img src="images/01_Model_Man_01.jpg" alt="Männliches AI Model im Casual-Style — Visari Pool Schweiz" loading="lazy"></figure>
+        <figure><img src="images/01_Model_Frau_13.jpg" alt="Weibliches Lifestyle Model im urbanen Kontext — Visari Zürich" loading="lazy"></figure>
+        <figure><img src="images/03_Model_Frau_22.jpg" alt="Female Aspirational Model — Visari Branded Model Beispiel" loading="lazy"></figure>
+        <figure><img src="images/02_Model_Man_04.jpg" alt="Male Brand Model — Visari Campaign Flight Beispiel" loading="lazy"></figure>
+        <!-- Duplicate for seamless loop -->
+        <figure aria-hidden="true"><img src="images/01_Model_Frau_20.jpg" alt="" loading="lazy"></figure>
+        <figure aria-hidden="true"><img src="images/02_Model_Man_03.jpg" alt="" loading="lazy"></figure>
+        <figure aria-hidden="true"><img src="images/01_Model_Frau_19.jpg" alt="" loading="lazy"></figure>
+        <figure aria-hidden="true"><img src="images/02_Model_Frau_10.jpg" alt="" loading="lazy"></figure>
+        <figure aria-hidden="true"><img src="images/01_Model_Man_01.jpg" alt="" loading="lazy"></figure>
+        <figure aria-hidden="true"><img src="images/01_Model_Frau_13.jpg" alt="" loading="lazy"></figure>
+        <figure aria-hidden="true"><img src="images/03_Model_Frau_22.jpg" alt="" loading="lazy"></figure>
+        <figure aria-hidden="true"><img src="images/02_Model_Man_04.jpg" alt="" loading="lazy"></figure>
+      </div>
     </div>
-  </div>
 
-  <!-- ====== Problem Section ====== -->
+    <!-- Ticker -->
+    <div class="ticker-wrap">
+      <div class="ticker">
+        <span class="ticker-item">Campaign Flights</span>
+        <span class="ticker-item">Rechtssicher CH</span>
+        <span class="ticker-item">Keine Termin-Bindung</span>
+        <span class="ticker-item">DACH-Region</span>
+        <span class="ticker-item">8–15 finale Bilder pro Flight</span>
+        <span class="ticker-item">Exklusiv buchbar</span>
+        <span class="ticker-item">Branded Models</span>
+        <span class="ticker-item">EU AI Act konform</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="ticker-item" aria-hidden="true">Campaign Flights</span>
+        <span class="ticker-item" aria-hidden="true">Rechtssicher CH</span>
+        <span class="ticker-item" aria-hidden="true">Keine Termin-Bindung</span>
+        <span class="ticker-item" aria-hidden="true">DACH-Region</span>
+        <span class="ticker-item" aria-hidden="true">8–15 finale Bilder pro Flight</span>
+        <span class="ticker-item" aria-hidden="true">Exklusiv buchbar</span>
+        <span class="ticker-item" aria-hidden="true">Branded Models</span>
+        <span class="ticker-item" aria-hidden="true">EU AI Act konform</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== 01 Vergleich ====== -->
   <section id="angebot" class="section">
     <div class="container">
-      <p class="section-label reveal">Im Vergleich</p>
-      <h2 class="text-display-md section-title reveal">Ihre Anforderungen – Neu gedacht.</h2>
-      <div class="problem-grid">
-        <div class="problem-card reveal reveal-delay-1">
-          <p class="problem-card-label">Klassische Agentur</p>
+      <div class="sec-head reveal">
+        <div class="sec-head-row">
+          <div class="sec-index"><span class="no">(01)</span><span class="label">Im Vergleich</span></div>
+          <span class="sec-meta">Agentur vs. Stock vs. Visari</span>
+        </div>
+        <h2 class="display-md sec-title">Ihre Anforderungen –<br>neu gedacht.</h2>
+      </div>
+      <div class="compare-grid">
+        <div class="compare-col reveal reveal-d1">
+          <p class="label">Klassische Agentur</p>
           <h3>Teuer. Unflexibel. Zeitaufwändig.</h3>
           <p>CHF 15'000–40'000 pro Kampagne. Wochenlanger Vorlauf. Fixe Bilder, fixe Kontexte. Kein Raum für saisonale Anpassungen oder spontane Kanäle.</p>
-          <div class="problem-tags">
+          <div class="tags">
             <span class="tag">Kosten</span>
             <span class="tag">Vorlaufzeit</span>
             <span class="tag">Starrheit</span>
           </div>
         </div>
-        <div class="problem-card reveal reveal-delay-2">
-          <p class="problem-card-label">Stock-Plattformen</p>
+        <div class="compare-col reveal reveal-d2">
+          <p class="label">Stock-Plattformen</p>
           <h3>Beliebig. Überall. Nicht Ihre Bildsprache.</h3>
           <p>Dasselbe Gesicht auf zehn Konkurrenz-Websites. Keine Exklusivität, keine Markenkonsistenz. Immer der Kompromiss zwischen &laquo;kein Budget&raquo; und &laquo;generischer Eindruck&raquo;.</p>
-          <div class="problem-tags">
+          <div class="tags">
             <span class="tag">Kein Exklusiv</span>
             <span class="tag">Keine Konsistenz</span>
             <span class="tag">Overused</span>
           </div>
         </div>
-        <div class="problem-card highlight reveal reveal-delay-3">
-          <p class="problem-card-label">Unser Angebot</p>
+        <div class="compare-col highlight reveal reveal-d3">
+          <p class="label">Unser Angebot ✱</p>
           <h3>Echt. Flexibel. Ihnen gehörend.</h3>
           <p>Kuratierte AI-Models, basierend auf voll synthetischen oder echten lizenzierten Personen. Dasselbe Gesicht, jeder Kontext. Rechtssicher, exklusiv buchbar, Lieferung in 3–5 Tagen.</p>
-          <div class="problem-tags">
+          <div class="tags">
             <span class="tag">Rechtssicher</span>
             <span class="tag">Flexibel</span>
             <span class="tag">Exklusiv</span>
@@ -186,126 +214,101 @@
     </div>
   </section>
 
-  <!-- ====== Image Break ====== -->
-  <div class="image-break">
-    <div class="ib-slide active"><img src="images/01_Model_Frau_14.jpg" alt="Weibliches Commercial Model, Portrait — Visari AI Model Schweiz" loading="lazy"></div>
-    <div class="ib-slide"><img src="images/01_Model_Frau_03.jpg" alt="Weibliches Editorial Model in dezenter Pose — Visari AI Model Schweiz" loading="lazy"></div>
-    <div class="ib-slide"><img src="images/02_Model_Man_04.jpg" alt="Male Brand Model — Visari Campaign Flight Beispiel" loading="lazy"></div>
-    <div class="image-break-quote"><p>Konsistente Bildsprache für jede Kampagne, ohne erneutes Casting.</p><span>Visari Model-Pool</span></div>
-  </div>
-
-  <!-- ====== Model Gallery ====== -->
+  <!-- ====== 02 Model-Pool ====== -->
   <section id="models" class="section">
     <div class="container">
-      <div class="gallery-header reveal">
-        <div>
-          <p class="section-label">Unser Model-Pool</p>
-          <h2 class="text-display-md">Kuratiert. Divers. Buchbar.</h2>
-        </div>
-        <p class="gallery-header-text">Jedes Model wird von Creative Directors handselektiert. Keine Massenplattform, sondern ein kuratierter Pool mit kommerziellem Anspruch. Unsere Models basieren auf voll synthetischen oder echten lizenzierten Personen und werden als KI-generiert gekennzeichnet.</p>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-tile reveal reveal-delay-1">
-          <img src="images/01_Model_Frau_19.jpg" alt="Female Commercial Model V-19 Bern — Visari AI Pool" loading="lazy">
-          <div class="gallery-tile-info">
-            <span class="gallery-tile-badge">Commercial</span><span class="gallery-tile-origin">Synthetic Origin</span>
-            <p class="gallery-tile-name">Model V-12 — Zürich</p>
-            <p class="gallery-tile-meta">Female · 28–35</p>
-          </div>
-        </div>
-        <div class="gallery-tile reveal reveal-delay-2">
-          <img src="images/02_Model_Man_01.jpg" alt="Male Lifestyle Model V-07 Basel — Visari AI Pool" loading="lazy">
-          <div class="gallery-tile-info">
-            <span class="gallery-tile-badge">Lifestyle</span><span class="gallery-tile-origin">Human Origin</span>
-            <p class="gallery-tile-name">Model V-07 — Basel</p>
-            <p class="gallery-tile-meta">Male · 22–30</p>
-          </div>
-        </div>
-        <div class="gallery-tile reveal reveal-delay-3">
-          <img src="images/02_Model_Frau_09.jpg" alt="Female Editorial Model V-19 — Visari Branded Model Beispiel" loading="lazy">
-          <div class="gallery-tile-info">
-            <span class="gallery-tile-badge">Editorial</span><span class="gallery-tile-origin">Synthetic Origin</span>
-            <p class="gallery-tile-name">Model V-19 — Bern</p>
-            <p class="gallery-tile-meta">Female · 22–28</p>
-          </div>
-        </div>
-        <div class="gallery-tile reveal reveal-delay-2">
-          <img src="images/01_Model_Man_03.jpg" alt="Male Professional Model V-04 Genf — Visari AI Pool" loading="lazy">
-          <div class="gallery-tile-info">
-            <span class="gallery-tile-badge">Professional</span><span class="gallery-tile-origin">Human Origin</span>
-            <p class="gallery-tile-name">Model V-04 — Genf</p>
-            <p class="gallery-tile-meta">Male · 25–35</p>
-          </div>
-        </div>
-        <div class="gallery-tile reveal reveal-delay-3">
-          <img src="images/01_Model_Frau_08.jpg" alt="Aspirational Female Model — Synthetic Origin, Visari Pool Zürich" loading="lazy">
-          <div class="gallery-tile-info">
-            <span class="gallery-tile-badge">Aspirational</span><span class="gallery-tile-origin">Synthetic Origin</span>
-            <p class="gallery-tile-name">Model V-23 — Zürich</p>
-            <p class="gallery-tile-meta">Female · 28–35</p>
-          </div>
+      <div class="sec-head reveal">
+        <div class="sec-head-row">
+          <div class="sec-index"><span class="no">(02)</span><span class="label">Unser Model-Pool</span></div>
+          <span class="sec-meta">Handselektiert von Creative Directors</span>
         </div>
       </div>
-      <p class="gallery-note">Alle Bilder: KI-generiert, basierend auf lizenzierten Erscheinungsbildern nach Schweizer Recht.</p>
+      <div class="pool-head">
+        <h2 class="display-md reveal">Kuratiert. Divers. Buchbar.</h2>
+        <p class="body-lg reveal reveal-d1">Jedes Model wird von Creative Directors handselektiert. Keine Massenplattform, sondern ein kuratierter Pool mit kommerziellem Anspruch. Unsere Models basieren auf voll synthetischen oder echten lizenzierten Personen und werden als KI-generiert gekennzeichnet.</p>
+      </div>
+      <div class="pool-grid">
+        <div class="pool-tile reveal reveal-d1">
+          <div class="pool-badges"><span class="pool-badge">Commercial</span><span class="pool-badge origin">Synthetic Origin</span></div>
+          <div class="frame"><img src="images/01_Model_Frau_19.jpg" alt="Female Commercial Model V-19 Bern — Visari AI Pool" loading="lazy"></div>
+          <div class="pool-caption"><span class="name">Model V-12 — Zürich</span><span class="meta">Female · 28–35</span></div>
+        </div>
+        <div class="pool-tile reveal reveal-d2">
+          <div class="pool-badges"><span class="pool-badge">Lifestyle</span><span class="pool-badge origin">Human Origin</span></div>
+          <div class="frame"><img src="images/02_Model_Man_01.jpg" alt="Male Lifestyle Model V-07 Basel — Visari AI Pool" loading="lazy"></div>
+          <div class="pool-caption"><span class="name">Model V-07 — Basel</span><span class="meta">Male · 22–30</span></div>
+        </div>
+        <div class="pool-tile reveal reveal-d3">
+          <div class="pool-badges"><span class="pool-badge">Editorial</span><span class="pool-badge origin">Synthetic Origin</span></div>
+          <div class="frame"><img src="images/02_Model_Frau_09.jpg" alt="Female Editorial Model V-19 — Visari Branded Model Beispiel" loading="lazy"></div>
+          <div class="pool-caption"><span class="name">Model V-19 — Bern</span><span class="meta">Female · 22–28</span></div>
+        </div>
+        <div class="pool-tile reveal reveal-d2">
+          <div class="pool-badges"><span class="pool-badge">Professional</span><span class="pool-badge origin">Human Origin</span></div>
+          <div class="frame"><img src="images/01_Model_Man_03.jpg" alt="Male Professional Model V-04 Genf — Visari AI Pool" loading="lazy"></div>
+          <div class="pool-caption"><span class="name">Model V-04 — Genf</span><span class="meta">Male · 25–35</span></div>
+        </div>
+        <div class="pool-tile reveal reveal-d3">
+          <div class="pool-badges"><span class="pool-badge">Aspirational</span><span class="pool-badge origin">Synthetic Origin</span></div>
+          <div class="frame"><img src="images/01_Model_Frau_08.jpg" alt="Aspirational Female Model — Synthetic Origin, Visari Pool Zürich" loading="lazy"></div>
+          <div class="pool-caption"><span class="name">Model V-23 — Zürich</span><span class="meta">Female · 28–35</span></div>
+        </div>
+      </div>
+      <p class="pool-note reveal">Alle Bilder: KI-generiert, basierend auf lizenzierten Erscheinungsbildern nach Schweizer Recht.</p>
     </div>
   </section>
 
-  <!-- ====== Image Break ====== -->
-  <div class="image-break">
-    <div class="ib-slide active"><img src="images/02_Model_Man_05.jpg" alt="Männliches AI Model — Visari Pool Zürich" loading="lazy"></div>
-    <div class="ib-slide"><img src="images/01_Model_Frau_09.jpg" alt="Weibliches AI Model, natürliches Tageslicht — Visari Schweiz" loading="lazy"></div>
-    <div class="ib-slide"><img src="images/02_Model_Frau_03.jpg" alt="Weibliches Model im Outdoor-Setting — Visari AI Modeln Schweiz" loading="lazy"></div>
-    <div class="image-break-quote"><p>Professionelle Bildkommunikation. In Tagen statt Wochen.</p><span>Effizienz &amp; Qualität</span></div>
-  </div>
-
-  <!-- ====== Process Section ====== -->
+  <!-- ====== 03 Prozess ====== -->
   <section id="prozess" class="section">
     <div class="container">
-      <p class="section-label reveal">Der Prozess</p>
-      <h2 class="text-display-md section-title reveal">Von der Anfrage zum fertigen Bild.</h2>
-      <p class="section-intro reveal">Kein Casting, kein Shooting-Termin, keine Produktionswochen. Der Weg zu Ihren finalen Bildern ist kurz und vollständig von uns gesteuert.</p>
+      <div class="sec-head reveal">
+        <div class="sec-head-row">
+          <div class="sec-index"><span class="no">(03)</span><span class="label">Der Prozess</span></div>
+          <span class="sec-meta">Kein Casting. Kein Shooting-Termin.</span>
+        </div>
+        <h2 class="display-md sec-title">Von der Anfrage<br>zum fertigen Bild.</h2>
+      </div>
+      <p class="body-lg sec-intro reveal">Kein Casting, kein Shooting-Termin, keine Produktionswochen. Der Weg zu Ihren finalen Bildern ist kurz und vollständig von uns gesteuert.</p>
       <div class="process-layout">
-        <div class="process-steps">
-          <div class="process-step reveal reveal-delay-1">
-            <div class="step-number">01</div>
+        <div class="process-list">
+          <div class="process-step reveal reveal-d1">
+            <div class="no">01</div>
             <div>
               <h3>Anfrage &amp; Briefing</h3>
               <p>Sie beschreiben Ihre Kampagne, Ihre Marke oder Ihren Bildstock-Bedarf: Ton, Zielgruppe, Kanäle, gewünschter Bildtypus. Wir schlagen passende Models vor.</p>
             </div>
           </div>
-          <div class="process-step reveal reveal-delay-2">
-            <div class="step-number">02</div>
+          <div class="process-step reveal reveal-d2">
+            <div class="no">02</div>
             <div>
               <h3>Selektion &amp; Lizenzierung</h3>
               <p>Sie wählen ein oder mehrere Models. Wir klären Verfügbarkeit, Exklusivität und Nutzungsrechte. Alles rechtssicher nach CH-Recht.</p>
             </div>
           </div>
-          <div class="process-step reveal reveal-delay-3">
-            <div class="step-number">03</div>
+          <div class="process-step reveal reveal-d3">
+            <div class="no">03</div>
             <div>
               <h3>Produktion</h3>
               <p>Zuerst liefern wir das Vorlagematerial: Avatar, inkl. Prompt-List, SetCard und Beispielbilder. Optional erstellen wir Ihnen die gewünschten Bilder oder Stockmaterial: 8–15 finale Bilder in Ihrem definierten Kampagnen-Kontext.</p>
             </div>
           </div>
-          <div class="process-step reveal reveal-delay-4">
-            <div class="step-number">04</div>
+          <div class="process-step reveal reveal-d4">
+            <div class="no">04</div>
             <div>
               <h3>Lieferung in 3–5 Tagen</h3>
               <p>Finale Bilder in druckfähiger und digitaler Auflösung. Lizenz-Dokumentation gemäss Vereinbarung und rechtlichen Möglichkeiten inklusive.</p>
             </div>
           </div>
         </div>
-        <div class="process-cards">
-          <div class="section-image reveal" style="margin-bottom: var(--space-md);">
-            <img src="images/01_Model_Frau_16.jpg" alt="Female Campaign Model — Visari Campaign Flight Beispiel" loading="lazy">
-          </div>
-          <div class="process-card reveal">
-            <p class="process-card-label">Campaign Flight</p>
+        <div class="process-aside">
+          <div class="aside-img reveal"><img src="images/01_Model_Frau_16.jpg" alt="Female Campaign Model — Visari Campaign Flight Beispiel" loading="lazy"></div>
+          <div class="offer-card grey reveal">
+            <span class="label">Campaign Flight</span>
             <h4>Dasselbe Gesicht. Vier Jahreszeiten. Beliebige Kontexte.</h4>
             <p>Buchen Sie dasselbe Model erneut für eine neue Kampagne, ohne neues Casting, ohne neues Shooting. Die Bildsprache bleibt konsistent, die Inszenierung ist neu.</p>
           </div>
-          <div class="process-card reveal">
-            <p class="process-card-label">Branded Model</p>
+          <div class="offer-card dark reveal">
+            <span class="label">Branded Model</span>
             <h4>Ihr eigenes exklusives Model als permanentes Marken-Asset.</h4>
             <p>Entwickeln Sie ein markenexklusives AI-Model, das ausschliesslich Ihnen gehört. Wie ein Logo, nur visuell, skalierbar und für jede Kampagne verfügbar.</p>
           </div>
@@ -314,25 +317,31 @@
     </div>
   </section>
 
-  <!-- ====== Trust / Warum Visari ====== -->
+  <!-- ====== 04 Warum Visari ====== -->
   <section class="section">
     <div class="container">
-      <p class="section-label reveal">Warum Visari</p>
-      <h2 class="text-display-md section-title reveal">Vertrauen braucht Substanz.</h2>
+      <div class="sec-head reveal">
+        <div class="sec-head-row">
+          <div class="sec-index"><span class="no">(04)</span><span class="label">Warum Visari</span></div>
+          <span class="sec-meta">Art. 28 ZGB · EU AI Act</span>
+        </div>
+        <h2 class="display-md sec-title">Vertrauen braucht Substanz.</h2>
+      </div>
       <div class="trust-grid">
-        <div class="trust-item reveal reveal-delay-1">
+        <span class="trust-plus" aria-hidden="true">+</span>
+        <div class="trust-item reveal reveal-d1">
           <h3>Rechtssicher nach Schweizer Recht</h3>
           <p>Jedes Model unterschreibt einen AI-spezifischen Lizenzvertrag nach Art. 28 ZGB. Vollständige Dokumentation für Ihre Rechtsabteilung inklusive.</p>
         </div>
-        <div class="trust-item reveal reveal-delay-2">
+        <div class="trust-item reveal reveal-d2">
           <h3>EU AI Act konform</h3>
           <p>Alle generierten Bilder werden korrekt als KI-generiert gekennzeichnet. Sie sind auf der sicheren Seite, auch nach europäischem Recht.</p>
         </div>
-        <div class="trust-item reveal reveal-delay-3">
+        <div class="trust-item reveal reveal-d3">
           <h3>Kuratierte Qualität</h3>
           <p>Nicht jeder kommt in den Pool. Handselektion durch erfahrene Creative Directors, für eine Bildqualität, die Ihren Markenanspruch erfüllt.</p>
         </div>
-        <div class="trust-item reveal reveal-delay-4">
+        <div class="trust-item reveal reveal-d4">
           <h3>Echte Personen als Basis</h3>
           <p>Kein rein synthetisches AI-Konstrukt. Echte lizenzierte Menschen bilden die Basis. Das schafft das Vertrauen, das Corporates für ihre Kommunikation brauchen.</p>
         </div>
@@ -340,39 +349,44 @@
     </div>
   </section>
 
-  <!-- ====== Zielgruppen ====== -->
+  <!-- ====== 05 Für wen ====== -->
   <section class="section">
     <div class="container">
-      <p class="section-label reveal">Für wen</p>
-      <h2 class="text-display-md section-title reveal">Für Marken, die visuell denken.</h2>
+      <div class="sec-head reveal">
+        <div class="sec-head-row">
+          <div class="sec-index"><span class="no">(05)</span><span class="label">Für wen</span></div>
+          <span class="sec-meta">KMU · Corporates · Agenturen</span>
+        </div>
+        <h2 class="display-md sec-title">Für Marken,<br>die visuell denken.</h2>
+      </div>
       <div class="audience-grid">
-        <div class="audience-card reveal reveal-delay-1">
-          <p class="audience-card-label">Grosse KMU</p>
+        <div class="audience-col reveal reveal-d1">
+          <span class="idx">(A)</span>
           <h3>Grosse KMU</h3>
           <p>Professionelle Bildkommunikation ohne das Budget eines Konzerns. Mehrere Kampagnen pro Jahr, mit einem konsistenten visuellen System.</p>
-          <div class="audience-tags">
+          <div class="tags">
             <span class="tag">Retail</span>
             <span class="tag">Finance</span>
             <span class="tag">Technologie</span>
             <span class="tag">Dienstleistung</span>
           </div>
         </div>
-        <div class="audience-card reveal reveal-delay-2">
-          <p class="audience-card-label">Corporates</p>
+        <div class="audience-col reveal reveal-d2">
+          <span class="idx">(B)</span>
           <h3>Corporates</h3>
           <p>Compliance-sicher, skalierbar, DACH-weit einsetzbar. Für interne Marketingteams, die Effizienz und Qualität gleichzeitig brauchen.</p>
-          <div class="audience-tags">
+          <div class="tags">
             <span class="tag">Banking</span>
             <span class="tag">Versicherung</span>
             <span class="tag">Pharma</span>
             <span class="tag">Industrie</span>
           </div>
         </div>
-        <div class="audience-card reveal reveal-delay-3">
-          <p class="audience-card-label">Kreativagenturen</p>
+        <div class="audience-col reveal reveal-d3">
+          <span class="idx">(C)</span>
           <h3>Kreativagenturen</h3>
           <p>Erweitern Sie Ihr Angebot ohne Produktionsaufwand. Als Partner bieten wir White-Label-Lösungen und Volumen-Konditionen.</p>
-          <div class="audience-tags">
+          <div class="tags">
             <span class="tag">Full-Service</span>
             <span class="tag">Digital</span>
             <span class="tag">Mediaplanung</span>
@@ -382,107 +396,93 @@
     </div>
   </section>
 
-  <!-- ====== Branded Model Section ====== -->
-  <section class="section">
-    <div class="container">
-      <p class="section-label reveal">Branded Model</p>
-      <h2 class="text-display-md section-title reveal">Ihr eigenes exklusives Model als permanentes Marken-Asset.</h2>
-      <div class="process-layout">
-        <div class="process-steps">
-          <div class="reveal">
-            <p class="section-intro" style="margin-bottom: var(--space-lg);">Für anspruchsvolle Kunden, die maximale Differenzierung suchen: Entwickeln Sie ein voll customized AI-Model, das ausschliesslich Ihrer Marke gehört. Wie ein Logo, nur visuell, skalierbar und für jede Kampagne verfügbar.</p>
-          </div>
-          <div class="trust-grid" style="gap: var(--space-md);">
-            <div class="trust-item reveal reveal-delay-1">
+  <!-- ====== 06 Branded Model ====== -->
+  <section class="branded">
+    <div class="container branded-inner">
+      <div class="sec-head reveal">
+        <div class="sec-head-row">
+          <div class="sec-index"><span class="no">(06)</span><span class="label">Branded Model</span></div>
+          <span class="sec-meta">100% exklusiv · Unbegrenzt einsetzbar</span>
+        </div>
+        <h2 class="display-md sec-title">Ihr eigenes exklusives Model als permanentes Marken-Asset.</h2>
+      </div>
+      <div class="branded-layout">
+        <div>
+          <p class="body-lg branded-intro reveal">Für anspruchsvolle Kunden, die maximale Differenzierung suchen: Entwickeln Sie ein voll customized AI-Model, das ausschliesslich Ihrer Marke gehört. Wie ein Logo, nur visuell, skalierbar und für jede Kampagne verfügbar.</p>
+          <div class="branded-features">
+            <div class="branded-feature reveal reveal-d1">
               <h3>100% exklusiv</h3>
               <p>Ihr Branded Model wird für keine andere Marke eingesetzt. Exklusivität ohne Ablaufdatum. Das Gesicht gehört Ihnen.</p>
             </div>
-            <div class="trust-item reveal reveal-delay-2">
+            <div class="branded-feature reveal reveal-d2">
               <h3>Voll customized</h3>
               <p>Alter, Typus, Stil, Ausstrahlung: Alles wird nach Ihrem Briefing entwickelt. Basierend auf synthetischen oder echten lizenzierten Personen.</p>
             </div>
-            <div class="trust-item reveal reveal-delay-3">
+            <div class="branded-feature reveal reveal-d3">
               <h3>Unbegrenzt einsetzbar</h3>
               <p>Einmal erstellt, unbegrenzt nutzbar. Jede Kampagne, jeder Kanal, jede Saison. Immer dasselbe Gesicht, immer Ihre Marke.</p>
             </div>
-            <div class="trust-item reveal reveal-delay-4">
+            <div class="branded-feature reveal reveal-d4">
               <h3>Inkl. Vorlagematerial</h3>
               <p>Sie erhalten den Avatar, eine vollständige Prompt-List, SetCard und Beispielbilder, für maximale Flexibilität in der eigenen Produktion.</p>
             </div>
           </div>
         </div>
-        <div class="process-cards">
-          <div class="section-image reveal" style="margin-bottom: var(--space-md);">
-            <img src="images/Setcard_frau_02_01.jpg" alt="Visari SetCard — Branded Model weiblich, Beispiel-Lieferung" loading="lazy">
-          </div>
-          <div class="section-image reveal">
-            <img src="images/SetCard_Man_02_01.jpg" alt="Visari SetCard — Branded Model männlich, Beispiel-Lieferung" loading="lazy">
-          </div>
+        <div class="setcards reveal reveal-d2">
+          <img src="images/Setcard_frau_02_01.jpg" alt="Visari SetCard — Branded Model weiblich, Beispiel-Lieferung" class="sc-a" loading="lazy">
+          <img src="images/SetCard_Man_02_01.jpg" alt="Visari SetCard — Branded Model männlich, Beispiel-Lieferung" class="sc-b" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====== Image Break ====== -->
-  <div class="image-break">
-    <div class="ib-slide active"><img src="images/01_Model_Frau_12.jpg" alt="Female Branded Model Reference — Visari Pool Schweiz" loading="lazy"></div>
-    <div class="ib-slide"><img src="images/01_Model_Man_03.jpg" alt="Male Professional Model V-04 Genf — Visari AI Pool" loading="lazy"></div>
-    <div class="ib-slide"><img src="images/02_Model_Frau_09.jpg" alt="Female Editorial Model V-19 — Visari Branded Model Beispiel" loading="lazy"></div>
-    <div class="image-break-quote"><p>Exklusive Nutzungsrechte für Ihre Marke, rechtssicher dokumentiert.</p><span>Lizenziert &amp; exklusiv</span></div>
-  </div>
-
   <!-- ====== CTA / Kontakt ====== -->
-  <section id="kontakt" class="section cta-section">
+  <section id="kontakt" class="cta">
     <div class="container">
-      <h2 class="text-display-lg reveal">Starten Sie Ihre nächste Kampagne.</h2>
-      <p class="reveal">Schildern Sie uns Ihr Projekt. Wir melden uns innert 24 Stunden mit passenden Model-Vorschlägen und nächsten Schritten.</p>
-      <a href="mailto:info@visari.ch" class="btn btn-primary btn-arrow reveal">Starten Sie Ihr Projekt</a>
-      <p class="cta-hint reveal">Sie möchten als Model aufgenommen werden? <a href="models.html">Hier entlang.</a></p>
+      <h2 class="display-lg reveal">Starten Sie Ihre nächste Kampagne<span class="ast">&nbsp;✱</span></h2>
+      <p class="reveal reveal-d1">Schildern Sie uns Ihr Projekt. Wir melden uns innert 24 Stunden mit passenden Model-Vorschlägen und nächsten Schritten.</p>
+      <a href="mailto:info@visari.ch" class="btn btn-white reveal reveal-d2">Starten Sie Ihr Projekt <span class="arr">&rarr;</span></a>
+      <p class="cta-hint reveal reveal-d3">Sie möchten als Model aufgenommen werden? <a href="models.html">Hier entlang.</a></p>
     </div>
   </section>
 
   <!-- ====== Footer ====== -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-inner">
-        <div>
-          <p class="footer-logo"><img src="images/Visari_Logo.png" alt="Visari — AI Model Agentur Schweiz Logo"></p>
-          <p class="footer-desc">The face of your brand.<br>AI Models. Creative Direction. Built for brands.</p>
-          <div style="margin-top: 1.5rem;">
-          <p style="font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45);">Aktuelle Bilder</p>
-          <a href="https://www.instagram.com/visari.agency/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.625rem; margin-top: 0.375rem; font-family: var(--font-display); font-size: 1.25rem; color: #fff; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg><span>@visari.agency</span></a>
-          </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="fb-line">The face of your brand.</p>
+          <p class="fb-desc">AI Models. Creative Direction.<br>Built for brands.</p>
+          <a href="https://www.instagram.com/visari.agency/" target="_blank" rel="noopener" class="footer-insta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg><span>@visari.agency</span></a>
         </div>
-        <div class="footer-cols">
-          <div class="footer-col">
-            <div class="footer-col-title">Angebot</div>
-            <a href="ai-models-buchen.html">AI Models buchen</a>
-            <a href="ai-bildstock-schweiz.html">AI Bildstock</a>
-            <a href="ai-photoshooting-schweiz.html">AI Photoshooting</a>
-            <a href="ki-markenbilder.html">KI Markenbilder</a>
-            <a href="ai-werbebilder.html">AI Werbebilder</a>
-          </div>
-          <div class="footer-col">
-            <div class="footer-col-title">Für Models</div>
-            <a href="models.html">Für Models</a>
-            <a href="ai-model-werden-schweiz.html">AI Model werden</a>
-            <a href="model-werden-schweiz.html">Model werden</a>
-            <a href="verdienst-rechner.html">Verdienst-Rechner</a>
-          </div>
-          <div class="footer-col">
-            <div class="footer-col-title">Unternehmen</div>
-            <a href="ueber-uns.html">Über uns</a>
-            <a href="rechtslage.html">Rechtslage</a>
-            <a href="datenschutz.html">Datenschutz</a>
-            <a href="impressum.html">Impressum</a>
-          </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Angebot</div>
+          <a href="ai-models-buchen.html">AI Models buchen</a>
+          <a href="ai-bildstock-schweiz.html">AI Bildstock</a>
+          <a href="ai-photoshooting-schweiz.html">AI Photoshooting</a>
+          <a href="ki-markenbilder.html">KI Markenbilder</a>
+          <a href="ai-werbebilder.html">AI Werbebilder</a>
         </div>
-
+        <div class="footer-col">
+          <div class="footer-col-title">Für Models</div>
+          <a href="models.html">Für Models</a>
+          <a href="ai-model-werden-schweiz.html">AI Model werden</a>
+          <a href="model-werden-schweiz.html">Model werden</a>
+          <a href="verdienst-rechner.html">Verdienst-Rechner</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Unternehmen</div>
+          <a href="ueber-uns.html">Über uns</a>
+          <a href="rechtslage.html">Rechtslage</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="impressum.html">Impressum</a>
+        </div>
       </div>
-      <p class="footer-legal">Alle KI-generierten Bilder basieren auf lizenzierten Erscheinungsbildern. &copy; 2026 Visari, Zürich. Rechtssicher nach Schweizer Recht.<br>Visari ist ein Angebot der <a href="https://www.brandarchitects.ch" target="_blank" rel="noopener" style="text-decoration: underline;">Brand Architects GmbH</a>.</p>
+      <p class="footer-legal">Alle KI-generierten Bilder basieren auf lizenzierten Erscheinungsbildern. &copy; 2026 Visari, Zürich. Rechtssicher nach Schweizer Recht.<br>Visari ist ein Angebot der <a href="https://www.brandarchitects.ch" target="_blank" rel="noopener">Brand Architects GmbH</a>.</p>
     </div>
+    <div class="footer-wordmark" aria-hidden="true"><span>Visari&reg;</span></div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/landing.js"></script>
 </body>
 </html>
